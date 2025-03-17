@@ -3,11 +3,11 @@
 It's all about my little buddie
 
 
-![Festfetch](https://github.com/jKy0n/Viamar-dotfiles/blob/main/Pictures/Viamar-PC-media/fastfetch-14-mar-2025.png)
+![Festfetch](https://github.com/jKy0n/Viamar-dotfiles/blob/master/Pictures/Viamar-PC-media/fastfetch-14-mar-2025.png)
 
 ## Desktop:
 
-![Desktop](https://github.com/jKy0n/Viamar-dotfiles/blob/main/Pictures/Viamar-PC-media/desktop-14-mar-2025.jpg)
+![Desktop](https://github.com/jKy0n/Viamar-dotfiles/blob/master/Pictures/Viamar-PC-media/desktop-14-mar-2025.jpg)
 
 ## Operational System:
 
@@ -36,7 +36,7 @@ It's all about my little buddie
 ALL ABOUVE IS WRONG
 
 
-![Viamar](https://github.com/jKy0n/Viamar-dotfiles/blob/main/Pictures/Viamar-PC-media/viamar-14-mar-2025.jpg)
+![Viamar](https://github.com/jKy0n/Viamar-dotfiles/blob/master/Pictures/Viamar-PC-media/viamar-14-mar-2025.jpg)
 
 
 ## Hardware:
@@ -54,7 +54,7 @@ ALL ABOUVE IS WRONG
 
 ###
 
-![Peripherals](https://github.com/jKy0n/Viamar-dotfiles/blob/main/Pictures/Viamar-PC-media/peripherals-14-mar-2025.jpg))
+![Peripherals](https://github.com/jKy0n/Viamar-dotfiles/blob/master/Pictures/Viamar-PC-media/peripherals-14-mar-2025.jpg))
 
 ## Monitors:
 
