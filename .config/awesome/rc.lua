@@ -745,10 +745,6 @@ awful.rules.rules = {
 -- 
 -- D
 -- 
-{ rule_any = { class = {"dolphin", "dolphin"} },
-properties = { floating = true,
-placement = awful.placement.centered },},
-
 -- E
 -- 
 -- F
@@ -756,6 +752,10 @@ placement = awful.placement.centered },},
 -- G
 -- 
     { rule_any = { class = {"gedit", "Gedit"} },
+    properties = { floating = true,
+    placement = awful.placement.centered },},
+
+    { rule_any = { class = {"github desktop", "GitHub Desktop"} },
     properties = { floating = true,
     placement = awful.placement.centered },},
 
