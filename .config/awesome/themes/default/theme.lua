@@ -10,6 +10,7 @@ local gfs = require("gears.filesystem")
 local themes_path = gfs.get_themes_dir()
 
 local gears = require("gears")
+local beautiful = require("beautiful")
 
 local theme = {}
 

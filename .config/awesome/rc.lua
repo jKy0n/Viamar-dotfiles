@@ -29,7 +29,7 @@ local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
 local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
 
 local volume_widget = require('awesome-wm-widgets.pactl-widget.volume')
--- local todo_widget = require("awesome-wm-widgets.todo-widget.todo")
+local todo_widget = require("awesome-wm-widgets.todo-widget.todo")
 local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
 local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
 
@@ -309,19 +309,17 @@ local tasklist_buttons = gears.table.join(
                                           end))
 
 local function set_wallpaper(s)
-    -- Wallpaper
     if beautiful.wallpaper then
         local wallpaper = beautiful.wallpaper
-        -- If wallpaper is a function, call it with the screen
         if type(wallpaper) == "function" then
             wallpaper = wallpaper(s)
         end
-        gears.wallpaper.maximized(wallpaper, s, true)
+        gears.wallpaper.maximized(wallpaper, s, true)  -- true = ignore aspect ratio
     end
 end
 
--- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
-screen.connect_signal("property::geometry", set_wallpaper)
+-- Aplica o wallpaper na inicialização e em mudanças de geometria
+screen.connect_signal("request::wallpaper", set_wallpaper) -- ← Corrigido para AwesomeWM ≥ v4.3
 
 
 
@@ -455,6 +453,7 @@ screen.connect_signal("property::geometry", set_wallpaper)
 ------------------------------------------------------------------------------------------------            
             wibox.widget.textbox(' | '),
 
+            todo_widget(),
             -- mykeyboardlayout,
             tbox_separator_space,
             wibox.widget.systray(),
@@ -585,8 +584,26 @@ globalkeys = gears.table.join(
     -- awful.key({ modkey }, "p", function() menubar.show() end,
     --           {description = "show the menubar", group = "launcher"}),
 
-    awful.key({ modkey }, "p", function ()
-        awful.util.spawn("rofi -show drun -config /home/jkyon/.config/rofi/config.rasi") end,
+    awful.key({ modkey, }, "p",
+    function () awful.util.spawn("rofi  -config /home/jkyon/.config/rofi/config.rasi \
+        -modes \"drun,run,filebrowser,window,emoji,calc\" -show drun \
+        -icon-theme \"Papirus\" -show-icons \
+        -theme /home/jkyon/.config/rofi/theme.rasi") 
+    end,
+    {description = "Abrir Rofi", group = "launcher"}),
+
+    awful.key({ "Mod1", }, "Tab",
+    function () awful.util.spawn("rofi  -config /home/jkyon/.config/rofi/config.rasi \
+                                        -show window \
+                                        -window-format \"{t}\" \
+                                        -kb-row-down 'Alt+Tab,Alt+Down,Down' \
+                                        -kb-row-up 'Alt+ISO_Left_Tab,Alt+Up,Up' \
+                                        -kb-accept-entry '!Alt-Tab,!Alt+Down,!Alt+ISO_Left_Tab,!Alt+Up,Return' \
+                                        -me-select-entry 'MouseSecondary' \
+                                        -me-accept-entry 'MousePrimary' \
+                                        -modi combi -icon-theme \"Papirus\" \
+                                        -show-icons -theme /home/jkyon/.config/rofi/theme-tab.rasi") 
+    end,
     {description = "Abrir Rofi", group = "launcher"}),
 
 ---------------------  Tags Manipulation keybinds  ---------------------
@@ -739,6 +756,10 @@ awful.rules.rules = {
 
 -- A
 --
+    { rule = { class = "Arandr" },
+    properties = { floating = false,
+    placement = awful.placement.centered },},
+
 -- B
 -- 
 -- C
@@ -822,44 +843,52 @@ awful.rules.rules = {
                     tag = screen[1].tags[4],},},
 -- Q
 -- 
-{ rule = { class = "qt5ct" },
-properties = { floating = true,
-placement = awful.placement.centered },},
+    { rule = { class = "qt5ct" },
+    properties = { floating = true,
+    placement = awful.placement.centered },},
 
-{ rule = { class = "qt6ct" },
-properties = { floating = true,
-placement = awful.placement.centered },},
+    { rule = { class = "qt6ct" },
+    properties = { floating = true,
+    placement = awful.placement.centered },},
 -- R
 -- 
-{ rule = { class = "rambox" },
-properties = { floating = false,
-placement = awful.placement.centered,
-tag = screen[1].tags[3],},},
+    { rule = { class = "rambox" },
+    properties = { floating = false,
+    placement = awful.placement.centered,
+    tag = screen[1].tags[3],},},
+
 -- S
 --
-{ rule = { class = "Spotify" },
-properties = { floating = false,
-placement = awful.placement.centered,
-tag = screen[1].tags[4],},},
+    { rule_any = { class = {"simple-scan", "simple-scan"} },
+    properties = { floating = false,
+        callback = function(c)
+            create_volatile_tag(c, " Scan ", 2, awful.layout.suit.tile)
+        end,},},
 
-{ rule_any = { class = {"snappergui", "Snapper-gui"} },
-properties = { floating = true,
-placement = awful.placement.centered,},},
+    { rule = { class = "Spotify" },
+    properties = { floating = false,
+    placement = awful.placement.centered,
+    tag = screen[1].tags[4],},},
+
+    { rule_any = { class = {"snappergui", "Snapper-gui"} },
+    properties = { floating = true,
+    placement = awful.placement.centered,},},
+
 -- T
 -- 
-{ rule = { class = "thunderbird" },
-properties = { floating = false,
-placement = awful.placement.left,},},
+    { rule = { class = "thunderbird" },
+    properties = { floating = false,
+    placement = awful.placement.left,},},
 
 -- U
 -- 
 -- V
 -- 
-{ rule_any = { class = {"code", "Code"} }, -- VSCode
-properties = { floating = false,
-    callback = function(c)
-        create_volatile_tag(c, " Code ", 2, awful.layout.suit.tile)
-    end,},},
+    { rule_any = { class = {"code", "Code"} }, -- VSCode
+    properties = { floating = false,
+        callback = function(c)
+            create_volatile_tag(c, " Code ", 2, awful.layout.suit.tile)
+        end,},},
 
 -- W
 -- 
@@ -870,36 +899,36 @@ properties = { floating = false,
 -- Z
 
 
-    -- Floating clients.
-    { rule_any = {
-        instance = {
-          "DTA",  -- Firefox addon DownThemAll.
-          "copyq",  -- Includes session name in class.
-          "pinentry",
-        },
-        class = {
-          "Arandr",
-          "Blueman-manager",
-          "Gpick",
-          "Kruler",
-          "MessageWin",  -- kalarm.
-          "Sxiv",
-          "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
-          "Wpa_gui",
-          "veromix",
-          "xtightvncviewer"},
+    -- -- Floating clients.
+    -- { rule_any = {
+    --     instance = {
+    --       "DTA",  -- Firefox addon DownThemAll.
+    --       "copyq",  -- Includes session name in class.
+    --       "pinentry",
+    --     },
+    --     class = {
+    --       "Arandr",
+    --       "Blueman-manager",
+    --       "Gpick",
+    --       "Kruler",
+    --       "MessageWin",  -- kalarm.
+    --       "Sxiv",
+    --       "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
+    --       "Wpa_gui",
+    --       "veromix",
+    --       "xtightvncviewer"},
 
-        -- Note that the name property shown in xprop might be set slightly after creation of the client
-        -- and the name shown there might not match defined rules here.
-        name = {
-          "Event Tester",  -- xev.
-        },
-        role = {
-          "AlarmWindow",  -- Thunderbird's calendar.
-          "ConfigManager",  -- Thunderbird's about:config.
-          "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
-        }
-      }, properties = { floating = true }},
+    --     -- Note that the name property shown in xprop might be set slightly after creation of the client
+    --     -- and the name shown there might not match defined rules here.
+    --     name = {
+    --       "Event Tester",  -- xev.
+    --     },
+    --     role = {
+    --       "AlarmWindow",  -- Thunderbird's calendar.
+    --       "ConfigManager",  -- Thunderbird's about:config.
+    --       "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
+    --     }
+    --   }, properties = { floating = true }},
 
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }

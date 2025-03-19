@@ -5,10 +5,10 @@ if ! pgrep -f screenlayout.sh > /dev/null; then
     sh /home/jkyon/.screenlayout/screenlayout.sh
 fi
 
-# Define o papel de parede se feh não estiver em execução
-if ! pgrep -x feh > /dev/null; then
+# # Define o papel de parede se feh não estiver em execução
+# if ! pgrep -x feh > /dev/null; then
     feh --bg-fill --no-xinerama ~/Pictures/Wallpapers/blueNebula.jpg &
-fi
+# fi
 
 # Inicia openrgb se não estiver em execução
 if ! pgrep -x openrgb > /dev/null; then
