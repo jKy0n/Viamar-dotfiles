@@ -54,8 +54,11 @@ bindings = [
 # Enter insert mode with 'i' 
 #{ key = "i", mode = "Vi", action = "ViMotionInsert" } ]
 # Mapeamento de teclas para Control+Setas
-{ key = "Left",  mods = "Control", chars = "\u001b[1;5D" },
-{ key = "Right", mods = "Control", chars = "\u001b[1;5C" },
+# { key = "Left",  mods = "Control", chars = "\u001b[1;5D" },
+# { key = "Right", mods = "Control", chars = "\u001b[1;5C" },
 { key = "Home",  chars = "\u001b[H" },
 { key = "End",   chars = "\u001b[F" },
+# Mapeamento de pageUp e pageDown:
+# { key = "PageUp",   chars = "\\x1b[5~" },  # PgUp
+# { key = "PageDown", chars = "\\x1b[6~" },  # PgDown
 ]

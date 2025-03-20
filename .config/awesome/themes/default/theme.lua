@@ -9,19 +9,14 @@ local dpi = xresources.apply_dpi
 local gfs = require("gears.filesystem")
 local themes_path = gfs.get_themes_dir()
 
-local gears = require("gears")
-local beautiful = require("beautiful")
-
 local theme = {}
 
-theme.font          = "MesloLGS NF Bold 8.5"
+theme.font          = "sans 8"
 
--- Colors reference: https://coolors.co/000914-0c3045-126590-327dae-3ca4d6
-
-theme.bg_normal     = "#103c56"
-theme.bg_focus      = "#327dae"
+theme.bg_normal     = "#222222"
+theme.bg_focus      = "#535d6c"
 theme.bg_urgent     = "#ff0000"
-theme.bg_minimize   = "#000914"
+theme.bg_minimize   = "#444444"
 theme.bg_systray    = theme.bg_normal
 
 theme.fg_normal     = "#aaaaaa"
@@ -29,11 +24,11 @@ theme.fg_focus      = "#ffffff"
 theme.fg_urgent     = "#ffffff"
 theme.fg_minimize   = "#ffffff"
 
-theme.useless_gap   = dpi(2)
-theme.border_width  = dpi(2)
-theme.border_normal = "#103c56"
-theme.border_focus  = "#327dae"
-theme.border_marked = "#ff0000"
+theme.useless_gap   = dpi(0)
+theme.border_width  = dpi(1)
+theme.border_normal = "#000000"
+theme.border_focus  = "#535d6c"
+theme.border_marked = "#91231c"
 
 -- There are other variable sets
 -- overriding the default one when
@@ -102,8 +97,7 @@ theme.titlebar_maximized_button_focus_inactive  = themes_path.."default/titlebar
 theme.titlebar_maximized_button_normal_active = themes_path.."default/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active  = themes_path.."default/titlebar/maximized_focus_active.png"
 
--- theme.wallpaper = themes_path.."default/background.png"
-theme.wallpaper = "/home/jkyon/Pictures/WallPapers/blueNebula.jpg"
+theme.wallpaper = themes_path.."default/background.png"
 
 -- You can use your own layout icons like this:
 theme.layout_fairh = themes_path.."default/layouts/fairhw.png"
@@ -127,10 +121,6 @@ theme.layout_cornerse = themes_path.."default/layouts/cornersew.png"
 theme.awesome_icon = theme_assets.awesome_icon(
     theme.menu_height, theme.bg_focus, theme.fg_focus
 )
-
-theme.taglist_shape = gears.shape.rounded_rect
-theme.notification_shape = gears.shape.rounded_rect
-theme.tasklist_shape = gears.shape.rounded_rect
 
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.

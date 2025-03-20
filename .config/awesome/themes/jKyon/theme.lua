@@ -10,6 +10,7 @@ local gfs = require("gears.filesystem")
 local themes_path = gfs.get_themes_dir()
 
 local gears = require("gears")
+local beautiful = require("beautiful")
 
 local theme = {}
 
@@ -20,7 +21,7 @@ theme.font          = "MesloLGS NF Bold 8.5"
 theme.bg_normal     = "#103c56"
 theme.bg_focus      = "#327dae"
 theme.bg_urgent     = "#ff0000"
-theme.bg_minimize   = "#000914" 
+theme.bg_minimize   = "#000914"
 theme.bg_systray    = theme.bg_normal
 
 theme.fg_normal     = "#aaaaaa"
@@ -33,7 +34,6 @@ theme.border_width  = dpi(2)
 theme.border_normal = "#103c56"
 theme.border_focus  = "#327dae"
 theme.border_marked = "#ff0000"
-
 
 -- There are other variable sets
 -- overriding the default one when
@@ -102,9 +102,8 @@ theme.titlebar_maximized_button_focus_inactive  = themes_path.."default/titlebar
 theme.titlebar_maximized_button_normal_active = themes_path.."default/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active  = themes_path.."default/titlebar/maximized_focus_active.png"
 
---  default: theme.wallpaper = themes_path.."default/background.png"
---theme.wallpaper = themes_path.."/home/jkyon/Pictures/WallPapers/Andromeda.jpg"
-gears.wallpaper.maximized("/home/jkyon/Pictures/WallPapers/WallpaperJohn.png", s)
+-- theme.wallpaper = themes_path.."jKyon/blueNebula.jpg"
+-- theme.wallpaper = "/home/jkyon/Pictures/Wallpapers/blueNebula.png"
 
 -- You can use your own layout icons like this:
 theme.layout_fairh = themes_path.."default/layouts/fairhw.png"
@@ -128,6 +127,10 @@ theme.layout_cornerse = themes_path.."default/layouts/cornersew.png"
 theme.awesome_icon = theme_assets.awesome_icon(
     theme.menu_height, theme.bg_focus, theme.fg_focus
 )
+
+theme.taglist_shape = gears.shape.rounded_rect
+theme.notification_shape = gears.shape.rounded_rect
+theme.tasklist_shape = gears.shape.rounded_rect
 
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.

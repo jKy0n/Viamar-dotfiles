@@ -29,7 +29,7 @@ local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
 local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
 
 local volume_widget = require('awesome-wm-widgets.pactl-widget.volume')
-local todo_widget = require("awesome-wm-widgets.todo-widget.todo")
+-- local todo_widget = require("awesome-wm-widgets.todo-widget.todo")
 local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
 local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
 
@@ -62,7 +62,7 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 -- beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
-beautiful.init("/home/jkyon/.config/awesome/themes/default/theme.lua")
+beautiful.init("/home/jkyon/.config/awesome/themes/jKyon/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "alacritty"
@@ -308,27 +308,33 @@ local tasklist_buttons = gears.table.join(
                                               awful.client.focus.byidx(-1)
                                           end))
 
-local function set_wallpaper(s)
-    if beautiful.wallpaper then
-        local wallpaper = beautiful.wallpaper
-        if type(wallpaper) == "function" then
-            wallpaper = wallpaper(s)
-        end
-        gears.wallpaper.maximized(wallpaper, s, true)  -- true = ignore aspect ratio
-    end
-end
+-- local function set_wallpaper(s)
+--     -- Wallpaper
+--     if beautiful.wallpaper then
+--         local wallpaper = beautiful.wallpaper
+--         -- If wallpaper is a function, call it with the screen
+--         if type(wallpaper) == "function" then
+--             wallpaper = wallpaper(s)
+--         end
+--         gears.wallpaper.maximized(wallpaper, s, true)
+--     end
+-- end
 
--- Aplica o wallpaper na inicialização e em mudanças de geometria
-screen.connect_signal("request::wallpaper", set_wallpaper) -- ← Corrigido para AwesomeWM ≥ v4.3
+--         -- Wallpaper
+--         set_wallpaper(s)
+
+-- -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
+-- screen.connect_signal("property::geometry", set_wallpaper)
 
 
 
     -- Each screen has its own tag table.
     -- awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
 
+
     awful.tag.add(" Work (1) ", {
         layout = awful.layout.suit.tile,
-        selected = false,
+        selected = true,
         screen = 1
     })
 
@@ -336,50 +342,49 @@ screen.connect_signal("request::wallpaper", set_wallpaper) -- ← Corrigido para
         layout = awful.layout.suit.tile,
         selected = false,
         screen = 1
-    })
-
-    awful.tag.add(" Chat (3) ", {
-        layout = awful.layout.suit.tile,
-        selected = false,
-        screen = 1
-    })
-
-    awful.tag.add(" Music (4) ", {
-        layout = awful.layout.suit.tile,
-        selected = false,
-        screen = 1
-    })
-
-    awful.tag.add(" Monitor (5) ", {
-        layout = awful.layout.suit.max,
-        selected = true,
-        screen = 1
-    })
-
-------------------------------------------------------------------
-
-    awful.tag.add(" Work (1) ", {
-        layout = awful.layout.suit.tile,
-        selected = true,
-        screen = 2
-    })
-
-    awful.tag.add(" Work (2) ", {
-        layout = awful.layout.suit.tile,
-        selected = false,
-        screen = 2
     })
     
     awful.tag.add(" Notas (3) ", {
         layout = awful.layout.suit.max,
         selected = false,
-        screen = 2
+        screen = 1
     })
     
+------------------------------------------------------------------
+
+    awful.tag.add(" Work (1) ", {
+        layout = awful.layout.suit.tile,
+        selected = false,
+        screen = 2
+    })
+
+    awful.tag.add(" Work (2) ", {
+        layout = awful.layout.suit.tile,
+        selected = false,
+        screen = 2
+    })
+
+    awful.tag.add(" Chat (3) ", {
+        layout = awful.layout.suit.tile,
+        selected = false,
+        screen = 2
+    })
+
+    awful.tag.add(" Music (4) ", {
+        layout = awful.layout.suit.tile,
+        selected = false,
+        screen = 2
+    })
+
+    awful.tag.add(" Monitor (5) ", {
+        layout = awful.layout.suit.max,
+        selected = true,
+        screen = 2
+    })
+
     
     awful.screen.connect_for_each_screen(function(s)
-        -- Wallpaper
-        set_wallpaper(s)
+
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -453,7 +458,6 @@ screen.connect_signal("request::wallpaper", set_wallpaper) -- ← Corrigido para
 ------------------------------------------------------------------------------------------------            
             wibox.widget.textbox(' | '),
 
-            todo_widget(),
             -- mykeyboardlayout,
             tbox_separator_space,
             wibox.widget.systray(),
@@ -585,26 +589,27 @@ globalkeys = gears.table.join(
     --           {description = "show the menubar", group = "launcher"}),
 
     awful.key({ modkey, }, "p",
-    function () awful.util.spawn("rofi  -config /home/jkyon/.config/rofi/config.rasi \
-        -modes \"drun,run,filebrowser,window,emoji,calc\" -show drun \
-        -icon-theme \"Papirus\" -show-icons \
-        -theme /home/jkyon/.config/rofi/theme.rasi") 
-    end,
-    {description = "Abrir Rofi", group = "launcher"}),
+        --   function () awful.util.spawn("rofi -config ~/.config/rofi/config -show combi -combi-modi \"window,run\" -modi combi -icon-theme \"Papirus\" -show-icons -theme ~/.config/rofi/config.rasi") end),
+        function () awful.util.spawn("rofi  -config /home/jkyon/.config/rofi/config.rasi \
+                                            -modes \"drun,run,filebrowser,window,emoji,calc\" -show drun \
+                                            -icon-theme \"Papirus\" -show-icons \
+                                            -theme /home/jkyon/.config/rofi/theme.rasi") 
+            end),
 
+
+    -- alt + tab
     awful.key({ "Mod1", }, "Tab",
-    function () awful.util.spawn("rofi  -config /home/jkyon/.config/rofi/config.rasi \
-                                        -show window \
-                                        -window-format \"{t}\" \
-                                        -kb-row-down 'Alt+Tab,Alt+Down,Down' \
-                                        -kb-row-up 'Alt+ISO_Left_Tab,Alt+Up,Up' \
-                                        -kb-accept-entry '!Alt-Tab,!Alt+Down,!Alt+ISO_Left_Tab,!Alt+Up,Return' \
-                                        -me-select-entry 'MouseSecondary' \
-                                        -me-accept-entry 'MousePrimary' \
-                                        -modi combi -icon-theme \"Papirus\" \
-                                        -show-icons -theme /home/jkyon/.config/rofi/theme-tab.rasi") 
-    end,
-    {description = "Abrir Rofi", group = "launcher"}),
+        function () awful.util.spawn("rofi  -config /home/jkyon/.config/rofi/config.rasi \
+                                            -show window \
+                                            -window-format \"{t}\" \
+                                            -kb-row-down 'Alt+Tab,Alt+Down,Down' \
+                                            -kb-row-up 'Alt+ISO_Left_Tab,Alt+Up,Up' \
+                                            -kb-accept-entry '!Alt-Tab,!Alt+Down,!Alt+ISO_Left_Tab,!Alt+Up,Return' \
+                                            -me-select-entry 'MouseSecondary' \
+                                            -me-accept-entry 'MousePrimary' \
+                                            -modi combi -icon-theme \"Papirus\" \
+                                            -show-icons -theme /home/jkyon/.config/rofi/theme-tab.rasi") 
+            end),
 
 ---------------------  Tags Manipulation keybinds  ---------------------
 ------------------------------------------------------------------------
@@ -756,20 +761,12 @@ awful.rules.rules = {
 
 -- A
 --
-    { rule = { class = "Arandr" },
-    properties = { floating = false,
-    placement = awful.placement.centered },},
-
 -- B
 -- 
 -- C
 -- 
 -- D
 -- 
-{ rule_any = { class = {"dolphin", "dolphin"} },
-properties = { floating = true,
-placement = awful.placement.centered },},
-
 -- E
 -- 
 -- F
@@ -777,10 +774,6 @@ placement = awful.placement.centered },},
 -- G
 -- 
     { rule_any = { class = {"gedit", "Gedit"} },
-    properties = { floating = true,
-    placement = awful.placement.centered },},
-
-    { rule_any = { class = {"github desktop", "GitHub Desktop"} },
     properties = { floating = true,
     placement = awful.placement.centered },},
 
@@ -810,7 +803,7 @@ placement = awful.placement.centered },},
 
     { rule = { name = "KDE Connect" },
     properties = { floating = true,
-                    tag = screen[1].tags[5],
+                    tag = screen[2].tags[5],
     placement = awful.placement.centered,},},    
 
 -- L
@@ -834,7 +827,7 @@ placement = awful.placement.centered },},
 -- 
     { rule_any = {  class = {"obsidian", "obsidian"} },
     properties = {  floating = false,
-                    tag = screen[2].tags[3],},},
+                    tag = screen[1].tags[3],},},
 
     { rule = { class = "openrgb" },
     properties = { floating = true,
@@ -844,55 +837,47 @@ placement = awful.placement.centered },},
 
     { rule_any = { class = {"pavucontrol", "Pavucontrol"} },
     properties = { floating = false,
-                    tag = screen[1].tags[4],},},
+                    tag = screen[2].tags[4],},},
 -- Q
 -- 
-    { rule = { class = "qt5ct" },
-    properties = { floating = true,
-    placement = awful.placement.centered },},
+{ rule = { class = "qt5ct" },
+properties = { floating = true,
+placement = awful.placement.centered },},
 
-    { rule = { class = "qt6ct" },
-    properties = { floating = true,
-    placement = awful.placement.centered },},
+{ rule = { class = "qt6ct" },
+properties = { floating = true,
+placement = awful.placement.centered },},
 -- R
 -- 
-    { rule = { class = "rambox" },
-    properties = { floating = false,
-    placement = awful.placement.centered,
-    tag = screen[1].tags[3],},},
-
+{ rule = { class = "rambox" },
+properties = { floating = false,
+placement = awful.placement.centered,
+tag = screen[2].tags[3],},},
 -- S
 --
-    { rule_any = { class = {"simple-scan", "simple-scan"} },
-    properties = { floating = false,
-        callback = function(c)
-            create_volatile_tag(c, " Scan ", 2, awful.layout.suit.tile)
-        end,},},
+{ rule = { class = "Spotify" },
+properties = { floating = false,
+placement = awful.placement.centered,
+tag = screen[2].tags[4],},},
 
-    { rule = { class = "Spotify" },
-    properties = { floating = false,
-    placement = awful.placement.centered,
-    tag = screen[1].tags[4],},},
-
-    { rule_any = { class = {"snappergui", "Snapper-gui"} },
-    properties = { floating = true,
-    placement = awful.placement.centered,},},
-
+{ rule_any = { class = {"snappergui", "Snapper-gui"} },
+properties = { floating = true,
+placement = awful.placement.centered,},},
 -- T
 -- 
-    { rule = { class = "thunderbird" },
-    properties = { floating = false,
-    placement = awful.placement.left,},},
+{ rule = { class = "thunderbird" },
+properties = { floating = false,
+placement = awful.placement.left,},},
 
 -- U
 -- 
 -- V
 -- 
-    { rule_any = { class = {"code", "Code"} }, -- VSCode
-    properties = { floating = false,
-        callback = function(c)
-            create_volatile_tag(c, " Code ", 2, awful.layout.suit.tile)
-        end,},},
+{ rule_any = { class = {"code", "Code"} }, -- VSCode
+properties = { floating = false,
+    callback = function(c)
+        create_volatile_tag(c, " Code ", 1, awful.layout.suit.tile)
+    end,},},
 
 -- W
 -- 
@@ -903,36 +888,36 @@ placement = awful.placement.centered },},
 -- Z
 
 
-    -- -- Floating clients.
-    -- { rule_any = {
-    --     instance = {
-    --       "DTA",  -- Firefox addon DownThemAll.
-    --       "copyq",  -- Includes session name in class.
-    --       "pinentry",
-    --     },
-    --     class = {
-    --       "Arandr",
-    --       "Blueman-manager",
-    --       "Gpick",
-    --       "Kruler",
-    --       "MessageWin",  -- kalarm.
-    --       "Sxiv",
-    --       "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
-    --       "Wpa_gui",
-    --       "veromix",
-    --       "xtightvncviewer"},
+    -- Floating clients.
+    { rule_any = {
+        instance = {
+          "DTA",  -- Firefox addon DownThemAll.
+          "copyq",  -- Includes session name in class.
+          "pinentry",
+        },
+        class = {
+          "Arandr",
+          "Blueman-manager",
+          "Gpick",
+          "Kruler",
+          "MessageWin",  -- kalarm.
+          "Sxiv",
+          "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
+          "Wpa_gui",
+          "veromix",
+          "xtightvncviewer"},
 
-    --     -- Note that the name property shown in xprop might be set slightly after creation of the client
-    --     -- and the name shown there might not match defined rules here.
-    --     name = {
-    --       "Event Tester",  -- xev.
-    --     },
-    --     role = {
-    --       "AlarmWindow",  -- Thunderbird's calendar.
-    --       "ConfigManager",  -- Thunderbird's about:config.
-    --       "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
-    --     }
-    --   }, properties = { floating = true }},
+        -- Note that the name property shown in xprop might be set slightly after creation of the client
+        -- and the name shown there might not match defined rules here.
+        name = {
+          "Event Tester",  -- xev.
+        },
+        role = {
+          "AlarmWindow",  -- Thunderbird's calendar.
+          "ConfigManager",  -- Thunderbird's about:config.
+          "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
+        }
+      }, properties = { floating = true }},
 
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }
@@ -1015,5 +1000,6 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
-
+awful.spawn.with_shell("sh /home/jkyon/.screenlayout/screenlayout.sh")
+awful.spawn.with_shell("feh --bg-fill --no-xinerama ~/Pictures/Wallpapers/blueNebula.jpg &")
 awful.spawn.with_shell("sh /home/jkyon/.config/awesome/autorun.sh")
