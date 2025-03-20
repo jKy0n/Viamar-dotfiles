@@ -767,6 +767,10 @@ awful.rules.rules = {
 -- 
 -- D
 -- 
+    { rule_any = { class = {"dolphin", "dolphin"} },
+    properties = { floating = true,
+    placement = awful.placement.centered },},
+
 -- E
 -- 
 -- F
