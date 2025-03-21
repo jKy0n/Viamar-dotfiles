@@ -29,7 +29,7 @@ local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
 local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
 
 local volume_widget = require('awesome-wm-widgets.pactl-widget.volume')
--- local todo_widget = require("awesome-wm-widgets.todo-widget.todo")
+local todo_widget = require("awesome-wm-widgets.todo-widget.todo")
 local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
 local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
 
@@ -418,6 +418,8 @@ local tasklist_buttons = gears.table.join(
                                 shape = gears.shape.rounded_rect 
     })
 
+    if s.index == 1 then
+        -- Primeiro monitor
     -- Add widgets to the wibox
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
@@ -457,8 +459,18 @@ local tasklist_buttons = gears.table.join(
             ram_widget({ color_used = '#327dae', color_buf = '#103c56' }),
 ------------------------------------------------------------------------------------------------            
             wibox.widget.textbox(' | '),
-
+            tbox_separator_space,
+            volume_widget({ 
+                widget_type = 'arc',
+                thickness   = 2 ,
+                step        = 5 ,
+                mixer_cmd   = 'pavucontrol',
+                device      = '@DEFAULT_SINK@',
+                tooltip     = false
+            }),
+            tbox_separator_space,
             -- mykeyboardlayout,
+            todo_widget(),
             tbox_separator_space,
             wibox.widget.systray(),
             tbox_separator_space,
@@ -475,7 +487,74 @@ local tasklist_buttons = gears.table.join(
             },
         },
     }
+
+---------------------------------------------------------------------------    
+-----------------------------  Second Wibar  -----------------------------
+---------------------------------------------------------------------------
+
+    elseif s.index == 2 then
+        -- Primeiro monitor
+            -- Add widgets to the wibox
+    -- Add widgets to the wibox
+    s.mywibox:setup {
+        layout = wibox.layout.align.horizontal,
+        { -- Left widgets
+            layout = wibox.layout.fixed.horizontal,
+            s.mylayoutbox,
+            tbox_separator_space,
+            -- mylauncher,
+            s.mytaglist,
+            tbox_separator_space,
+            s.mypromptbox,
+        },
+        s.mytasklist, -- Middle widget
+        { -- Right widgets
+            layout = wibox.layout.fixed.horizontal,
+            
+            tbox_separator_space,
+            cpu_icon,
+            wibox.widget.textbox('CPU '),
+            awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/dwmBlocksCpuUsage"', 1),
+            tbox_separator_space,
+            tbox_separator_dash,
+            tbox_separator_space,
+            awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/awesomeWidget-CPU-freq-monitor.sh"', 1),
+            tbox_separator_space,
+            temp_icon,
+            tbox_separator_space,
+            awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/dwmBlocksCpuTemp"', 1),
+            tbox_separator_space,
+            wibox.widget.textbox(' | '),        
+            -- cpu_widget(),
+            -- wibox.widget.textbox(' | '),
+            -- wibox.widget.textbox('   '),  --  
+            mem_icon,
+            mem.widget,
+            tbox_separator_space,
+            -- ram_widget({ color_used = '#327dae', color_buf = '#103c56' }),
+------------------------------------------------------------------------------------------------            
+            wibox.widget.textbox(' | '),
+            tbox_separator_space,
+            tbox_separator_space,
+            todo_widget(),
+            tbox_separator_space,
+            mytextclock,
+
+            logout_menu_widget{
+                -- font = 'Noto Sans semibold 9',
+                font = 'MesloLGS Nerd Font Bold 10',
+                onlogout   =  function() awesome.quit() end,
+                --  onlock     =  function() awful.spawn.with_shell('xscreensaver-command -lock') end,
+                onsuspend  =  function() awful.spawn.with_shell("systemctl suspend") end,
+                onreboot   =  function() awful.spawn.with_shell("systemctl reboot") end,
+                onpoweroff =  function() awful.spawn.with_shell("shutdown now") end,
+            },
+        },
+    }
+    end
+
 end)
+
 -- }}}
 
 -- {{{ Mouse bindings
@@ -594,7 +673,8 @@ globalkeys = gears.table.join(
                                             -modes \"drun,run,filebrowser,window,emoji,calc\" -show drun \
                                             -icon-theme \"Papirus\" -show-icons \
                                             -theme /home/jkyon/.config/rofi/theme.rasi") 
-            end),
+            end,
+            {description = "show rofi", group = "launcher"}),
 
 
     -- alt + tab
@@ -609,7 +689,8 @@ globalkeys = gears.table.join(
                                             -me-accept-entry 'MousePrimary' \
                                             -modi combi -icon-theme \"Papirus\" \
                                             -show-icons -theme /home/jkyon/.config/rofi/theme-tab.rasi") 
-            end),
+            end,
+            {description = "show task windows", group = "launcher"}),
 
 ---------------------  Tags Manipulation keybinds  ---------------------
 ------------------------------------------------------------------------
@@ -943,7 +1024,7 @@ client.connect_signal("manage", function (c)
 
     client.connect_signal("manage", function (c)
         c.shape = function(cr,w,h)
-            gears.shape.rounded_rect(cr,w,h,5)
+            gears.shape.rounded_rect(cr,w,h,10)  -- <--- set the radius 
         end
     end)
 
@@ -954,46 +1035,6 @@ client.connect_signal("manage", function (c)
         awful.placement.no_offscreen(c)
     end
 end)
-
--- -- Add a titlebar if titlebars_enabled is set to true in the rules.
--- client.connect_signal("request::titlebars", function(c)
---     -- buttons for the titlebar
---     local buttons = gears.table.join(
---         awful.button({ }, 1, function()
---             c:emit_signal("request::activate", "titlebar", {raise = true})
---             awful.mouse.client.move(c)
---         end),
---         awful.button({ }, 3, function()
---             c:emit_signal("request::activate", "titlebar", {raise = true})
---             awful.mouse.client.resize(c)
---         end)
---     )
-
---     awful.titlebar(c) : setup {
---         { -- Left
---             awful.titlebar.widget.iconwidget(c),
---             buttons = buttons,
---             layout  = wibox.layout.fixed.horizontal
---         },
---         { -- Middle
---             { -- Title
---                 align  = "center",
---                 widget = awful.titlebar.widget.titlewidget(c)
---             },
---             buttons = buttons,
---             layout  = wibox.layout.flex.horizontal
---         },
---         { -- Right
---             awful.titlebar.widget.floatingbutton (c),
---             awful.titlebar.widget.maximizedbutton(c),
---             awful.titlebar.widget.stickybutton   (c),
---             awful.titlebar.widget.ontopbutton    (c),
---             awful.titlebar.widget.closebutton    (c),
---             layout = wibox.layout.fixed.horizontal()
---         },
---         layout = wibox.layout.align.horizontal
---     }
--- end)
 
 -- Enable sloppy focus, so that focus follows mouse.
 client.connect_signal("mouse::enter", function(c)
