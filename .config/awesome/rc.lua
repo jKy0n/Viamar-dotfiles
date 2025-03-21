@@ -480,7 +480,7 @@ local tasklist_buttons = gears.table.join(
                 -- font = 'Noto Sans semibold 9',
                 font = 'MesloLGS Nerd Font Bold 10',
                 onlogout   =  function() awesome.quit() end,
-                onlock     =  function() awful.spawn.with_shell('xscreensaver-command -lock') end,
+                onlock     =  function() awful.spawn.with_shell('light-locker-command -l') end,
                 onsuspend  =  function() awful.spawn.with_shell("systemctl suspend") end,
                 onreboot   =  function() awful.spawn.with_shell("systemctl reboot") end,
                 onpoweroff =  function() awful.spawn.with_shell("shutdown now") end,
@@ -516,10 +516,6 @@ local tasklist_buttons = gears.table.join(
             wibox.widget.textbox('CPU '),
             awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/dwmBlocksCpuUsage"', 1),
             tbox_separator_space,
-            tbox_separator_dash,
-            tbox_separator_space,
-            awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/awesomeWidget-CPU-freq-monitor.sh"', 1),
-            tbox_separator_space,
             temp_icon,
             tbox_separator_space,
             awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/dwmBlocksCpuTemp"', 1),
@@ -534,9 +530,6 @@ local tasklist_buttons = gears.table.join(
             -- ram_widget({ color_used = '#327dae', color_buf = '#103c56' }),
 ------------------------------------------------------------------------------------------------            
             wibox.widget.textbox(' | '),
-            tbox_separator_space,
-            tbox_separator_space,
-            todo_widget(),
             tbox_separator_space,
             mytextclock,
 
@@ -1047,5 +1040,5 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 awful.spawn.with_shell("sh /home/jkyon/.screenlayout/screenlayout.sh")
 awful.spawn.with_shell("feh --bg-fill --no-xinerama ~/Pictures/Wallpapers/blueNebula.jpg &")
-awful.spawn.with_shell("light-locker --no-late-locking &")
+awful.spawn.with_shell("light-locker &")
 awful.spawn.with_shell("sh /home/jkyon/.config/awesome/autorun.sh")
