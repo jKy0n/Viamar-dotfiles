@@ -544,7 +544,7 @@ local tasklist_buttons = gears.table.join(
                 -- font = 'Noto Sans semibold 9',
                 font = 'MesloLGS Nerd Font Bold 10',
                 onlogout   =  function() awesome.quit() end,
-                --  onlock     =  function() awful.spawn.with_shell('xscreensaver-command -lock') end,
+                onlock     =  function() awful.spawn.with_shell('light-locker-command -l') end,
                 onsuspend  =  function() awful.spawn.with_shell("systemctl suspend") end,
                 onreboot   =  function() awful.spawn.with_shell("systemctl reboot") end,
                 onpoweroff =  function() awful.spawn.with_shell("shutdown now") end,
@@ -1047,4 +1047,5 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 awful.spawn.with_shell("sh /home/jkyon/.screenlayout/screenlayout.sh")
 awful.spawn.with_shell("feh --bg-fill --no-xinerama ~/Pictures/Wallpapers/blueNebula.jpg &")
+awful.spawn.with_shell("light-locker --no-late-locking &")
 awful.spawn.with_shell("sh /home/jkyon/.config/awesome/autorun.sh")
