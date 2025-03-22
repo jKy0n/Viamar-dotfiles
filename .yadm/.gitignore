@@ -1,0 +1,4 @@
+# ~/.yadm/.gitignore
+
+# Ignora toda a pasta zsh-secrets
+/.config/zsh/zsh-secrets/**
