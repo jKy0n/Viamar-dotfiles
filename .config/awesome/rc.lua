@@ -1079,7 +1079,17 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
+
+-- Adjust screen layout
 awful.spawn.with_shell("sh /home/jkyon/.screenlayout/screenlayout.sh")
+-- Set wallpaper
 awful.spawn.with_shell("feh --bg-fill --no-xinerama ~/Pictures/Wallpapers/blueNebula.jpg &")
-awful.spawn.with_shell("light-locker &")
+
+
+-- Start awesome target on systemd
+awful.spawn.easy_async_with_shell(
+  "systemctl --user start awesomewm.target",
+  function() end
+)
+-- Start some applications
 awful.spawn.with_shell("sh /home/jkyon/.config/awesome/autorun.sh")
