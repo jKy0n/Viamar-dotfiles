@@ -34,6 +34,24 @@ local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
 local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
 
 
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+------------------------------- Error handling ------------------------------
+
+-- Configurar o tamanho padrão das notificações
+naughty.config.defaults = {
+    timeout = 10, -- Tempo de exibição em segundos
+    -- screen = awful.screen.focused(), -- Qual tela exibir as notificações
+    screen = 2, -- Qual tela exibir as notificações
+    position = "top_left", -- Posição: 'top_right', 'top_left', 'bottom_right', 'bottom_left'
+    margin = 10,
+    ontop = true,
+    font = "MesloLGS Nerd Font Bold 10", -- Fonte
+    icon_size = 300,
+    border_width = 2,
+}
+
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -55,7 +73,7 @@ do
                          title = "Oops, an error happened!",
                          text = tostring(err) })
         in_error = false
-    end)
+    end) 
 end
 -- }}}
 
@@ -718,7 +736,21 @@ clientkeys = gears.table.join(
         end,
         {description = "toggle fullscreen", group = "client"}),
 
-        awful.key({ }, "Print", function () awful.util.spawn("flameshot gui") end),
+
+        awful.key({}, "XF86AudioRaiseVolume", function() volume_widget:inc(5) end),
+        awful.key({}, "XF86AudioLowerVolume", function() volume_widget:dec(5) end),
+        awful.key({}, "XF86AudioMute", function() volume_widget:toggle() end),
+
+        awful.key({}, "XF86AudioPrev", function() awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous") end),
+        awful.key({}, "XF86AudioNext", function() awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next") end),
+        awful.key({}, "XF86AudioPlay", function() awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause") end),
+        awful.key({}, "XF86AudioStop", function() awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Pause") end),
+
+
+        awful.key({}, "Print", function () awful.util.spawn("flameshot gui") end),
+        awful.key({ "Shift" }, "Print", function () awful.util.spawn("flameshot screen --clipboard") end),
+        awful.key({ "Control" }, "Print", function () awful.util.spawn("flameshot full --clipboard") end),
+
 
     awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end,
               {description = "close", group = "client"}),
