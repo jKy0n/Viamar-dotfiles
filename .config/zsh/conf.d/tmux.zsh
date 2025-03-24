@@ -22,10 +22,16 @@ if [[ -t 0 ]] && \
   [[ -z "$session_number" ]] && session_number=1
 
   # Cria nova sessão com tratamento de erros
-  if ! tmux new-session -s "$session_number"; then
+  if ! tmux new-session -s "$session_number" >/dev/null 2>&1; then
     echo "Erro ao criar sessão tmux! Verifique:"
     echo "1. Permissões do servidor tmux"
     echo "2. Conflitos de nome de sessão"
     echo "3. Versão do tmux (requer >= 2.4)"
+    echo "Carregando tmux.zsh"
+    echo "Terminal interativo"
+    echo "Tmux instalado"
+    echo "Não está dentro de uma sessão tmux"
+    echo "Terminal interativo (flag i)"
+    echo "Não está no VSCode"
   fi
 fi
