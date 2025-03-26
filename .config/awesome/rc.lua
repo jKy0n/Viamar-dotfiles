@@ -367,6 +367,12 @@ local tasklist_buttons = gears.table.join(
         selected = false,
         screen = 1
     })
+
+    awful.tag.add(" Code (4) ", {
+        layout = awful.layout.suit.tile.left,
+        selected = false,
+        screen = 1
+    })
     
 ------------------------------------------------------------------
 
@@ -908,6 +914,12 @@ awful.rules.rules = {
     properties = { floating = true,
     placement = awful.placement.centered },},
 
+    { rule_any = { class = {"gpt4all-chat", "GPT4All"} }, -- VSCode
+    properties = { floating = false,
+        callback = function(c)
+            create_volatile_tag(c, " GPT4All ", 1, awful.layout.suit.tile.left)
+        end,},},
+
 -- H
 -- 
 -- I
@@ -959,44 +971,51 @@ awful.rules.rules = {
                     tag = screen[2].tags[4],},},
 -- Q
 -- 
-{ rule = { class = "qt5ct" },
-properties = { floating = true,
-placement = awful.placement.centered },},
+    { rule = { class = "qt5ct" },
+    properties = { floating = true,
+    placement = awful.placement.centered },},
 
-{ rule = { class = "qt6ct" },
-properties = { floating = true,
-placement = awful.placement.centered },},
+    { rule = { class = "qt6ct" },
+    properties = { floating = true,
+    placement = awful.placement.centered },},
+
 -- R
 -- 
-{ rule = { class = "rambox" },
-properties = { floating = false,
-placement = awful.placement.centered,
-tag = screen[2].tags[3],},},
+    { rule = { class = "rambox" },
+    properties = { floating = false,
+    placement = awful.placement.centered,
+    tag = screen[2].tags[3],},},
+
 -- S
 --
-{ rule = { class = "Spotify" },
-properties = { floating = false,
-placement = awful.placement.centered,
-tag = screen[2].tags[4],},},
+    { rule = { class = "Spotify" },
+    properties = { floating = false,
+    placement = awful.placement.centered,
+    tag = screen[2].tags[4],},},
 
-{ rule_any = { class = {"snappergui", "Snapper-gui"} },
-properties = { floating = true,
-placement = awful.placement.centered,},},
+    { rule_any = { class = {"snappergui", "Snapper-gui"} },
+    properties = { floating = true,
+    placement = awful.placement.centered,},},
 -- T
 -- 
-{ rule = { class = "thunderbird" },
-properties = { floating = false,
-placement = awful.placement.left,},},
+    { rule = { class = "thunderbird" },
+    properties = { floating = false,
+    placement = awful.placement.left,
+    tag = screen[1].tags[4],},},
 
 -- U
 -- 
 -- V
 -- 
-{ rule_any = { class = {"code", "Code"} }, -- VSCode
-properties = { floating = false,
-    callback = function(c)
-        create_volatile_tag(c, " Code ", 1, awful.layout.suit.tile)
-    end,},},
+    -- { rule_any = { class = {"code", "Code"} }, -- VSCode
+    -- properties = { floating = false,
+    --     callback = function(c)
+    --         create_volatile_tag(c, " Code ", 1, awful.layout.suit.tile)
+    --     end,},},
+
+        { rule_any = { class = {"code", "Code"} },
+    properties = { floating = false,
+    placement = awful.placement.left,},},
 
 -- W
 -- 
