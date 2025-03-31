@@ -485,7 +485,7 @@ local tasklist_buttons = gears.table.join(
             mem_icon,
             mem.widget,
             tbox_separator_space,
-            ram_widget({ color_used = '#327dae', color_buf = '#103c56' }),
+            ram_widget({ color_used = '#8aadf4', color_buf = '#cad3f5r' }),
 ------------------------------------------------------------------------------------------------            
             wibox.widget.textbox(' | '),
             tbox_separator_space,
@@ -498,7 +498,6 @@ local tasklist_buttons = gears.table.join(
                 tooltip     = false
             }),
             tbox_separator_space,
-            -- mykeyboardlayout,
             todo_widget(),
             tbox_separator_space,
             wibox.widget.systray(),
@@ -998,9 +997,11 @@ awful.rules.rules = {
     placement = awful.placement.centered,},},
 -- T
 -- 
-    { rule = { class = "thunderbird" },
+    { rule_any = { class = {"Mail", "thunderbird"} },
     properties = { floating = false,
-    placement = awful.placement.left,},},
+        callback = function(c)
+            create_volatile_tag(c, " Mail ", 1, awful.layout.suit.tile)
+        end,},},
 
 -- U
 -- 
