@@ -41,6 +41,7 @@ theme.font          = "MesloLGS NF Bold 8.5"
 theme.fg_normal          = "#cad3f5"
 theme.fg_focus           = "#8aadf4"
 theme.fg_urgent          = "#cad3f5"
+
 theme.bg_normal          = "#24273a"
 theme.bg_focus           = "#24273a"
 theme.bg_urgent          = "#ed8796"
