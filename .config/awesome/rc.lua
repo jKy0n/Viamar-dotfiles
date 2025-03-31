@@ -1000,8 +1000,7 @@ awful.rules.rules = {
 -- 
     { rule = { class = "thunderbird" },
     properties = { floating = false,
-    placement = awful.placement.left,
-    tag = screen[1].tags[4],},},
+    placement = awful.placement.left,},},
 
 -- U
 -- 
@@ -1015,7 +1014,8 @@ awful.rules.rules = {
 
         { rule_any = { class = {"code", "Code"} },
     properties = { floating = false,
-    placement = awful.placement.left,},},
+    placement = awful.placement.left,
+    tag = screen[1].tags[4],},},
 
 -- W
 -- 
