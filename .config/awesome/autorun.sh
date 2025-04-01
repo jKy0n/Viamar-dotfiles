@@ -1,8 +1,8 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # Inicia openrgb se não estiver em execução
 if ! pgrep -x openrgb > /dev/null; then
-    openrgb --startminimized --profile ArchLinux-profile &
+    openrgb --startminimized --profile Viamar-PC &
 fi
 
 # Inicia picom se não estiver em execução

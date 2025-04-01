@@ -1007,13 +1007,13 @@ awful.rules.rules = {
 -- 
 -- V
 -- 
-    -- { rule_any = { class = {"code", "Code"} }, -- VSCode
-    -- properties = { floating = false,
-    --     callback = function(c)
-    --         create_volatile_tag(c, " Code ", 1, awful.layout.suit.tile)
-    --     end,},},
+    { rule_any = { class = {"virt-manager", "Virt-manager"} },
+    properties = { floating = false,
+        callback = function(c)
+            create_volatile_tag(c, " VMs ", 2, awful.layout.suit.tile)
+        end,},},
 
-        { rule_any = { class = {"code", "Code"} },
+        { rule_any = { class = {"code", "Code"} }, -- VSCode
     properties = { floating = false,
     placement = awful.placement.left,
     tag = screen[1].tags[4],},},
