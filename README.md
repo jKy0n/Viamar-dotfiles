@@ -1,75 +1,123 @@
-# Viamar Dotfiles
+# 🌊 Viamar Dotfiles  
 
-It's all about my little buddie
+*It's all about my little buddie*
+
+![Fastfetch](https://github.com/jKy0n/Viamar-dotfiles/blob/master/Pictures/Viamar-PC-media/fastfetch-14-mar-2025.png)
 
 
-![Festfetch](https://github.com/jKy0n/Viamar-dotfiles/blob/master/Pictures/Viamar-PC-media/fastfetch-14-mar-2025.png)
-
-## Desktop:
+## 🖥️ Desktop
 
 ![Desktop](https://github.com/jKy0n/Viamar-dotfiles/blob/master/Pictures/Viamar-PC-media/desktop-14-mar-2025.jpg)
 
-## Operational System:
+---
 
-- **OS:** Arch Linux x86_64
-- **Kernel:** 6.13.X-arch1-1
-- **Shell:** zsh (bash for sh)
-- **GS:** XOrg (X11)
-- **WM:** awesome
-- **Audio:** pipewire
-- **Terminal:** Alacritty + tmux
-- **Editor:** AstroNvim (nvim)
-- **FS:** BtrFS
-- **Init:** systemd
-- **Auth:** sudo
-- **Boot:** GRUB UEFI
+## 🧬 Operational System
 
+- **OS:** `Arch Linux` x86_64  
+- **Kernel:** 6.13.X-arch1-1  
+- **Shell:** `zsh` (`bash` for scripts)  
+- **GS:** `X.Org` (X11)  
+- **Login Manager:** `LightDM` + `light-locker`  
+- **Window Manager:** `awesome`  
+- **Audio:** `pipewire`  
+- **Terminal:** `Alacritty` + `tmux`  
+- **Editor:** `AstroNvim` (Neovim)  
+- **Filesystem:** `BtrFS` + `ext4` (for VMs)  
+- **Init:** `systemd`  
+- **Authentication:** `sudo` + `polkit-gnome`  
+- **Bootloader:** `GRUB` (UEFI)  
 
-#### Theming
+---
 
-- **Theme:** Catppuccin Dark Mocchiato
-- **Icons:** ePapirus-Dark
-- **Font:** MesloLGLDZ Nerd Font / Noto Sans
-- **Cursor:** Future-black-cursors
+## 🎨 Theming
 
+- **Theme:** `Colloid-dark-Catppuccin`
+- **Icons:** `ePapirus-Dark`  
+- **Font:** `MesloLGLS Nerd Font 10`  
+- **Cursor:** `Future-black-cursors`
 
-ALL ABOUVE IS WRONG
+---
 
+## 🧠 Core Software
+
+- **Launcher:** `Rofi`  
+- **Browser:** `Firefox`  
+- **File Explorer:** `Dolphin` (+ `Ark`)  
+- **Music Player:** `Spotify` + `Spicetify`  
+- **Audio Control:** `pavucontrol`  
+- **IDE:** `VSCode` (for complex coding)  
+- **Notes / PKM:** `Obsidian`  
+- **Chat / Messaging:** `Rambox`  
+- **Password Manager:** `Bitwarden`  
+- **RGB Control:** `OpenRGB`  
+
+---
+
+## 🤖 AI Servers
+
+- `Ollama` *(Terminal / CLI)*  
+- `LM Studio` *(Performance-focused GUI)*  
+- `GPT4All` *(GUI with RAG support)*  
+
+---
+
+## 🖥️ Virtualization
+
+- **Manager:** `virt-manager`  
+- **Backend:** `QEMU (KVM)`
+
+---
+
+## ⚙️ Dotfiles Management
+
+- **Dotfiles Tool:** `yadm`
+
+---
 
 ![Viamar](https://github.com/jKy0n/Viamar-dotfiles/blob/master/Pictures/Viamar-PC-media/viamar-14-mar-2025.jpg)
 
+---
 
-## Hardware:
+## 🧱 Hardware
 
-- **CPU:** AMD Ryzen5 5600G @ 3900MHz
-- **GPUi:** Redeon Cezanne @ 1900MHz
-- **MoBo:** Asus TUF Gaming B550M-Plus
-- **RAM:** Corsair Vengeance LPX DDR4 2x8GB @ 2133MHz
+- **CPU:** AMD Ryzen 5 5600G @ 3.9GHz  
+- **iGPU:** Radeon Cezanne @ 1.9GHz  
+- **Motherboard:** Asus TUF Gaming B550M-Plus  
+- **RAM:** Corsair Vengeance LPX DDR4 2x8GB @ 2133MHz  
 - **Storage:**
-    - **NVMe1:** /dev/NVMe1 -  Husky Gaming - 128GB
-    - **HDD0:**  /dev/sda   -  Toshiba?  - 1TB (7200RPM - 64MB)
-- **PSU:** Corsair CX650M - 650W 80+B
-- **CAB:** Cooler Master Masterbox Q300L Black
+  - **NVMe0:** Husky Gaming – 128GB  
+  - **HDD0:** Toshiba (1TB, 7200RPM, 64MB cache)  
+- **PSU:** Corsair CX650M – 650W 80+ Bronze  
+- **Case:** Cooler Master MasterBox Q300L (Black)  
 
+---
 
-###
+## 🗂️ Partition Scheme
 
-![Peripherals](https://github.com/jKy0n/Viamar-dotfiles/blob/master/Pictures/Viamar-PC-media/peripherals-14-mar-2025.jpg))
+![Partition Scheme](https://github.com/jKy0n/Viamar-dotfiles/blob/master/Pictures/Viamar-PC-media/PartitionScheme-02-04-2025.png)
 
-## Monitors:
+---
 
-- **Mon0:** Dell SE2216H - 22" (16:9) @1920x1080 60Hz
+![Peripherals](https://github.com/jKy0n/Viamar-dotfiles/blob/master/Pictures/Viamar-PC-media/peripherals-14-mar-2025.jpg)
 
+---
 
-## Inputs:
+## 🖥️ Monitors
 
-- **KB:** T-Dagger Bora ABNT2
-    - **Switchs:** Akko Purple Jelly
-    - **KeyCaps:** Generic purple Keycaps
-- **NP:** Exbom BK-N30
-- **Mouse:** Logitech G403
+- **Monitor 0:** Dell SE2216H – 22" (16:9) @ 1920x1080 @ 60Hz  
+- **Monitor 1:** Dell ??? – 15" (16:9) @ 1366x768 @ 60Hz  
 
+---
 
-## Audio:
+## ⌨️ Inputs
 
-- **Headset:** JBL T290 In-Ear 
+- **Keyboard:** HyperX Alloy Origins Core (ABNT2, Red Switches)  
+  - **Keycaps:** Propitious Omen (Purple)  
+- **Numpad:** Exbom BK-N30  
+- **Mouse:** Logitech G403  
+
+---
+
+## 🔊 Audio
+
+- **Headset:** JBL T290 In-Ear

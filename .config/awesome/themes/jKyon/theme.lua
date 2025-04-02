@@ -41,23 +41,28 @@ theme.font          = "MesloLGS NF Bold 8.5"
 theme.fg_normal          = "#cad3f5"
 theme.fg_focus           = "#8aadf4"
 theme.fg_urgent          = "#cad3f5"
+theme.fg_minimize        = "#aaaaaa"
 
 theme.bg_normal          = "#24273a"
 theme.bg_focus           = "#24273a"
 theme.bg_urgent          = "#ed8796"
+theme.bg_minimize        = "#1E1E2E"
+theme.bg_systray         = theme.bg_normal
 
 theme.useless_gap        = dpi(2)
 theme.border_width       = dpi(2)
 
 theme.border_normal      = "#24273a"
 theme.border_focus       = "#8aadf4"
-theme.border_marked      = "#8aadf4"
+theme.border_active      = "#8aadf4"
+theme.border_marked      = "#ed8796"
 theme.tasklist_bg_focus  = "#24273a"
+
 theme.titlebar_bg_focus  = theme.bg_focus
 theme.titlebar_bg_normal = theme.bg_normal
 theme.titlebar_fg_focus  = theme.fg_focus
 
-
+theme.taglist_fg_empty  =   "#1E1E2E"
 
 
 -- There are other variable sets
