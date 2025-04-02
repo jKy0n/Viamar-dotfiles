@@ -883,6 +883,10 @@ awful.rules.rules = {
 --
 -- B
 -- 
+    { rule_any = { class = {"brasero", "Brasero"} },
+    properties = { floating = true,
+    placement = awful.placement.centered },},
+
 -- C
 -- 
 -- D
