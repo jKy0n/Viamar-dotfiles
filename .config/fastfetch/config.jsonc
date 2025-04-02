@@ -171,6 +171,16 @@
             "key": " "
         },
         {
+            "type": "command",
+            "key": "  ",
+            "text": "whoami"
+        },
+        {
+            "type": "command",
+            "key": "  󰪫",
+            "text": "uname -n"
+        },
+        {
             "type": "packages",
             "key": "  "
         },
