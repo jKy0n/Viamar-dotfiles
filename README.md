@@ -84,15 +84,16 @@
 - **iGPU:** Radeon Cezanne @ 1.9GHz  
 - **Motherboard:** Asus TUF Gaming B550M-Plus  
 - **RAM:** Corsair Vengeance LPX DDR4 2x8GB @ 2133MHz  
-- **Storage:**
-  - **NVMe0:** Husky Gaming – 128GB  
-  - **HDD0:** Toshiba (1TB, 7200RPM, 64MB cache)  
 - **PSU:** Corsair CX650M – 650W 80+ Bronze  
 - **Case:** Cooler Master MasterBox Q300L (Black)  
 
----
+### 💾 Storage 
 
-## 🗂️ Partition Scheme
+| Device |     path     |          Model           | Capacity |
+|--------|--------------|--------------------------|----------|
+|  NVMe  | /dev/nvme0n1 |       Husky Gaming       |  128 GB  |
+|  HDD   |   /dev/sda   | Toshiba WDC WD10SPZX-75Z |   1 TB   |
+
 
 ![Partition Scheme](https://github.com/jKy0n/Viamar-dotfiles/blob/master/Pictures/Viamar-PC-media/PartitionScheme-02-04-2025.png)
 
