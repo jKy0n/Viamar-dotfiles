@@ -753,8 +753,8 @@ clientkeys = gears.table.join(
 
 
         awful.key({}, "Print", function () awful.util.spawn("flameshot gui") end),
-        awful.key({ "Shift" }, "Print", function () awful.util.spawn("flameshot screen --clipboard") end),
-        awful.key({ "Control" }, "Print", function () awful.util.spawn("flameshot full --clipboard") end),
+        awful.key({ "Shift" }, "Print", function () awful.util.spawn("flameshot screen") end),
+        awful.key({ "Control" }, "Print", function () awful.util.spawn("flameshot full") end),
 
 
     awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end,
@@ -899,6 +899,14 @@ awful.rules.rules = {
 -- 
 -- F
 -- 
+{ rule = { class = "feh" },
+properties = { floating = true, name = "feh",
+width = 1536,     -- Defina o tamanho que deseja
+height = 864,     -- Defina o tamanho que deseja
+x = 192,          -- Posição x
+y = 108,          -- Posição y
+screen = 1  }},
+
 -- G
 -- 
     { rule_any = { class = {"gedit", "Gedit"} },

@@ -62,7 +62,8 @@ theme.titlebar_bg_focus  = theme.bg_focus
 theme.titlebar_bg_normal = theme.bg_normal
 theme.titlebar_fg_focus  = theme.fg_focus
 
-theme.taglist_fg_empty  =   "#1E1E2E"
+-- theme.taglist_fg_empty  =   "#1E1E2E"
+theme.taglist_fg_empty  =   "#111111" 
 
 
 -- There are other variable sets

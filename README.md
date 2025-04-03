@@ -2,12 +2,12 @@
 
 *It's all about my little buddie*
 
-![Fastfetch](https://github.com/jKy0n/Viamar-dotfiles/blob/master/Pictures/Viamar-PC-media/fastfetch-14-mar-2025.png)
+![Fastfetch](https://github.com/jKy0n/Viamar-dotfiles/blob/master/Pictures/Viamar-PC-media/fastfetch-ViamarLogo-03-Apr-2025.png)
 
 
 ## 🖥️ Desktop
 
-![Desktop](https://github.com/jKy0n/Viamar-dotfiles/blob/master/Pictures/Viamar-PC-media/desktop-14-mar-2025.jpg)
+![Desktop](https://github.com/jKy0n/Viamar-dotfiles/blob/master/Pictures/Viamar-PC-media/desktop-03-Apr-2025.jpg)
 
 ---
 
@@ -21,7 +21,7 @@
 - **Window Manager:** `awesome`  
 - **Audio:** `pipewire`  
 - **Terminal:** `Alacritty` + `tmux`  
-- **Editor:** `AstroNvim` (Neovim)  
+- **Editor:** `AstroNvim` (`Neovim`)  
 - **Filesystem:** `BtrFS` + `ext4` (for VMs)  
 - **Init:** `systemd`  
 - **Authentication:** `sudo` + `polkit-gnome`  
@@ -98,14 +98,14 @@
 
 ---
 
-![Peripherals](https://github.com/jKy0n/Viamar-dotfiles/blob/master/Pictures/Viamar-PC-media/peripherals-14-mar-2025.jpg)
+![Peripherals](https://github.com/jKy0n/Viamar-dotfiles/blob/master/Pictures/Viamar-PC-media/peripherals-03-Apr-2025.jpg)
 
 ---
 
 ## 🖥️ Monitors
 
 - **Monitor 0:** Dell SE2216H – 22" (16:9) @ 1920x1080 @ 60Hz  
-- **Monitor 1:** Dell ??? – 15" (16:9) @ 1366x768 @ 60Hz  
+- **Monitor 1:** Dell RTK1D1A – 15" (16:9) @ 1366x768 @ 60Hz  
 
 ---
 

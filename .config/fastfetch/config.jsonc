@@ -8,10 +8,11 @@
     
     "logo": {
         "type": "chafa",
-        "source": "/home/jkyon/Pictures/ArchLinuxMedias/ArchLinux-logo.png",
+        // "source": "/home/jkyon/Pictures/ArchLinuxMedias/ArchLinux-logo.png",
+        "source": "/home/jkyon/Viamar/ViamarMedia/ViamarLogoColorido.png",
         // "dither": "ordered",
         "width":  40,
-        "height": 20,
+        "height": 15,
         "padding": { 
             "left": 2,
             "right": 2
