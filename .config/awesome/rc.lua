@@ -485,7 +485,7 @@ local tasklist_buttons = gears.table.join(
             mem_icon,
             mem.widget,
             tbox_separator_space,
-            ram_widget({ color_used = '#8aadf4', color_buf = '#cad3f5r' }),
+            ram_widget({ color_used = '#8aadf4', color_buf = '#cad3f5' }),
 ------------------------------------------------------------------------------------------------            
             wibox.widget.textbox(' | '),
             tbox_separator_space,
@@ -505,13 +505,12 @@ local tasklist_buttons = gears.table.join(
             mytextclock,
 
             logout_menu_widget{
-                -- font = 'Noto Sans semibold 9',
                 font = 'MesloLGS Nerd Font Bold 10',
-                onlogout   =  function() awesome.quit() end,
-                onlock     =  function() awful.spawn.with_shell('light-locker-command -l') end,
+                onlogout   =  function() awful.spawn.with_shell("loginctl terminate-user $USER") end,
+                onlock     =  function() awful.spawn.with_shell('light-locker-command --lock') end,
                 onsuspend  =  function() awful.spawn.with_shell("systemctl suspend") end,
                 onreboot   =  function() awful.spawn.with_shell("systemctl reboot") end,
-                onpoweroff =  function() awful.spawn.with_shell("shutdown now") end,
+                onpoweroff =  function() awful.spawn.with_shell("systemctl poweroff") end,
             },
         },
     }
@@ -562,13 +561,12 @@ local tasklist_buttons = gears.table.join(
             mytextclock,
 
             logout_menu_widget{
-                -- font = 'Noto Sans semibold 9',
                 font = 'MesloLGS Nerd Font Bold 10',
-                onlogout   =  function() awesome.quit() end,
-                onlock     =  function() awful.spawn.with_shell('light-locker-command -l') end,
+                onlogout   =  function() awful.spawn.with_shell("loginctl terminate-user $USER") end,
+                onlock     =  function() awful.spawn.with_shell('light-locker-command --lock') end,
                 onsuspend  =  function() awful.spawn.with_shell("systemctl suspend") end,
                 onreboot   =  function() awful.spawn.with_shell("systemctl reboot") end,
-                onpoweroff =  function() awful.spawn.with_shell("shutdown now") end,
+                onpoweroff =  function() awful.spawn.with_shell("systemctl poweroff") end,
             },
         },
     }
