@@ -741,20 +741,23 @@ clientkeys = gears.table.join(
         end,
         {description = "toggle fullscreen", group = "client"}),
 
+        -- Audio control --
+    awful.key({}, "XF86AudioRaiseVolume", function() volume_widget:inc(5) end),
+    awful.key({}, "XF86AudioLowerVolume", function() volume_widget:dec(5) end),
+    awful.key({}, "XF86AudioMute", function() volume_widget:toggle() end),
 
-        awful.key({}, "XF86AudioRaiseVolume", function() volume_widget:inc(5) end),
-        awful.key({}, "XF86AudioLowerVolume", function() volume_widget:dec(5) end),
-        awful.key({}, "XF86AudioMute", function() volume_widget:toggle() end),
+    awful.key({}, "XF86AudioPrev", function() awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous") end),
+    awful.key({}, "XF86AudioNext", function() awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next") end),
+    awful.key({}, "XF86AudioPlay", function() awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause") end),
+    awful.key({}, "XF86AudioStop", function() awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Pause") end),
 
-        awful.key({}, "XF86AudioPrev", function() awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous") end),
-        awful.key({}, "XF86AudioNext", function() awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next") end),
-        awful.key({}, "XF86AudioPlay", function() awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause") end),
-        awful.key({}, "XF86AudioStop", function() awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Pause") end),
+        -- Screenshot / Printscreen --
+    awful.key({}, "Print", function () awful.util.spawn("flameshot gui") end),
+    awful.key({ "Shift" }, "Print", function () awful.util.spawn("flameshot screen") end),
+    awful.key({ "Control" }, "Print", function () awful.util.spawn("flameshot full") end),
 
-
-        awful.key({}, "Print", function () awful.util.spawn("flameshot gui") end),
-        awful.key({ "Shift" }, "Print", function () awful.util.spawn("flameshot screen") end),
-        awful.key({ "Control" }, "Print", function () awful.util.spawn("flameshot full") end),
+        -- Lock screen --
+    awful.key({ modkey, "Control" }, "Escape", function () awful.util.spawn("light-locker-command -l") end),
 
 
     awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end,
@@ -881,6 +884,14 @@ awful.rules.rules = {
 
 -- A
 --
+    { rule_any = { class = {"ark"} },
+    properties = { floating = true,
+    placement = awful.placement.centered },},
+
+    { rule_any = { class = {"Arandr"} },
+    properties = { floating = true,
+    placement = awful.placement.centered },},
+
 -- B
 -- 
     { rule_any = { class = {"brasero", "Brasero"} },
@@ -928,7 +939,7 @@ screen = 1  }},
     { rule_any = { class = {"gpt4all-chat", "GPT4All"} }, -- VSCode
     properties = { floating = false,
         callback = function(c)
-            create_volatile_tag(c, " GPT4All ", 1, awful.layout.suit.tile.left)
+            create_volatile_tag(c, " LLMs ", 1, awful.layout.suit.tile.left)
         end,},},
 
 -- H
@@ -950,11 +961,18 @@ screen = 1  }},
 
 -- L
 -- 
+    { rule_any = { name = {"lm studio", "LM Studio" } },
+    properties = { floating = false,
+        callback = function(c)
+            create_volatile_tag(c, " LLMs ", 1, awful.layout.suit.tile)
+    end,},},
+
     { rule = { class = "Lxappearance" },
     properties = { floating = true,
     placement = awful.placement.centered },},
-    -- M
-    --
+
+-- M
+--
     { rule_any = { class = {"mpv"} },
     properties = { floating = true,
     placement = awful.placement.centered },},
@@ -974,6 +992,7 @@ screen = 1  }},
     { rule = { class = "openrgb" },
     properties = { floating = true,
     placement = awful.placement.centered },},
+
 -- P
 -- 
 
