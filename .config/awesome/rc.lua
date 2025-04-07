@@ -1135,7 +1135,7 @@ awful.spawn.with_shell("sh /home/jkyon/.screenlayout/screenlayout.sh")
 awful.spawn.with_shell("feh --bg-fill --no-xinerama ~/Pictures/Wallpapers/blueNebula.jpg &")
 
 
--- Start awesome target on systemd
+-- Start awesome target on systemd (screensaver dependency)
 awful.spawn.easy_async_with_shell(
   "systemctl --user start awesomewm.target",
   function() end

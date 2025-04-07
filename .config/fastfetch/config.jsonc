@@ -9,7 +9,7 @@
     "logo": {
         "type": "chafa",
         // "source": "/home/jkyon/Pictures/ArchLinuxMedias/ArchLinux-logo.png",
-        "source": "/home/jkyon/Viamar/ViamarMedia/ViamarLogoColorido.png",
+        "source": "/home/jkyon/Viamar/ViamarMedia/ViamarLogoColoridoSemSol.png",
         // "dither": "ordered",
         "width":  40,
         "height": 15,
