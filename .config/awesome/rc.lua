@@ -975,7 +975,7 @@ screen = 1  }},
     properties = { floating = true,
     placement = awful.placement.centered },},
 
-    { rule = { name = "MuPDF" },
+    { rule_any = { name = {"mupdf", "MuPDF"} },
     properties = { floating = true,
     placement = awful.placement.centered },},
 
