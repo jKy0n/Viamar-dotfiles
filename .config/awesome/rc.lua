@@ -485,7 +485,7 @@ local tasklist_buttons = gears.table.join(
             mem_icon,
             mem.widget,
             tbox_separator_space,
-            ram_widget({ color_used = '#8aadf4', color_buf = '#cad3f5' }),
+            ram_widget({ color_used = '#8aadf4', color_buf = '#24273a' }),
 ------------------------------------------------------------------------------------------------            
             wibox.widget.textbox(' | '),
             tbox_separator_space,

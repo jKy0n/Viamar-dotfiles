@@ -5,6 +5,7 @@
 APPS=(
     "openrgb --startminimized --profile Viamar-PC"
     "picom -b"
+    "xfce4-clipman"
     "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 )
 

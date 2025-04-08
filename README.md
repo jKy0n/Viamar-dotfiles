@@ -42,14 +42,14 @@
 
 - **Launcher:** `Rofi`  
 - **Browser:** `Firefox`  
-- **File Explorer:** `Dolphin` (+ `Ark`)  
+- **File Explorer:** `Dolphin` + `Ark`
 - **Music Player:** `Spotify` + `Spicetify`  
 - **Audio Control:** `pavucontrol`  
 - **IDE:** `VSCode` (for complex coding)  
-- **Notes / PKM:** `Obsidian`  
-- **Chat / Messaging:** `Rambox`  
-- **Password Manager:** `Bitwarden`  
-- **RGB Control:** `OpenRGB`  
+- **Notes:** `Obsidian`
+- **Chat / Messaging:** `Rambox`
+- **Password Manager:** `Bitwarden`
+- **RGB Control:** `OpenRGB`
 
 ---
 
