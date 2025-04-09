@@ -1,7 +1,7 @@
 # Histórico
 HISTSIZE=10000
 SAVEHIST=10000
-HISTFILE=~/.config/zsh/zsh_history
+HISTFILE=/home/jkyon/.config/zsh/zsh-secrets/zsh_history
 
 # Opções
 setopt append_history       # Anexa ao invés de sobrescrever
