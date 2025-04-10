@@ -373,6 +373,12 @@ local tasklist_buttons = gears.table.join(
         selected = false,
         screen = 1
     })
+
+    awful.tag.add(" Term (5) ", {
+        layout = awful.layout.suit.tile.left,
+        selected = false,
+        screen = 1
+    })
     
 ------------------------------------------------------------------
 
