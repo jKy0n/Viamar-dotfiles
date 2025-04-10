@@ -763,6 +763,12 @@ clientkeys = gears.table.join(
         -- Lock screen --
     awful.key({ modkey, "Control" }, "Escape", function () awful.util.spawn("light-locker-command -l") end),
 
+    awful.key({ modkey, "Shift" }, "o", function()
+        if client.focus then
+            -- Centraliza a janela ativa (client)
+            awful.placement.centered(client.focus, { honor_workarea = true })
+        end
+    end, {description = "centralizar janela", group = "client"}),
 
     awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end,
               {description = "close", group = "client"}),
@@ -770,8 +776,8 @@ clientkeys = gears.table.join(
               {description = "toggle floating", group = "client"}),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
               {description = "move to master", group = "client"}),
-    awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
-              {description = "move to screen", group = "client"}),
+    -- awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
+    --           {description = "move to screen", group = "client"}),
     awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end,
               {description = "toggle keep on top", group = "client"}),
     awful.key({ modkey,           }, "n",
