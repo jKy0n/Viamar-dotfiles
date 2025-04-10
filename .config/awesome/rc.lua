@@ -763,12 +763,13 @@ clientkeys = gears.table.join(
         -- Lock screen --
     awful.key({ modkey, "Control" }, "Escape", function () awful.util.spawn("light-locker-command -l") end),
 
+        -- Centralize window --
     awful.key({ modkey, "Shift" }, "o", function()
         if client.focus then
-            -- Centraliza a janela ativa (client)
             awful.placement.centered(client.focus, { honor_workarea = true })
         end
-    end, {description = "centralizar janela", group = "client"}),
+    end, {description = "centralize window", group = "client"}),
+
 
     awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end,
               {description = "close", group = "client"}),
