@@ -3,7 +3,7 @@ export EDITOR=nvim
 export SUDO_EDITOR=nvim
 
 # 
-export QT_QPA_PLATFORMTHEME="qt6ct"
+# export QT_QPA_PLATFORMTHEME="qt6ct"
 
 export PATH="$HOME/.local/bin:$PATH"
 
