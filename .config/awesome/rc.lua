@@ -935,6 +935,12 @@ screen = 1  }},
     properties = { floating = true,
     placement = awful.placement.centered },},
 
+    { rule_any = { class = {"gimp", "Gimp"} },
+    properties = { floating = false,
+        callback = function(c)
+            create_volatile_tag(c, " GIMP ", 1, awful.layout.suit.tile.left)
+        end,},},
+
     { rule = { class = "Google-chrome" },
     properties = { floating = false,
     placement = awful.placement.centered },},
@@ -947,7 +953,7 @@ screen = 1  }},
     properties = { floating = true,
     placement = awful.placement.centered },},
 
-    { rule_any = { class = {"gpt4all-chat", "GPT4All"} }, -- VSCode
+    { rule_any = { class = {"gpt4all-chat", "GPT4All"} },
     properties = { floating = false,
         callback = function(c)
             create_volatile_tag(c, " LLMs ", 1, awful.layout.suit.tile.left)
@@ -970,6 +976,12 @@ screen = 1  }},
                     tag = screen[2].tags[5],
     placement = awful.placement.centered,},},    
 
+    { rule_any = { name = { "krita", "krita" } },
+    properties = { floating = false,
+        callback = function(c)
+            create_volatile_tag(c, " Krita ", 1, awful.layout.suit.tile)
+    end,},},
+
 -- L
 -- 
     { rule_any = { name = {"lm studio", "LM Studio" } },
@@ -984,9 +996,14 @@ screen = 1  }},
 
 -- M
 --
-    { rule_any = { class = {"mpv"} },
-    properties = { floating = true,
-    placement = awful.placement.centered },},
+    { rule = { class = "mpv" },
+    properties = { floating = true, name = "mpv",
+                    width = 1536,     -- Defina o tamanho que deseja
+                    height = 864,     -- Defina o tamanho que deseja
+                    screen = 1 },
+    callback = function(c)
+        awful.placement.centered(c, { honor_workarea = true })
+    end },
 
     { rule_any = { name = {"mupdf", "MuPDF"} },
     properties = { floating = true,
@@ -1029,6 +1046,12 @@ screen = 1  }},
 
 -- S
 --
+    { rule_any = { class = {"simple-scan", "simple-scan"} },
+    properties = { floating = false,
+        callback = function(c)
+            create_volatile_tag(c, " Scan ", 1, awful.layout.suit.tile)
+        end,},},
+
     { rule = { class = "Spotify" },
     properties = { floating = false,
     placement = awful.placement.centered,

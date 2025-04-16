@@ -125,9 +125,14 @@
             "detectionMethod": "pci",
             "key": "  󰢮"
         },
+        // {
+        //     "type": "board",
+        //     "key": "  󰚗"
+        // },
         {
-            "type": "board",
-            "key": "  󰚗"
+            "type": "command",
+            "key": "  󰚗",
+            "text": "sh /home/jkyon/ShellScript/Viamar-PC/fastfetch/fastfetch-MoBo-info.sh" 
         },
         {
             "type": "disk",
