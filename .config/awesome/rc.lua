@@ -560,7 +560,7 @@ local tasklist_buttons = gears.table.join(
             mem_icon,
             mem.widget,
             tbox_separator_space,
-            -- ram_widget({ color_used = '#327dae', color_buf = '#103c56' }),
+            -- ram_widget({ color_used = '#8aadf4', color_buf = '#24273a' }),
 ------------------------------------------------------------------------------------------------            
             wibox.widget.textbox(' | '),
             tbox_separator_space,
@@ -1007,16 +1007,30 @@ screen = 1  }},
     end },
 
     { rule_any = { name = {"mupdf", "MuPDF"} },
-    properties = { floating = true,
-    placement = awful.placement.centered },},
+    properties = { floating = true, name = "muPDF",
+                    width = 1536,     -- Defina o tamanho que deseja
+                    height = 864,     -- Defina o tamanho que deseja
+                    screen = 1 },
+    callback = function(c)
+        awful.placement.centered(c, { honor_workarea = true })
+    end },
 
 -- N
 -- 
 -- O
 -- 
-    { rule_any = {  class = {"obsidian", "obsidian"} },
+    { rule_any = {  class = { "obsidian", "obsidian" } },
     properties = {  floating = false,
                     tag = screen[1].tags[3],},},
+
+    { rule_any = { name = { "okular", "okular" } },
+    properties = { floating = true, name = "muPDF",
+                    width = 1536,     -- Defina o tamanho que deseja
+                    height = 864,     -- Defina o tamanho que deseja
+                    screen = 1 },
+    callback = function(c)
+        awful.placement.centered(c, { honor_workarea = true })
+    end },
 
     { rule = { class = "openrgb" },
     properties = { floating = true,
