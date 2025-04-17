@@ -967,9 +967,10 @@ screen = 1  }},
 -- 
 -- K
 -- 
-    { rule = { name = "kclock" },
+{ rule_any = { name = { "kclock", "kclock" } },
     properties = { floating = true,
-    placement = awful.placement.centered },},    
+    placement = awful.placement.centered,
+    tag = screen[2].tags[5], },},    
 
     { rule = { name = "KDE Connect" },
     properties = { floating = true,
