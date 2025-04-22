@@ -967,7 +967,7 @@ screen = 1  }},
 -- 
 -- K
 -- 
-{ rule_any = { name = { "kclock", "kclock" } },
+    { rule_any = { name = { "kclock", "kclock" } },
     properties = { floating = true,
     placement = awful.placement.centered,
     tag = screen[2].tags[5], },},    
@@ -1180,10 +1180,10 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 
--- Adjust screen layout
+-- Set screen layout
 awful.spawn.with_shell("sh /home/jkyon/.screenlayout/screenlayout.sh")
 -- Set wallpaper
-awful.spawn.with_shell("feh --bg-fill --no-xinerama ~/Pictures/Wallpapers/blueNebula.jpg &")
+awful.spawn.with_shell("feh --bg-fill --no-xinerama ~/Pictures/Wallpapers/blueNebula.jpg")
 
 
 -- Start awesome target on systemd (screensaver dependency)
