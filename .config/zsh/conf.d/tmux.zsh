@@ -35,3 +35,4 @@ if [[ -t 0 ]] && \
     echo "Não está no VSCode"
   fi
 fi
+
