@@ -1024,7 +1024,7 @@ screen = 1  }},
                     tag = screen[1].tags[3],},},
 
     { rule_any = { name = { "okular", "okular" } },
-    properties = { floating = true, name = "muPDF",
+    properties = { floating = true, name = "Okular",
                     width = 1536,     -- Defina o tamanho que deseja
                     height = 864,     -- Defina o tamanho que deseja
                     screen = 1 },
