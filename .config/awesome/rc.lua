@@ -1180,6 +1180,8 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 
+-- jKyon adds --
+
 -- Set screen layout
 awful.spawn.with_shell("sh /home/jkyon/.screenlayout/screenlayout.sh")
 -- Set wallpaper

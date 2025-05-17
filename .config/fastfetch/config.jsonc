@@ -4,7 +4,7 @@
     
     "logo": {
         "type": "chafa",
-        "source": "/home/jkyon/Viamar/ViamarMedia/ViamarLogoColoridoSemSol.png",
+        "source": "/home/jkyon/Viamar/ViamarMedia/LogoNovoViamar.png",
         "width":  40,
         "height": 15,
         "padding": { 
@@ -38,7 +38,7 @@
         {
             "type": "command",
             "key": "│  ",
-            "text": "sh /home/jkyon/ShellScript/fastfetchCustomTerminal.sh",
+            "text": "sh /home/jkyon/ShellScript/fastfetch-zsh+tmux-version.sh",
             "format": "{1} │"
         },
         {
@@ -60,7 +60,7 @@
         {
             "type": "command",
             "key": "│  ",
-            "text": " btrfs --version | awk 'NR==1 {print \"BtrFS\", $2}' ",
+            "text": "sh /home/jkyon/ShellScript/fastfetch-btrfs+bees-version.sh",
             "format": "{1} │"
         },
         {
