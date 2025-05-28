@@ -33,6 +33,7 @@ local todo_widget = require("awesome-wm-widgets.todo-widget.todo")
 local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
 local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
 
+local internet_widget = require("jkyon-widgets.internet_widget")
 
 -----------------------------------------------------------------------------
 -----------------------------------------------------------------------------
@@ -471,6 +472,7 @@ local tasklist_buttons = gears.table.join(
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             
+            internet_widget,
             tbox_separator_space,
             cpu_icon,
             wibox.widget.textbox('CPU '),
@@ -544,6 +546,7 @@ local tasklist_buttons = gears.table.join(
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             
+            internet_widget,
             tbox_separator_space,
             cpu_icon,
             wibox.widget.textbox('CPU '),
