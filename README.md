@@ -14,7 +14,7 @@
 ## 🧬 Operational System
 
 - **OS:** `Arch Linux` x86_64  
-- **Kernel:** 6.14.X-arch1-1  
+- **Kernel:** 6.14.X (arch bin standard)  
 - **Shell:** `zsh` (`bash` for scripts)  
 - **GS:** `X.Org` (X11)  
 - **Login Manager:** `LightDM` + `light-locker`  
