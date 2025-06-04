@@ -34,6 +34,7 @@ local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
 local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
 
 local internet_widget = require("jkyon-widgets.internet_widget")
+local dnd_widget = require ("jkyon-widgets.DoNotDisturb-Widget")
 
 -----------------------------------------------------------------------------
 -----------------------------------------------------------------------------
@@ -509,7 +510,7 @@ local tasklist_buttons = gears.table.join(
             todo_widget(),
             tbox_separator_space,
             wibox.widget.systray(),
-            tbox_separator_space,
+            dnd_widget,
             mytextclock,
 
             logout_menu_widget{
@@ -566,7 +567,7 @@ local tasklist_buttons = gears.table.join(
             -- ram_widget({ color_used = '#8aadf4', color_buf = '#24273a' }),
 ------------------------------------------------------------------------------------------------            
             wibox.widget.textbox(' | '),
-            tbox_separator_space,
+            dnd_widget,
             mytextclock,
 
             logout_menu_widget{
