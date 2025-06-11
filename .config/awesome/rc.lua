@@ -34,7 +34,7 @@ local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
 local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
 
 local internet_widget = require("jkyon-widgets.internet_widget")
-local dnd_widget = require ("jkyon-widgets.DoNotDisturb-Widget")
+local dnd_widget = require ("jkyon-widgets.DoNotDisturb_widget")
 
 -----------------------------------------------------------------------------
 -----------------------------------------------------------------------------
