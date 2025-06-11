@@ -19,12 +19,13 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 require("awful.hotkeys_popup.keys")
 
 
--- my widgets
+--- lain widgets ---
 local lain = require "lain"
 local mycpu = lain.widget.cpu()
 local mymem = lain.widget.mem()
 local mytemp = lain.widget.temp()
 
+--- awesome-wm-widgets widgets ---
 local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
 local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
 
@@ -33,6 +34,7 @@ local todo_widget = require("awesome-wm-widgets.todo-widget.todo")
 local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
 local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
 
+--- jKyon Widgets ---
 local internet_widget = require("jkyon-widgets.internet_widget")
 local dnd_widget = require ("jkyon-widgets.DoNotDisturb_widget")
 
@@ -144,7 +146,7 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 
 
 
--------------------- Widgets --------------------
+-----------------  Widgets handler  -----------------
 
 
 tbox_separator_space = wibox.widget.textbox (" ")
@@ -192,6 +194,7 @@ local temp = lain.widget.temp({
 mytextclock = wibox.widget.textclock(' %a, %d %b - %H:%M ', 60)
 
 -----------------------------------------------------------------------------
+----------------------  Calendar widget config  -------------------
 
 local cw = calendar_widget({
     theme = 'naughty',
@@ -208,7 +211,7 @@ mytextclock:connect_signal("button::press",
     end)
 
 -----------------------------------------------------------------------------
--------------------  Tags Manipulation Functions  -------------------
+------------------  Volatile Tags Manipulation Functions  ------------------
 
 local function add_tag()
     awful.tag.add(" NewTag ", {
@@ -351,7 +354,9 @@ local tasklist_buttons = gears.table.join(
     -- Each screen has its own tag table.
     -- awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
 
-
+------------------------------------------------------------------
+--------------------- First Monitor Tags  ------------------------
+---
     awful.tag.add(" Work (1) ", {
         layout = awful.layout.suit.tile,
         selected = true,
@@ -383,6 +388,8 @@ local tasklist_buttons = gears.table.join(
     })
     
 ------------------------------------------------------------------
+---------------------- Second Monitor Tags  ----------------------
+---
 
     awful.tag.add(" Work (1) ", {
         layout = awful.layout.suit.tile,
@@ -452,7 +459,7 @@ local tasklist_buttons = gears.table.join(
 
 
 -------------------------------------------------------------------------    
------------------------------  Fisrt Wibar  -----------------------------
+-------------------------  Fisrt monitor Wibar  -------------------------
 -------------------------------------------------------------------------
 
     if s.index == 1 then
@@ -525,7 +532,7 @@ local tasklist_buttons = gears.table.join(
     }
 
 --------------------------------------------------------------------------    
------------------------------  Second Wibar  -----------------------------
+-------------------------  Second monitor Wibar  -------------------------
 --------------------------------------------------------------------------
 
     elseif s.index == 2 then
@@ -588,7 +595,7 @@ end)
 --------------------------------------------------------------------------    
 --------------------------------------------------------------------------
 
-
+-------------------------------- Keybinds --------------------------------
 
 -- {{{ Mouse bindings
 root.buttons(gears.table.join(
@@ -896,7 +903,9 @@ awful.rules.rules = {
      }
     },
 
-
+----------------------------------------------------------
+----------------------  Rules List  ----------------------
+---
 -- A
 --
     { rule_any = { class = {"ark"} },
@@ -1110,6 +1119,9 @@ screen = 1  }},
 -- 
 -- Z
 
+----------------------------------------------------------
+----------------------------------------------------------
+
 
     -- Floating clients.
     { rule_any = {
@@ -1184,18 +1196,19 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 
--- jKyon adds --
+----------------------------------------------------
+-------------------- jKyon adds --------------------
 
--- Set screen layout
+--- Set screen layout
 awful.spawn.with_shell("sh /home/jkyon/.screenlayout/screenlayout.sh")
--- Set wallpaper
+--- Set wallpaper
 awful.spawn.with_shell("feh --bg-fill --no-xinerama ~/Pictures/Wallpapers/blueNebula.jpg")
 
 
--- Start awesome target on systemd (screensaver dependency)
+--- Start awesome target on systemd (screensaver dependency)
 awful.spawn.easy_async_with_shell(
   "systemctl --user start awesomewm.target",
   function() end
 )
--- Start some applications
+--- Start some applications
 awful.spawn.with_shell("sh /home/jkyon/.config/awesome/autorun.sh")
