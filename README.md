@@ -14,7 +14,7 @@
 ## 🧬 Operational System
 
 - **OS:** `Arch Linux` x86_64  
-- **Kernel:** `6.14.X` (arch bin standard)  
+- **Kernel:** `6.15.X` (arch bin standard)  
 - **Shell:** `zsh` (`bash` for scripts)  
 - **GS:** `X.Org` (X11)  
 - **Login Manager:** `LightDM` + `light-locker`  
@@ -31,10 +31,10 @@
 
 ## 🎨 Theming
 
-- **Theme:** `Colloid-dark-Catppuccin`
+- **Theme:** `Colloid-Dark-Compact-Catppuccin`
 - **Icons:** `ePapirus-Dark`  
 - **Font:** `MesloLGLS Nerd Font 10`  
-- **Cursor:** `Future-black-cursors`
+- **Cursor:** `Future-black`
 
 ---
 
