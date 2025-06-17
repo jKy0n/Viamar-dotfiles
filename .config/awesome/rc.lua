@@ -21,9 +21,9 @@ require("awful.hotkeys_popup.keys")
 
 --- lain widgets ---
 local lain = require "lain"
-local mycpu = lain.widget.cpu()
-local mymem = lain.widget.mem()
-local mytemp = lain.widget.temp()
+-- local mycpu = lain.widget.cpu()
+-- local mymem = lain.widget.mem()
+-- local mytemp = lain.widget.temp()
 
 --- awesome-wm-widgets widgets ---
 local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
@@ -112,10 +112,10 @@ awful.layout.layouts = {
     -- awful.layout.suit.max.fullscreen,
     -- awful.layout.suit.magnifier,
     -- awful.layout.suit.corner.nw,
-    awful.layout.suit.floating,
     -- awful.layout.suit.corner.ne,
     -- awful.layout.suit.corner.sw,
     -- awful.layout.suit.corner.se,
+    awful.layout.suit.floating,
 }
 -- }}}
 
@@ -164,16 +164,16 @@ end
 
 local cpu_icon = styled_textbox('  ', 11, 2)
 local mem_icon = styled_textbox('   ', 11, 2)
-local gpu_icon = styled_textbox(' 󰢮 ', 16, 1)
+-- local gpu_icon = styled_textbox(' 󰢮 ', 16, 1)
 local temp_icon = styled_textbox('  ', 11, 1)
-local psu_icon = styled_textbox(' 󰚥 ', 11, 1)
+-- local psu_icon = styled_textbox(' 󰚥 ', 11, 1)
 
 
-local cpu = lain.widget.cpu {
-    settings = function()
-        widget:set_markup("CPU " .. cpu_now.usage .. "%")
-    end
-}
+-- local cpu = lain.widget.cpu {
+--     settings = function()
+--         widget:set_markup("CPU " .. cpu_now.usage .. "%")
+--     end
+-- }
 
 local mem = lain.widget.mem {
     settings = function()
@@ -181,11 +181,11 @@ local mem = lain.widget.mem {
     end
 }
 
-local temp = lain.widget.temp({
-    settings = function()
-        widget:set_markup("Temp " .. coretemp_now .. "°C ")
-    end
-})
+-- local temp = lain.widget.temp({
+--     settings = function()
+--         widget:set_markup("Temp " .. coretemp_now .. "°C ")
+--     end
+-- })
 
 
 -- {{{ Wibar
