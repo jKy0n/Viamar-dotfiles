@@ -74,7 +74,7 @@
 
 ---
 
-![Viamar](https://github.com/jKy0n/Viamar-dotfiles/blob/master/Pictures/Viamar-PC-media/viamar-14-mar-2025.jpg)
+![Viamar](https://github.com/jKy0n/Viamar-dotfiles/blob/master/Pictures/Viamar-PC-media/viamar-25-06-2025.jpg)
 
 ---
 
@@ -92,10 +92,13 @@
 | Device |     path     |          Model           | Capacity |
 |--------|--------------|--------------------------|----------|
 |  NVMe  | /dev/nvme0n1 |       Husky Gaming       |  128 GB  |
+|  NVMe  | /dev/nvme1n1 |       Husky Gaming       |  256 GB  |
 |  HDD   |   /dev/sda   | Toshiba WDC WD10SPZX-75Z |   1 TB   |
+|  HDD   |   /dev/sdb   |   ATA WDC WD1600AAJS-7   |  160 GB  |
+| HDDext |   /dev/sdc   |     ADATA HD710 PRO      |   1 TB   |
 
 
-![Partition Scheme](https://github.com/jKy0n/Viamar-dotfiles/blob/master/Pictures/Viamar-PC-media/PartitionScheme-02-04-2025.png)
+![Partition Scheme](https://github.com/jKy0n/Viamar-dotfiles/blob/master/Pictures/Viamar-PC-media/PartitionScheme-25-06-2025.png)
 
 ---
 
