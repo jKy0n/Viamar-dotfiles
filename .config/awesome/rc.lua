@@ -714,14 +714,14 @@ globalkeys = gears.table.join(
                                             -icon-theme \"Papirus\" -show-icons \
                                             -theme /home/jkyon/.config/rofi/theme.rasi") 
             end,
-            {description = "show rofi", group = "launcher"}),
+            {description = "show rofi launcher", group = "launcher"}),
 
 
     awful.key({ modkey, }, "o",
         --   function () awful.util.spawn("rofi -config ~/.config/rofi/config -show combi -combi-modi \"window,run\" -modi combi -icon-theme \"Papirus\" -show-icons -theme ~/.config/rofi/config.rasi") end),
         function () awful.util.spawn("rofi  -config /home/jkyon/.config/rofi/config.rasi \
-                                            -modes \"emoji\" -show emoji \
-                                            -icon-theme \"Papirus\" -show-icons \
+                                            -modes \"drun,emoji\" -show emoji \
+                                            -emoji-format \"<span font_family=\'NotoColorEmoji\' size=\'xx-large\'>{emoji}</span>  <span weight=\'bold\'>{name}</span>\" \
                                             -theme /home/jkyon/.config/rofi/theme-emoji.rasi") 
             end,
             {description = "show rofi emojis", group = "launcher"}),
@@ -740,7 +740,7 @@ globalkeys = gears.table.join(
                                             -modi combi -icon-theme \"Papirus\" \
                                             -show-icons -theme /home/jkyon/.config/rofi/theme-tab.rasi") 
             end,
-            {description = "show task windows", group = "launcher"}),
+            {description = "show rofi task windows", group = "launcher"}),
 
 ---------------------  Tags Manipulation keybinds  ---------------------
 ------------------------------------------------------------------------
