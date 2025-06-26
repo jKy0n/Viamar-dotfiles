@@ -717,6 +717,16 @@ globalkeys = gears.table.join(
             {description = "show rofi", group = "launcher"}),
 
 
+    awful.key({ modkey, }, "o",
+        --   function () awful.util.spawn("rofi -config ~/.config/rofi/config -show combi -combi-modi \"window,run\" -modi combi -icon-theme \"Papirus\" -show-icons -theme ~/.config/rofi/config.rasi") end),
+        function () awful.util.spawn("rofi  -config /home/jkyon/.config/rofi/config.rasi \
+                                            -modes \"emoji\" -show emoji \
+                                            -icon-theme \"Papirus\" -show-icons \
+                                            -theme /home/jkyon/.config/rofi/theme-emoji.rasi") 
+            end,
+            {description = "show rofi emojis", group = "launcher"}),
+
+
     -- alt + tab
     awful.key({ "Mod1", }, "Tab",
         function () awful.util.spawn("rofi  -config /home/jkyon/.config/rofi/config.rasi \

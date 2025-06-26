@@ -6,6 +6,8 @@
  * Configuration For Rofi Version: 1.7.3
  **/
 
+/* @import "/home/jkyon/.config/rofi/themes/emoji-size.rasi" */
+
 configuration {
 	/*---------- General setting ----------*/
 	modi: "drun,run,filebrowser,window,emoji";
@@ -102,6 +104,11 @@ configuration {
       action: "kb-cancel";
       delay:  0;
     }
+
+	element-icon {
+		size: 2.5em;
+		margin-right: 0.5em;
+	}
 
 	/*---------- Keybindings ----------*/
 /*
