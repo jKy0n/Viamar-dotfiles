@@ -70,7 +70,14 @@
 
 ## ⚙️ Dotfiles Management
 
-- **Dotfiles Tool:** `yadm`
+- **Dotfiles Tool:** `yadm` (github)
+
+---
+
+## 🔄 Backup & Restoration
+
+- **Backup Solution:** `Borg` (Dedup + Compression)
+- **BtrFS Snapshots:** `snapper-support` = `Snapper` + `snap-pac` + `grub-btrfs`
 
 ---
 
