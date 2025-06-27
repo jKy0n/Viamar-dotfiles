@@ -482,24 +482,25 @@ local tasklist_buttons = gears.table.join(
             
             internet_widget,
             tbox_separator_space,
-            cpu_icon,
+            cpu_icon,   --  
             wibox.widget.textbox('CPU '),
-            awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/dwmBlocksCpuUsage"', 1),
+            awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/Viamar-PC/StatusBar-Scripts/CPU-usage-monitor.sh"', 1),
             tbox_separator_space,
             tbox_separator_dash,
             tbox_separator_space,
-            awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/awesomeWidget-CPU-freq-monitor.sh"', 1),
+            awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/Viamar-PC/StatusBar-Scripts/CPU-freq-monitor.sh"', 1),
             tbox_separator_space,
-            temp_icon,
+            temp_icon,  --  
             tbox_separator_space,
-            awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/dwmBlocksCpuTemp"', 1),
+            awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/Viamar-PC/StatusBar-Scripts/CPU-temp-monitor.sh"', 1),
             tbox_separator_space,
             wibox.widget.textbox(' | '),        
             cpu_widget(),
             wibox.widget.textbox(' | '),
-            -- wibox.widget.textbox('   '),  --  
-            mem_icon,
-            mem.widget,
+            mem_icon,   --   
+            wibox.widget.textbox('RAM '),
+            awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/Viamar-PC/StatusBar-Scripts/RAM-usage-monitor.sh"', 1),
+            -- mem.widget,
             tbox_separator_space,
             ram_widget({ color_used = '#8aadf4', color_buf = '#24273a' }),
 ------------------------------------------------------------------------------------------------            
@@ -556,22 +557,18 @@ local tasklist_buttons = gears.table.join(
             
             internet_widget,
             tbox_separator_space,
-            cpu_icon,
+            cpu_icon,  --  
             wibox.widget.textbox('CPU '),
-            awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/dwmBlocksCpuUsage"', 1),
+            awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/Viamar-PC/StatusBar-Scripts/CPU-usage-monitor.sh"', 1),
             tbox_separator_space,
-            temp_icon,
+            temp_icon,  --  
             tbox_separator_space,
-            awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/dwmBlocksCpuTemp"', 1),
+            awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/Viamar-PC/StatusBar-Scripts/CPU-temp-monitor.sh"', 1),
             tbox_separator_space,
             wibox.widget.textbox(' | '),        
-            -- cpu_widget(),
-            -- wibox.widget.textbox(' | '),
-            -- wibox.widget.textbox('   '),  --  
-            mem_icon,
-            mem.widget,
+            mem_icon,   --   
+            awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/Viamar-PC/StatusBar-Scripts/RAM-usage-monitor.sh"', 1),
             tbox_separator_space,
-            -- ram_widget({ color_used = '#8aadf4', color_buf = '#24273a' }),
 ------------------------------------------------------------------------------------------------            
             wibox.widget.textbox(' | '),
             dnd_widget,
