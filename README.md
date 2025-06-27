@@ -105,7 +105,7 @@
 | HDDext |   /dev/sdc   |     ADATA HD710 PRO      |   1 TB   |
 
 
-![Partition Scheme](https://github.com/jKy0n/Viamar-dotfiles/blob/master/Pictures/Viamar-PC-media/PartitionScheme-25-06-2025.png)
+![Partition Scheme](https://github.com/jKy0n/Viamar-dotfiles/blob/master/Pictures/Viamar-PC-media/PartitionScheme-27-06-2025.png)
 
 ---
 
