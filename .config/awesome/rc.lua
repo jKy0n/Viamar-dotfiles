@@ -37,6 +37,7 @@ local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout
 --- jKyon Widgets ---
 local internet_widget = require("jkyon-widgets.internet_widget")
 local dnd_widget = require ("jkyon-widgets.DoNotDisturb_widget")
+local pkg_widget = require("jkyon-widgets.paru_update_checker") --  Paru update checker widget <<<< 
 
 -----------------------------------------------------------------------------
 -----------------------------------------------------------------------------
@@ -481,6 +482,8 @@ local tasklist_buttons = gears.table.join(
             layout = wibox.layout.fixed.horizontal,
             
             internet_widget,
+            tbox_separator_space,
+            pkg_widget, --  Paru update checker widget    <<<<<<
             tbox_separator_space,
             cpu_icon,   --  
             wibox.widget.textbox('CPU '),
