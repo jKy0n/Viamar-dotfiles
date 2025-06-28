@@ -20,7 +20,7 @@ require("awful.hotkeys_popup.keys")
 
 
 --- lain widgets ---
-local lain = require "lain"
+-- local lain = require "lain"
 -- local mycpu = lain.widget.cpu()
 -- local mymem = lain.widget.mem()
 -- local mytemp = lain.widget.temp()
@@ -175,11 +175,11 @@ local temp_icon = styled_textbox('  ', 11, 1)
 --     end
 -- }
 
-local mem = lain.widget.mem {
-    settings = function()
-        widget:set_markup("RAM " .. mem_now.perc .. "%")
-    end
-}
+-- local mem = lain.widget.mem {
+--     settings = function()
+--         widget:set_markup("RAM " .. mem_now.perc .. "%")
+--     end
+-- }
 
 -- local temp = lain.widget.temp({
 --     settings = function()
