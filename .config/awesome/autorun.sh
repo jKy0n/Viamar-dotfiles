@@ -4,7 +4,7 @@
 # Lista de aplicativos e seus comandos de inicialização
 APPS=(
     "openrgb --startminimized --profile Viamar-PC"
-    "picom -b"
+    # "picom -b"
     "xfce4-clipman"
     "light-locker"
     "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
