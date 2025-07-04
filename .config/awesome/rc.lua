@@ -18,6 +18,8 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
+-- Themes define colours, icons, font and wallpapers.
+beautiful.init("/home/jkyon/.config/awesome/themes/jKyon/theme.lua")
 
 --- lain widgets ---
 -- local lain = require "lain"
@@ -85,7 +87,7 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 -- beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
-beautiful.init("/home/jkyon/.config/awesome/themes/jKyon/theme.lua")
+-- beautiful.init("/home/jkyon/.config/awesome/themes/jKyon/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "alacritty"
