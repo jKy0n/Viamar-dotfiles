@@ -1,3 +1,35 @@
+--[[
+    Paru Update Checker Widget para AwesomeWM
+    =========================================
+EN:
+    This widget displays in the AwesomeWM wibar (status bar) the number of available updates via Paru,
+    including both official repositories and the AUR. The update count is retrieved using "paru -Qu".
+
+    Features:
+    - Shows the number of available updates in the statusbar.
+    - Tooltip with detailed update list (shows on click).
+    - Auto-refresh on startup and at configurable intervals.
+    - Manual refresh with right-click on the widget.
+
+    Designed for visual integration with custom themes (reads colors from theme.lua).
+    Ideal for ArchLinux users who use Paru as AUR helper.
+
+PT:
+    Este widget exibe na wibar (barra de status) do AwesomeWM a quantidade de atualizações disponíveis via Paru,
+    incluindo tanto pacotes oficiais quanto do AUR. O número de updates é obtido usando o comando "paru -Qu".
+
+    Recursos:
+    - Mostra o número de atualizações disponíveis no statusbar.
+    - Tooltip detalhado com a lista de atualizações (aparece ao clicar no widget).
+    - Atualização automática ao iniciar e em intervalos configuráveis.
+    - Atualização manual com clique direito no widget.
+
+    Desenvolvido para integração visual com temas personalizados (usa cores do theme.lua).
+    Ideal para usuários ArchLinux que utilizam o Paru como AUR helper.
+
+    Author: John Kennedy Loria Segundo (jKyon)
+]]
+
 local awful = require("awful")
 local wibox = require("wibox")
 local beautiful = require("beautiful")

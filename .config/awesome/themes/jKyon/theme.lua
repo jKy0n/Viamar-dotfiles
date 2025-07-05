@@ -21,7 +21,7 @@ theme.font          = "MesloLGS NF Bold 8.5"
 theme.fg_normal          = "#cad3f5"
 theme.fg_focus           = "#8aadf4"
 theme.fg_urgent          = "#cad3f5"
-theme.fg_minimize        = "#aaaaaa"
+theme.fg_minimize        = "#6e738d"
 
 theme.bg_normal          = "#24273a"
 theme.bg_focus           = "#24273a"
@@ -42,7 +42,7 @@ theme.titlebar_fg_focus  = theme.fg_focus
 theme.titlebar_bg_normal = theme.bg_normal
 theme.titlebar_bg_focus  = theme.bg_focus
 
-theme.taglist_fg_empty  =   "#444444" 
+theme.taglist_fg_empty  =   "#6e738d"
 
 
 -- There are other variable sets
