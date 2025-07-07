@@ -190,6 +190,9 @@ local temp_icon = styled_textbox('  ', 11, 1)
 --     end
 -- })
 
+-- Fixing CPU width on wibox
+local cpu_usage = awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/Viamar-PC/StatusBar-Scripts/CPU-usage-monitor.sh"', 1)
+cpu_usage.forced_width = 30
 
 -- {{{ Wibar
 -- Create a textclock widget
@@ -488,8 +491,8 @@ local tasklist_buttons = gears.table.join(
             pkg_widget, --  Paru update checker widget    <<<<<<
             tbox_separator_space,
             cpu_icon,   --  
-            wibox.widget.textbox('CPU '),
-            awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/Viamar-PC/StatusBar-Scripts/CPU-usage-monitor.sh"', 1),
+            cpu_usage,
+            -- awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/Viamar-PC/StatusBar-Scripts/CPU-usage-monitor.sh"', 1),
             tbox_separator_space,
             tbox_separator_dash,
             tbox_separator_space,
@@ -503,7 +506,6 @@ local tasklist_buttons = gears.table.join(
             cpu_widget(),
             wibox.widget.textbox(' | '),
             mem_icon,   --   
-            wibox.widget.textbox('RAM '),
             awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/Viamar-PC/StatusBar-Scripts/RAM-usage-monitor.sh"', 1),
             -- mem.widget,
             tbox_separator_space,
@@ -563,7 +565,6 @@ local tasklist_buttons = gears.table.join(
             internet_widget,
             tbox_separator_space,
             cpu_icon,  --  
-            wibox.widget.textbox('CPU '),
             awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/Viamar-PC/StatusBar-Scripts/CPU-usage-monitor.sh"', 1),
             tbox_separator_space,
             temp_icon,  --  
