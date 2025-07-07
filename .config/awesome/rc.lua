@@ -168,7 +168,7 @@ end
 local cpu_icon = styled_textbox('  ', 11, 2)
 local mem_icon = styled_textbox('   ', 11, 2)
 -- local gpu_icon = styled_textbox(' 󰢮 ', 16, 1)
-local temp_icon = styled_textbox('  ', 11, 1)
+local temp_icon = styled_textbox(' ', 11, 1)
 -- local psu_icon = styled_textbox(' 󰚥 ', 11, 1)
 
 
@@ -486,34 +486,34 @@ local tasklist_buttons = gears.table.join(
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             
-            internet_widget,
+            internet_widget,        --  Internet widget detect internet connection
             tbox_separator_space,
             pkg_widget, --  Paru update checker widget    <<<<<<
             tbox_separator_space,
             cpu_icon,   --  
-            cpu_usage,
+            cpu_usage,  --  Shows CPU usage in %
             -- awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/Viamar-PC/StatusBar-Scripts/CPU-usage-monitor.sh"', 1),
             tbox_separator_space,
-            tbox_separator_dash,
-            tbox_separator_space,
+            tbox_separator_space,   --  Shows CPU frequency in GHz
             awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/Viamar-PC/StatusBar-Scripts/CPU-freq-monitor.sh"', 1),
             tbox_separator_space,
             temp_icon,  --  
-            tbox_separator_space,
+            tbox_separator_space,   -- Shows CPU temperature in °C
             awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/Viamar-PC/StatusBar-Scripts/CPU-temp-monitor.sh"', 1),
             tbox_separator_space,
-            wibox.widget.textbox(' | '),        
-            cpu_widget(),
-            wibox.widget.textbox(' | '),
-            mem_icon,   --   
+            tbox_separator_pipe,    --  |
+            cpu_widget(),           -- Graphical CPU usage widget
+            tbox_separator_pipe,    --  |
+            mem_icon,   --         --   Shows RAM usage in %
             awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/Viamar-PC/StatusBar-Scripts/RAM-usage-monitor.sh"', 1),
-            -- mem.widget,
-            tbox_separator_space,
+            -- tbox_separator_space,   --  Graphical RAM usage widgets
             ram_widget({ color_used = '#8aadf4', color_buf = '#24273a' }),
 ------------------------------------------------------------------------------------------------            
-            wibox.widget.textbox(' | '),
+            tbox_separator_pipe,
             tbox_separator_space,
-            volume_widget({ 
+            tbox_separator_space,
+
+            volume_widget({         -- Volume control widget
                 widget_type = 'arc',
                 thickness   = 2 ,
                 step        = 5 ,
@@ -522,13 +522,13 @@ local tasklist_buttons = gears.table.join(
                 tooltip     = false
             }),
             tbox_separator_space,
-            todo_widget(),
+            todo_widget(),          -- To-do list widget
             tbox_separator_space,
-            wibox.widget.systray(),
-            dnd_widget,
-            mytextclock,
+            wibox.widget.systray(), -- System tray widget
+            dnd_widget,             -- Do Not Disturb widget
+            mytextclock,            -- Text clock widget
 
-            logout_menu_widget{
+            logout_menu_widget{     -- Logout menu widget
                 font = 'MesloLGS Nerd Font Bold 10',
                 onlogout   =  function() awful.spawn.with_shell("loginctl terminate-user $USER") end,
                 onlock     =  function() awful.spawn.with_shell('light-locker-command --lock') end,
@@ -562,25 +562,25 @@ local tasklist_buttons = gears.table.join(
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             
-            internet_widget,
+            internet_widget,    -- Internet widget detect internet connection
             tbox_separator_space,
-            cpu_icon,  --  
-            awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/Viamar-PC/StatusBar-Scripts/CPU-usage-monitor.sh"', 1),
+            cpu_icon,   --   
+            cpu_usage,  --  Shows CPU usage in %
+            -- awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/Viamar-PC/StatusBar-Scripts/CPU-usage-monitor.sh"', 1),
             tbox_separator_space,
             temp_icon,  --  
-            tbox_separator_space,
+            tbox_separator_space,   -- Shows CPU temperature in °C
             awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/Viamar-PC/StatusBar-Scripts/CPU-temp-monitor.sh"', 1),
             tbox_separator_space,
-            wibox.widget.textbox(' | '),        
-            mem_icon,   --   
+            mem_icon,   --     --  Shows RAM usage in %
             awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/Viamar-PC/StatusBar-Scripts/RAM-usage-monitor.sh"', 1),
             tbox_separator_space,
 ------------------------------------------------------------------------------------------------            
-            wibox.widget.textbox(' | '),
-            dnd_widget,
-            mytextclock,
 
-            logout_menu_widget{
+            dnd_widget,     -- Do Not Disturb widget
+            mytextclock,    -- Text clock widget
+
+            logout_menu_widget{ -- Logout menu widget
                 font = 'MesloLGS Nerd Font Bold 10',
                 onlogout   =  function() awful.spawn.with_shell("loginctl terminate-user $USER") end,
                 onlock     =  function() awful.spawn.with_shell('light-locker-command --lock') end,
@@ -948,13 +948,13 @@ awful.rules.rules = {
 -- 
 -- F
 -- 
-{ rule = { class = "feh" },
-properties = { floating = true, name = "feh",
-width = 1536,     -- Defina o tamanho que deseja
-height = 864,     -- Defina o tamanho que deseja
-x = 192,          -- Posição x
-y = 108,          -- Posição y
-screen = 1  }},
+    { rule = { class = "feh" },
+    properties = { floating = true, name = "feh",
+    width = 1536,     -- Defina o tamanho que deseja
+    height = 864,     -- Defina o tamanho que deseja
+    x = 192,          -- Posição x
+    y = 108,          -- Posição y
+    screen = 1  }},
 
 -- G
 -- 
@@ -1070,10 +1070,10 @@ screen = 1  }},
 
 -- P
 -- 
-
     { rule_any = { class = {"pavucontrol", "Pavucontrol"} },
     properties = { floating = false,
                     tag = screen[2].tags[4],},},
+
 -- Q
 -- 
     { rule = { class = "qt5ct" },
@@ -1107,6 +1107,7 @@ screen = 1  }},
     { rule_any = { class = {"snappergui", "Snapper-gui"} },
     properties = { floating = true,
     placement = awful.placement.centered,},},
+
 -- T
 -- 
     { rule_any = { class = { "teams-for-linux", "teams-for-linux" } },
