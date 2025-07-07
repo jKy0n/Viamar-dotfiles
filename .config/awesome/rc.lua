@@ -958,9 +958,14 @@ screen = 1  }},
 
 -- G
 -- 
-    { rule_any = { class = {"gedit", "Gedit"} },
-    properties = { floating = true,
-    placement = awful.placement.centered },},
+    { rule_any = { class = { "gedit", "Gedit" } },
+    properties = { floating = true, name = "Okular",
+                    width = 1536,     -- Defina o tamanho que deseja
+                    height = 864,     -- Defina o tamanho que deseja
+                    screen = 1 },
+    callback = function(c)
+        awful.placement.centered(c, { honor_workarea = true })
+    end },
 
     { rule_any = { class = {"gimp", "Gimp"} },
     properties = { floating = false,
@@ -994,17 +999,17 @@ screen = 1  }},
 -- 
 -- K
 -- 
-    { rule_any = { name = { "kclock", "kclock" } },
+    { rule_any = { class = { "kclock", "kclock" } },
     properties = { floating = true,
     placement = awful.placement.centered,
     tag = screen[2].tags[5], },},    
 
-    { rule = { name = "KDE Connect" },
+    { rule = { class = "KDE Connect" },
     properties = { floating = true,
                     tag = screen[2].tags[5],
     placement = awful.placement.centered,},},    
 
-    { rule_any = { name = { "krita", "krita" } },
+    { rule_any = { class = { "krita", "krita" } },
     properties = { floating = false,
         callback = function(c)
             create_volatile_tag(c, " Krita ", 1, awful.layout.suit.tile)
@@ -1012,7 +1017,7 @@ screen = 1  }},
 
 -- L
 -- 
-    { rule_any = { name = {"lm studio", "LM Studio" } },
+    { rule_any = { class = {"lm studio", "LM Studio" } },
     properties = { floating = false,
         callback = function(c)
             create_volatile_tag(c, " LLMs ", 1, awful.layout.suit.tile)
@@ -1033,7 +1038,7 @@ screen = 1  }},
         awful.placement.centered(c, { honor_workarea = true })
     end },
 
-    { rule_any = { name = {"mupdf", "MuPDF"} },
+    { rule_any = { class = {"mupdf", "MuPDF"} },
     properties = { floating = true, name = "muPDF",
                     width = 1536,     -- Defina o tamanho que deseja
                     height = 864,     -- Defina o tamanho que deseja
@@ -1050,7 +1055,7 @@ screen = 1  }},
     properties = {  floating = false,
                     tag = screen[1].tags[3],},},
 
-    { rule_any = { name = { "okular", "okular" } },
+    { rule_any = { class = { "okular", "okular" } },
     properties = { floating = true, name = "Okular",
                     width = 1536,     -- Defina o tamanho que deseja
                     height = 864,     -- Defina o tamanho que deseja
@@ -1104,6 +1109,12 @@ screen = 1  }},
     placement = awful.placement.centered,},},
 -- T
 -- 
+    { rule_any = { class = { "teams-for-linux", "teams-for-linux" } },
+    properties = { floating = false,
+        callback = function(c)
+            create_volatile_tag(c, " Teams ", 2, awful.layout.suit.tile)
+    end,},},
+
     { rule_any = { class = {"Mail", "thunderbird"} },
     properties = { floating = false,
         callback = function(c)
