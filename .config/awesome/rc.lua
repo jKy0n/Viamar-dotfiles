@@ -21,11 +21,6 @@ require("awful.hotkeys_popup.keys")
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init("/home/jkyon/.config/awesome/themes/jKyon/theme.lua")
 
---- lain widgets ---
--- local lain = require "lain"
--- local mycpu = lain.widget.cpu()
--- local mymem = lain.widget.mem()
--- local mytemp = lain.widget.temp()
 
 --- awesome-wm-widgets widgets ---
 local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
@@ -107,38 +102,30 @@ awful.layout.layouts = {
     awful.layout.suit.tile.left,
     awful.layout.suit.tile.bottom,
     awful.layout.suit.tile.top,
-    -- awful.layout.suit.fair,
-    -- awful.layout.suit.fair.horizontal,
-    -- awful.layout.suit.spiral,
-    -- awful.layout.suit.spiral.dwindle,
+
     awful.layout.suit.max,
-    -- awful.layout.suit.max.fullscreen,
-    -- awful.layout.suit.magnifier,
-    -- awful.layout.suit.corner.nw,
-    -- awful.layout.suit.corner.ne,
-    -- awful.layout.suit.corner.sw,
-    -- awful.layout.suit.corner.se,
+
     awful.layout.suit.floating,
 }
 -- }}}
 
 -- {{{ Menu
 -- Create a launcher widget and a main menu
-myawesomemenu = {
-   { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
-   { "manual", terminal .. " -e man awesome" },
-   { "edit config", editor_cmd .. " " .. awesome.conffile },
-   { "restart", awesome.restart },
-   { "quit", function() awesome.quit() end },
-}
+-- myawesomemenu = {
+--    { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
+--    { "manual", terminal .. " -e man awesome" },
+--    { "edit config", editor_cmd .. " " .. awesome.conffile },
+--    { "restart", awesome.restart },
+--    { "quit", function() awesome.quit() end },
+-- }
 
-mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-                                    { "open terminal", terminal }
-                                  }
-                        })
+-- mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
+--                                     { "open terminal", terminal }
+--                                   }
+--                         })
 
-mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
-                                     menu = mymainmenu })
+-- mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
+--                                      menu = mymainmenu })
 
 -- Menubar configuration
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
@@ -169,26 +156,7 @@ local cpu_icon = styled_textbox('  ', 11, 2)
 local mem_icon = styled_textbox('   ', 11, 2)
 -- local gpu_icon = styled_textbox(' 󰢮 ', 16, 1)
 local temp_icon = styled_textbox(' ', 11, 1)
--- local psu_icon = styled_textbox(' 󰚥 ', 11, 1)
 
-
--- local cpu = lain.widget.cpu {
---     settings = function()
---         widget:set_markup("CPU " .. cpu_now.usage .. "%")
---     end
--- }
-
--- local mem = lain.widget.mem {
---     settings = function()
---         widget:set_markup("RAM " .. mem_now.perc .. "%")
---     end
--- }
-
--- local temp = lain.widget.temp({
---     settings = function()
---         widget:set_markup("Temp " .. coretemp_now .. "°C ")
---     end
--- })
 
 -- Fixing CPU width on wibox
 local cpu_usage = awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/Viamar-PC/StatusBar-Scripts/CPU-usage-monitor.sh"', 1)
@@ -275,7 +243,7 @@ local function create_volatile_tag(c, base_name, screen_index, layout)
 
     -- Tenta encontrar uma tag existente com o nome base
     local existing_tag = find_tag_by_base_name(screen, base_name)
-    
+
     if existing_tag then
         c:move_to_tag(existing_tag)
         existing_tag:view_only()
@@ -286,10 +254,10 @@ local function create_volatile_tag(c, base_name, screen_index, layout)
             layout = layout,
             volatile = true,
         })
-        
+
         -- Atualiza o nome com o índice real da tag
         new_tag.name = base_name .. " (" .. new_tag.index .. ") "
-        
+
         c:move_to_tag(new_tag)
         new_tag:view_only()
     end
@@ -597,12 +565,11 @@ end)
 
 --------------------------------------------------------------------------    
 --------------------------------------------------------------------------
-
 -------------------------------- Keybinds --------------------------------
 
 -- {{{ Mouse bindings
 root.buttons(gears.table.join(
-    awful.button({ }, 3, function () mymainmenu:toggle() end),
+    -- awful.button({ }, 3, function () mymainmenu:toggle() end),
     awful.button({ }, 4, awful.tag.viewnext),
     awful.button({ }, 5, awful.tag.viewprev)
 ))
@@ -883,6 +850,7 @@ for i = 1, 9 do
     )
 end
 
+--      Interessante essas funções, voltar depois
 clientbuttons = gears.table.join(
     awful.button({ }, 1, function (c)
         c:emit_signal("request::activate", "mouse_click", {raise = true})
