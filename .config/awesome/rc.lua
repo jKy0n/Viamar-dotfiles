@@ -724,7 +724,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey, }, "o",
         --   function () awful.util.spawn("rofi -config ~/.config/rofi/config -show combi -combi-modi \"window,run\" -modi combi -icon-theme \"Papirus\" -show-icons -theme ~/.config/rofi/config.rasi") end),
         function () awful.util.spawn("rofi  -config /home/jkyon/.config/rofi/config.rasi \
-                                            -modes \"drun,emoji\" -show emoji \
+                                            -modes \"emoji\" -show emoji \
                                             -emoji-format \"<span font_family=\'NotoColorEmoji\' size=\'xx-large\'>{emoji}</span>  <span weight=\'bold\'>{name}</span>\" \
                                             -theme /home/jkyon/.config/rofi/theme-emoji.rasi") 
             end,
