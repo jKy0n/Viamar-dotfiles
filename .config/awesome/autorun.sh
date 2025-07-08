@@ -1,15 +1,26 @@
 #!/usr/bin/env bash
 # filepath: /home/jkyon/.config/awesome/autorun.sh
 
-# Lista de aplicativos e seus comandos de inicialização
+# Autorun script for AwesomeWM
+# Script de inicialização automática para AwesomeWM
+
+
+# Aplication and command autostart script
+# Lista de aplicativos e comandos de inicialização
 APPS=(
+    # openRGB to manage RGB devices
     "openrgb --startminimized --profile Viamar-PC"
-    # "picom -b"
+    # Picom window compositor for transparency and effects
+    # "picom -b" # now started with systemd service
+    # Clipman to manage clipboard history
     "xfce4-clipman"
+    # Light Locker to lockscreen after inactivity
     "light-locker"
+    # Gnome Polkit authentication agent
     "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 )
 
+# Function to check if an application is running and start it if not
 # Função que inicia o aplicativo se ele não estiver em execução
 start_app() {
     local app_cmd="$1"
@@ -25,6 +36,7 @@ start_app() {
     fi
 }
 
+# Iterates over the list and launches each application
 # Itera sobre a lista e inicia cada aplicativo
 for app in "${APPS[@]}"; do
     start_app "$app"
