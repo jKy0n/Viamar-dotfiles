@@ -424,11 +424,11 @@ local tasklist_buttons = gears.table.join(
     }
 
     -- Create the wibox
-    s.mywibox = awful.wibar({   position = "top", 
-                                screen = s, 
-                                opacity = 0.8, 
-                                border_width = 3, 
-                                shape = gears.shape.rounded_rect 
+    s.mywibox = awful.wibar({   position = "top",
+                                screen = s,
+                                opacity = 0.8,
+                                border_width = 3,
+                                shape = gears.shape.rounded_rect
     })
 
 
