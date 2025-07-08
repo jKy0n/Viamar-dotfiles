@@ -360,10 +360,10 @@ local tasklist_buttons = gears.table.join(
         selected = false,
         screen = 1
     })
-    
+
 ------------------------------------------------------------------
 ---------------------- Second Monitor Tags  ----------------------
----
+
 
     awful.tag.add(" Work (1) ", {
         layout = awful.layout.suit.tile,
@@ -395,7 +395,7 @@ local tasklist_buttons = gears.table.join(
         screen = 2
     })
 
-    
+
     awful.screen.connect_for_each_screen(function(s)
 
 
