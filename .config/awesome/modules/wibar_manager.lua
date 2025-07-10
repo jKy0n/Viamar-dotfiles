@@ -3,7 +3,9 @@ local gears = require("gears")
 
 local wibar = require("modules.wibar")
 
+
 local wibar_manager = {}
+
 
 function wibar_manager.setup(taglist_buttons, tasklist_buttons)
 

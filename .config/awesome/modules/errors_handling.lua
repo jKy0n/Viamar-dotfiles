@@ -1,8 +1,8 @@
 local naughty = require("naughty")
 
 
-
 local errors_handling = {}
+
 
 if awesome.startup_errors then
     naughty.notify({ preset = naughty.config.presets.critical,

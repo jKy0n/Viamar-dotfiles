@@ -17,7 +17,7 @@ local internet_widget = require("jkyon-widgets.internet_widget")
 local dnd_widget = require ("jkyon-widgets.DoNotDisturb_widget")
 local pkg_widget = require("jkyon-widgets.paru_update_checker")
 
--- -- E assim por diante para todos os widgets usados
+
 
 tbox_separator_space = wibox.widget.textbox (" ")
 tbox_separator_pipe = wibox.widget.textbox (" | ")

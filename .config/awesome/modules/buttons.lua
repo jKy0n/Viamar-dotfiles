@@ -5,8 +5,6 @@ local gears = require("gears")
 local buttons = {}
 
 
-
-
 function buttons.taglist_buttons(modkey)
     return gears.table.join(
         awful.button({ }, 1, function(t) t:view_only() end),
@@ -46,7 +44,6 @@ function buttons.tasklist_buttons()
         end)
     )
 end
-
 
 
     root.buttons(gears.table.join(

@@ -1,10 +1,10 @@
 local awful = require("awful")
 
+
 local tags = {}
 
 ------------------------------------------------------------------
 ---------------------- Fisrt Monitor Tags  ----------------------
-
 
     awful.tag.add(" Work (1) ", {
         layout = awful.layout.suit.tile,
@@ -38,7 +38,6 @@ local tags = {}
 
 ------------------------------------------------------------------
 ---------------------- Second Monitor Tags  ----------------------
-
 
     awful.tag.add(" Work (1) ", {
         layout = awful.layout.suit.tile,

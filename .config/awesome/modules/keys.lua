@@ -9,7 +9,7 @@ local keys = {
     clientkeys = clientkeys
 }
 
--- {{{ Key bindings
+
 globalkeys = gears.table.join(
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
@@ -160,7 +160,6 @@ awful.key({ modkey, "Control"   }, "a", tags_utils.move_to_new_tag,
 {description = "add a tag with the focused client", group = "tag"})
 
 ------------------------------------------------------------------------ 
-
 )
 
 clientkeys = gears.table.join(

@@ -3,7 +3,9 @@ local beautiful = require("beautiful")
 local gears = require("gears")
 local wibox = require("wibox")
 
+
 local signals = {}
+
 
 -- {{{ Signals
 -- Signal function to execute when a new client appears.

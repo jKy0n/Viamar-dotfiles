@@ -3,6 +3,7 @@ local awful = require("awful")
 
 local layouts = {}
 
+
 awful.layout.layouts = {
     awful.layout.suit.tile,
     awful.layout.suit.tile.left,

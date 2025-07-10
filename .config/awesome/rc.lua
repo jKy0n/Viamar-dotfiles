@@ -5,7 +5,7 @@
 --------------------------------------------------------------
 -----------------------  First steps  ------------------------
 
--- Loading luarocks
+-- Load luarocks
 pcall(require, "luarocks.loader")
 
 -- Standard awesome library required
@@ -17,7 +17,7 @@ local beautiful = require("beautiful")
 beautiful.init("/home/jkyon/.config/awesome/themes/jKyon/theme.lua")
 
 --------------------------------------------------------------
----------------  Loading variable definitions  ---------------
+-----------------  Load variable definitions  ----------------
 
 terminal = "alacritty"
 editor = os.getenv("EDITOR") or "nvim"
@@ -25,7 +25,7 @@ editor_cmd = terminal .. " -e " .. editor
 modkey = "Mod4"
 
 --------------------------------------------------------------
----------------------  Loading Modules  ----------------------
+-----------------------  Load Modules  -----------------------
 
 local notify_manager = require("modules.notify_manager")
 local errors_handling = require("modules.errors_handling")
