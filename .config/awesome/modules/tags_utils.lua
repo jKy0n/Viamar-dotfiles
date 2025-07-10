@@ -1,6 +1,5 @@
 local awful = require("awful")
 
-
 local tags_utils = {}
 
 local function add_tag()
@@ -78,5 +77,12 @@ local function create_volatile_tag(c, base_name, screen_index, layout)
         new_tag:view_only()
     end
 end
+
+tags_utils.add_tag = add_tag
+tags_utils.delete_tag = delete_tag
+tags_utils.rename_tag = rename_tag
+tags_utils.move_to_new_tag = move_to_new_tag
+tags_utils.find_tag_by_base_name = find_tag_by_base_name
+tags_utils.create_volatile_tag = create_volatile_tag
 
 return tags_utils

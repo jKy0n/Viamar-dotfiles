@@ -1,8 +1,12 @@
 local awful = require("awful")
-local gears = require("gears")
 local hotkeys_popup = require("awful.hotkeys_popup")
+local gears = require("gears")
 
-local keys = {}
+
+local keys = {
+    globalkeys = globalkeys,
+    clientkeys = clientkeys
+}
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
@@ -27,8 +31,8 @@ globalkeys = gears.table.join(
         end,
         {description = "focus previous by index", group = "client"}
     ),
-    awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
-              {description = "show main menu", group = "awesome"}),
+    -- awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
+    --           {description = "show main menu", group = "awesome"}),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx(  1)    end,
@@ -101,7 +105,7 @@ globalkeys = gears.table.join(
                   }
               end,
               {description = "lua execute prompt", group = "awesome"}),
-              
+
     -- Menubar
     -- awful.key({ modkey }, "p", function() menubar.show() end,
     --           {description = "show the menubar", group = "launcher"}),
@@ -278,12 +282,5 @@ for i = 1, 9 do
                   {description = "toggle focused client on tag #" .. i, group = "tag"})
     )
 end
-
---      Interessante essas funções, voltar depois
-
-
--- Set keys
-root.keys(globalkeys)
--- }}}
 
 return keys
