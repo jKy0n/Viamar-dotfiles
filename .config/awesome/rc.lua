@@ -12,7 +12,6 @@ require("awful.autofocus")
 
 -- Theme handling library
 local beautiful = require("beautiful")
-
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init("/home/jkyon/.config/awesome/themes/jKyon/theme.lua")
 
@@ -21,7 +20,6 @@ beautiful.init("/home/jkyon/.config/awesome/themes/jKyon/theme.lua")
 terminal = "alacritty"
 editor = os.getenv("EDITOR") or "nvim"
 editor_cmd = terminal .. " -e " .. editor
-
 modkey = "Mod4"
 
 
