@@ -1,6 +1,7 @@
 local awful = require("awful")
 local hotkeys_popup = require("awful.hotkeys_popup")
 local gears = require("gears")
+local tags_utils = require("modules.tags_utils")
 
 
 local keys = {
@@ -149,13 +150,13 @@ globalkeys = gears.table.join(
 ---------------------  Tags Manipulation keybinds  ---------------------
 ------------------------------------------------------------------------
 
-awful.key({ modkey,           }, "a", add_tag,
+awful.key({ modkey,           }, "a", tags_utils.add_tag,
 {description = "add a tag", group = "tag"}),
-awful.key({ modkey, "Shift"   }, "a", delete_tag,
+awful.key({ modkey, "Shift"   }, "a", tags_utils.delete_tag,
 {description = "delete the current tag", group = "tag"}),
-awful.key({ modkey, "Shift"   }, "r", rename_tag,
+awful.key({ modkey, "Shift"   }, "r", tags_utils.rename_tag,
 {description = "rename the current tag", group = "tag"}),
-awful.key({ modkey, "Control"   }, "a", move_to_new_tag,
+awful.key({ modkey, "Control"   }, "a", tags_utils.move_to_new_tag,
 {description = "add a tag with the focused client", group = "tag"})
 
 ------------------------------------------------------------------------ 

@@ -1,6 +1,6 @@
 local awful = require("awful")
 local beautiful = require("beautiful")
-
+local create_volatile_tag = require("modules.tags_utils").create_volatile_tag
 
 
 local rules = {}

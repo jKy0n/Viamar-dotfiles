@@ -1,30 +1,20 @@
+--[[
+    This file is part of jKyon's AwesomeWM configuration.
+--]]
+
 -- If LuaRocks is installed, make sure that packages installed through it are
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
 
 -- Standard awesome library
-local gears = require("gears")
 local awful = require("awful")
 require("awful.autofocus")
--- Widget and layout library
-local wibox = require("wibox")
+
 -- Theme handling library
 local beautiful = require("beautiful")
--- Notification library
-local naughty = require("naughty")
-local menubar = require("menubar")
-local hotkeys_popup = require("awful.hotkeys_popup")
-require("awful.hotkeys_popup.keys")
 
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init("/home/jkyon/.config/awesome/themes/jKyon/theme.lua")
-
-
-
---- Modules ---
-local notify_manager = require("modules.notify_manager")
-local errors_handling = require("modules.errors_handling")
-
 
 
 --- Variable definitions ---
@@ -35,16 +25,13 @@ editor_cmd = terminal .. " -e " .. editor
 modkey = "Mod4"
 
 
+--- Modules ---
+local notify_manager = require("modules.notify_manager")
+local errors_handling = require("modules.errors_handling")
+
 local layouts = require("modules.layouts")
-
-
 local tags_utils = require("modules.tags_utils")
-
-
-
-
 local tags = require("modules.tags")
-
 
 local buttons = require("modules.buttons")
 local taglist_buttons = buttons.taglist_buttons(modkey)
