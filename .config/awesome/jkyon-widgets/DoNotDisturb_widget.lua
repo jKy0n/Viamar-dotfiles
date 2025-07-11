@@ -1,11 +1,26 @@
--- Widget DND
+--[[
+    jKyon (John Kennedy Loria Segundo)
+    DoNotDisturb_widget.lua – awesomeWM
+    
 
+    Purpose:
+        A widget to toggle Do Not Disturb (DND) mode in AwesomeWM,
+        preventing notifications from being displayed when enabled.
+
+        Um widget para alternar o modo Não Perturbe (DND) no AwesomeWM,
+        impedindo que notificações sejam exibidas quando ativado.
+--]]
+
+-------------------------------------------------------------
+---------------------  Load Libraries  ----------------------
 local naughty = require("naughty")
 local wibox = require("wibox")
 local beautiful = require("beautiful")
 local gears = require("gears")
 local awful = require("awful")
 
+-------------------------------------------------------------
+-------------------  Do Not Disturb Widget  -----------------
 -- Variável para armazenar o estado DND
 local dnd_enabled = false
 

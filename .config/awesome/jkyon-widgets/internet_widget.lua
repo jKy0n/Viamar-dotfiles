@@ -1,10 +1,23 @@
+--[[
+    jKyon (John Kennedy Loria Segundo)
+    internet_widget.lua – awesomeWM
 
 
+    Purpose:
+        Widget to check internet connection status and display it in the AwesomeWM status bar.
+        It checks if the internet is working and if the network interface is limited to 100 Mbps.
 
--- internet_widget.lua
+        Widget para verificar o status da conexão com a internet e exibi-lo na barra de status do AwesomeWM.
+        Verifica se a internet está funcionando e se a interface de rede está limitada a 100 Mbps.
+--]]
+
+-------------------------------------------------------------
+---------------------  Load Libraries  ----------------------
 local awful = require("awful")
 local wibox = require("wibox")
 
+-------------------------------------------------------------
+-------------------  Internet Widget  -----------------------
 local internet_widget = {}
 
 -- Função para verificar a conexão com a internet

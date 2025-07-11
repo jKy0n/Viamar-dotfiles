@@ -28,7 +28,7 @@ local gears = require("gears")
 ---------------------  Theme definition  -------------------
 local theme = {}
 
-theme.font          = "MesloLGS NF Bold 8.5"
+theme.font               =  "MesloLGS NF Bold 8.5"
 
 -- Colors reference: https://catppuccin.com/palette/ - Catppuccin Macchiato Blue color palette
 theme.fg_normal          =  "#cad3f5"
@@ -112,9 +112,9 @@ theme.layout_fullscreen   =   "/home/jkyon/.config/awesome/themes/jKyon/layouts/
 --     theme.menu_height, theme.bg_focus, theme.fg_focus
 -- )
 
-theme.taglist_shape = gears.shape.rounded_rect
-theme.tasklist_shape = gears.shape.rounded_rect
-theme.notification_shape = gears.shape.rounded_rect
+theme.taglist_shape      =  gears.shape.rounded_rect
+theme.tasklist_shape     =  gears.shape.rounded_rect
+theme.notification_shape =  gears.shape.rounded_rect
 
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
