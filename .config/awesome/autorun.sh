@@ -10,8 +10,6 @@
 APPS=(
     # openRGB to manage RGB devices
     "openrgb --startminimized --profile Viamar-PC"
-    # Picom window compositor for transparency and effects
-    # "picom -b" # now started with systemd service
     # Clipman to manage clipboard history
     "xfce4-clipman"
     # Light Locker to lockscreen after inactivity

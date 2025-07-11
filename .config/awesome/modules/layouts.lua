@@ -22,14 +22,18 @@ local layouts = {}
 ---------------------------------------------------------------
 ---------------------  layouts available  ---------------------
 awful.layout.layouts = {
+    -- tile horizontal layouts
     awful.layout.suit.tile,
     awful.layout.suit.tile.left,
-    
+
+    -- tile vertical layouts
     awful.layout.suit.tile.bottom,
     awful.layout.suit.tile.top,
 
+    -- maximized layout
     awful.layout.suit.max,
 
+    -- floating layout
     awful.layout.suit.floating,
 }
 
