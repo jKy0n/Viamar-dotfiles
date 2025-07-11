@@ -1,7 +1,22 @@
+--[[
+        jKyon (John Kennedy Loria Segundo)
+        tags_utils.lua – awesomeWM
+        2025-07-10
+        
+        Purpose:
+            Provides utility functions for managing tags in AwesomeWM.
+            Includes functions to add, delete, rename, and create volatile tags.
+
+            Fornece funções utilitárias para gerenciar tags no AwesomeWM.
+            Inclui funções para adicionar, excluir, renomear e criar tags voláteis.
+--]]
+
+--------------------------------------------------------------
+----------------------  Load Libraries  ----------------------
 local awful = require("awful")
-local gears = require("gears")
 
-
+--------------------------------------------------------------
+--------------------  tags_utils module  ---------------------
 local tags_utils = {}
 
 
@@ -81,6 +96,8 @@ local function create_volatile_tag(c, base_name, screen_index, layout)
     end
 end
 
+--------------------------------------------------------------
+--------------------  Exported Functions  --------------------
 tags_utils.add_tag = add_tag
 tags_utils.delete_tag = delete_tag
 tags_utils.rename_tag = rename_tag

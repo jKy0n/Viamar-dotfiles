@@ -1,11 +1,26 @@
+--[[
+        jKyon (John Kennedy Loria Segundo)
+        tags.lua – awesomeWM
+        2025-07-10
+        
+        Purpose:
+            Defines the initial tags for the first and second monitors in AwesomeWM.
+            Sets up a structured workspace with specific layouts and tag names.
+
+            Define as tags iniciais para os primeiros e segundos monitores no AwesomeWM.
+            Configura um espaço de trabalho estruturado com layouts e nomes de tags específicos.
+--]]
+
+--------------------------------------------------------------
+----------------------  Load Libraries  ----------------------
 local awful = require("awful")
 
-
+--------------------------------------------------------------
+-------------------------  tags module  ----------------------
 local tags = {}
 
 ------------------------------------------------------------------
 ---------------------- Fisrt Monitor Tags  ----------------------
-
     awful.tag.add(" Work (1) ", {
         layout = awful.layout.suit.tile,
         selected = true,
@@ -38,7 +53,6 @@ local tags = {}
 
 ------------------------------------------------------------------
 ---------------------- Second Monitor Tags  ----------------------
-
     awful.tag.add(" Work (1) ", {
         layout = awful.layout.suit.tile,
         selected = false,

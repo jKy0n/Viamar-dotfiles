@@ -1,5 +1,19 @@
+--[[
+        jKyon (John Kennedy Loria Segundo)
+        wibar.lua – awesomeWM
+        2025-07-10
+        
+        Purpose:
+            Defines the wibar (top bar) for AwesomeWM.
+            Configures widgets, layouts, and appearance for the wibar, enhancing user interaction.
+
+            Define a wibar (barra superior) para o AwesomeWM.
+            Configura widgets, layouts e aparência da wibar, melhorando a interação do usuário.
+--]]
+
+--------------------------------------------------------------
+----------------------  Load Libraries  ----------------------
 local awful = require("awful")
-local gears = require("gears")
 local wibox = require("wibox")
 
 
@@ -18,7 +32,7 @@ local dnd_widget = require ("jkyon-widgets.DoNotDisturb_widget")
 local pkg_widget = require("jkyon-widgets.paru_update_checker")
 
 
-
+--- Separators ---
 tbox_separator_space = wibox.widget.textbox (" ")
 tbox_separator_pipe = wibox.widget.textbox (" | ")
 tbox_separator_dash = wibox.widget.textbox (" - ")
@@ -32,6 +46,7 @@ local function styled_textbox(text, font_size, margins)
     }
 end
 
+--- Icons for widgets ---
 local cpu_icon = styled_textbox('  ', 11, 2)
 local ram_icon = styled_textbox('   ', 11, 2)
 -- local gpu_icon = styled_textbox(' 󰢮 ', 16, 1)
@@ -41,6 +56,7 @@ local temp_icon = styled_textbox(' ', 11, 1)
 local cpu_usage = awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/Viamar-PC/StatusBar-Scripts/CPU-usage-monitor.sh"', 1)
 cpu_usage.forced_width = 30
 
+--- textclock and calendar widget ---
 mytextclock = wibox.widget.textclock(' %a, %d %b - %H:%M ', 60)
 
 local cw = calendar_widget({
@@ -57,14 +73,15 @@ mytextclock:connect_signal("button::press",
         if button == 1 then cw.toggle() end
     end)
 
-
+--------------------------------------------------------------
+-------------------  wibar_manager module  -------------------
 local wibar = {}
 
 function wibar.setup(s)
 
--------------------------------------------------------------------------    
--------------------------  Fisrt monitor Wibar  -------------------------
--------------------------------------------------------------------------
+
+-----------------------------------------------------------------    
+---------------------  Fisrt monitor Wibar  ---------------------
 
     if s.index == 1 then
         -- Primeiro monitor
@@ -137,9 +154,8 @@ function wibar.setup(s)
         },
     }
 
---------------------------------------------------------------------------    
--------------------------  Second monitor Wibar  -------------------------
---------------------------------------------------------------------------
+-----------------------------------------------------------------    
+---------------------  Second monitor Wibar  --------------------
 
     elseif s.index == 2 then
         -- Primeiro monitor

@@ -1,13 +1,27 @@
+--[[
+        jKyon (John Kennedy Loria Segundo)
+        signals.lua – awesomeWM
+        2025-07-10
+
+        Purpose:
+            Defines signal handlers for client management in AwesomeWM.
+            Enhances user experience by managing client focus, appearance, and behavior.
+
+            Define manipuladores de sinal para gerenciamento de clientes no AwesomeWM.
+            Melhora a experiência do usuário gerenciando o foco, a aparência e o comportamento dos clientes.
+--]]
+
+--------------------------------------------------------------
+----------------------  Load Libraries  ----------------------
 local awful = require("awful")
 local beautiful = require("beautiful")
 local gears = require("gears")
-local wibox = require("wibox")
 
-
+--------------------------------------------------------------
+----------------------  signals module  ----------------------
 local signals = {}
 
 
--- {{{ Signals
 -- Signal function to execute when a new client appears.
 client.connect_signal("manage", function (c)
     -- Set the windows at the slave,
@@ -35,6 +49,5 @@ end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
--- }}}
 
 return signals

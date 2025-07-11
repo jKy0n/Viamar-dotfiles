@@ -1,10 +1,18 @@
 --[[
-    This file is part of jKyon's AwesomeWM configuration.
+        jKyon (John Kennedy Loria Segundo)
+        rc.lua – awesomeWM
+        2025-07-10
+
+        Purpose:
+          Configuração personalizada e modularizada para o Viamar‑PC,
+          maximizando performance, aparência e aproveitamento de tela.
+
+          Tailored and modular configuration for the Viamar‑PC,
+          maximizing performance, aesthetics, and efficient use of screen space.
 --]]
 
 --------------------------------------------------------------
 -----------------------  First steps  ------------------------
-
 -- Load luarocks
 pcall(require, "luarocks.loader")
 
@@ -36,9 +44,9 @@ local buttons = require("modules.buttons")
 local taglist_buttons = buttons.taglist_buttons(modkey)
 local tasklist_buttons = buttons.tasklist_buttons()
 local wibar_manager = require("modules.wibar_manager")
-wibar_manager.setup(taglist_buttons, tasklist_buttons)
+    wibar_manager.setup(taglist_buttons, tasklist_buttons)
 local keys = require("modules.keys")
-root.keys(globalkeys)
+    root.keys(globalkeys)
 local rules = require("modules.rules")
 local signal = require("modules.signals")
 
@@ -52,8 +60,8 @@ awful.spawn.with_shell("feh --bg-fill --no-xinerama ~/Pictures/Wallpapers/blueNe
 
 --- Start awesome target on systemd (screensaver dependency)
 awful.spawn.easy_async_with_shell(
-  "systemctl --user start awesomewm.target",
-  function() end
+    "systemctl --user start awesomewm.target",
+    function() end
 )
 --- Start some applications
 awful.spawn.with_shell("sh /home/jkyon/.config/awesome/autorun.sh")

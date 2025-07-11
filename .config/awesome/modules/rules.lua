@@ -1,9 +1,26 @@
+--[[
+        jKyon (John Kennedy Loria Segundo)
+        rules.lua – awesomeWM
+        2025-07-10
+
+        Purpose:
+            Defines client rules for window management in AwesomeWM.
+            Configures properties and behaviors for various applications.
+
+            Define regras de clientes para gerenciamento de janelas no AwesomeWM.
+            Configura propriedades e comportamentos para vários aplicativos.
+--]]
+
+--------------------------------------------------------------
+----------------------  Load Libraries  ----------------------
 local awful = require("awful")
 local beautiful = require("beautiful")
 local create_volatile_tag = require("modules.tags_utils").create_volatile_tag
 
-
+------------------------------------------------------------
+----------------------  rules module  ----------------------
 local rules = {}
+
 
 
 awful.rules.rules = {
@@ -20,9 +37,9 @@ awful.rules.rules = {
         }
     },
 
-----------------------------------------------------------
-----------------------  Rules List  ----------------------
----
+---------------------------------------------------------
+----------------  Customized Rules List  ----------------
+----
 -- A
 --
     { rule_any = { class = {"ark"} },
@@ -107,7 +124,7 @@ awful.rules.rules = {
     placement = awful.placement.centered,
     tag = screen[2].tags[5], },},    
 
-    { rule = { class = "KDE Connect" },
+    { rule_any = { class = {"kdeconnect-app", "kdeconnect.app"} },
     properties = { floating = true,
                     tag = screen[2].tags[5],
     placement = awful.placement.centered,},},    
@@ -248,9 +265,9 @@ awful.rules.rules = {
 -- 
 -- Z
 
-----------------------------------------------------------
-----------------------------------------------------------
 
+----------------------------------------------------------
+----------------------  Misc rules  ----------------------
 
     -- Floating clients.
     { rule_any = {
@@ -287,10 +304,6 @@ awful.rules.rules = {
     { rule_any = {type = { "normal", "dialog" }
       }, properties = { titlebars_enabled = true }
     },
-
-    -- Set Firefox to always map on the tag named "2" on screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { screen = 1, tag = "2" } },
 }
 -- }}}
 

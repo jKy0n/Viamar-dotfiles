@@ -1,8 +1,25 @@
+--[[
+        jKyon (John Kennedy Loria Segundo)
+        notify_manager.lua – awesomeWM
+        2025-07-10
+
+        Purpose:
+            Manages notifications in AwesomeWM.
+            Configures default settings for notifications, enhancing user experience.
+
+            Gerencia notificações no AwesomeWM.
+            Configura as definições padrão para notificações, melhorando a experiência do usuário.
+--]]
+
+--------------------------------------------------------------
+----------------------  Load Libraries  ----------------------
 local naughty = require("naughty")
 
-
+--------------------------------------------------------------
+---------------------  notify_manager module  ----------------
 local notify_manager = {}
 
+-- notifications default configuration
 naughty.config.defaults = {
     timeout = 10, -- Tempo de exibição em segundos
     -- screen = awful.screen.focused(), -- Qual tela exibir as notificações

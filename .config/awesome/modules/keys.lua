@@ -1,15 +1,32 @@
+--[[
+        jKyon (John Kennedy Loria Segundo)
+        keys.lua – awesomeWM
+        2025-07-10
+
+        Purpose:
+            Custom keybindings for AwesomeWM.
+            Provides a set of global and client-specific keybindings to enhance user interaction and workflow.
+
+            Atalhos personalizados para o AwesomeWM.
+            Fornece um conjunto de atalhos globais e específicos do cliente para melhorar a interação do usuário e o fluxo de trabalho.
+--]]
+
+---------------------------------------------------------------
+----------------------  Load Libraries  ----------------------
 local awful = require("awful")
 local hotkeys_popup = require("awful.hotkeys_popup")
 local gears = require("gears")
 local tags_utils = require("modules.tags_utils")
 
-
+----------------------------------------------------------------
+-------------------------  keys module  --------------------------
 local keys = {
     globalkeys = globalkeys,
     clientkeys = clientkeys
 }
 
-
+----------------------------------------------------------------
+-------------------  Global keybindings  -----------------------
 globalkeys = gears.table.join(
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
@@ -60,8 +77,8 @@ globalkeys = gears.table.join(
               {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
-    awful.key({ modkey, "Shift"   }, "q", awesome.quit,
-              {description = "quit awesome", group = "awesome"}),
+    -- awful.key({ modkey, "Shift"   }, "q", awesome.quit,
+    --           {description = "quit awesome", group = "awesome"}),
 
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
               {description = "increase master width factor", group = "layout"}),
@@ -107,13 +124,9 @@ globalkeys = gears.table.join(
               end,
               {description = "lua execute prompt", group = "awesome"}),
 
-    -- Menubar
-    -- awful.key({ modkey }, "p", function() menubar.show() end,
-    --           {description = "show the menubar", group = "launcher"}),
 
     -- Super + p = Rofi launcher
     awful.key({ modkey, }, "p",
-        --   function () awful.util.spawn("rofi -config ~/.config/rofi/config -show combi -combi-modi \"window,run\" -modi combi -icon-theme \"Papirus\" -show-icons -theme ~/.config/rofi/config.rasi") end),
         function () awful.util.spawn("rofi  -config /home/jkyon/.config/rofi/config.rasi \
                                             -modes \"drun,run,filebrowser,window,emoji,calc\" -show drun \
                                             -icon-theme \"Papirus\" -show-icons \
@@ -123,14 +136,12 @@ globalkeys = gears.table.join(
 
     -- Super + o = Rofi emojis
     awful.key({ modkey, }, "o",
-        --   function () awful.util.spawn("rofi -config ~/.config/rofi/config -show combi -combi-modi \"window,run\" -modi combi -icon-theme \"Papirus\" -show-icons -theme ~/.config/rofi/config.rasi") end),
         function () awful.util.spawn("rofi  -config /home/jkyon/.config/rofi/config.rasi \
                                             -modes \"emoji\" -show emoji \
                                             -emoji-format \"<span font_family=\'NotoColorEmoji\' size=\'xx-large\'>{emoji}</span>  <span weight=\'bold\'>{name}</span>\" \
                                             -theme /home/jkyon/.config/rofi/theme-emoji.rasi") 
             end,
             {description = "show rofi emojis", group = "launcher"}),
-
 
     -- alt + tab = Task switcher
     awful.key({ "Mod1", }, "Tab",
@@ -147,8 +158,9 @@ globalkeys = gears.table.join(
             end,
             {description = "show rofi task windows", group = "launcher"}),
 
----------------------  Tags Manipulation keybinds  ---------------------
+
 ------------------------------------------------------------------------
+------------------  tags_utils Manipulation keybinds  ------------------
 
 awful.key({ modkey,           }, "a", tags_utils.add_tag,
 {description = "add a tag", group = "tag"}),
@@ -233,9 +245,9 @@ clientkeys = gears.table.join(
         {description = "(un)maximize horizontally", group = "client"})
 )
 
--- Bind all key numbers to tags.
--- Be careful: we use keycodes to make it work on any keyboard layout.
--- This should map on the top row of your keyboard, usually 1 to 9.
+------------------------------------------------------------------------
+------------------------  keybinds by numebers  ------------------------
+
 for i = 1, 9 do
     globalkeys = gears.table.join(globalkeys,
         -- View tag only.

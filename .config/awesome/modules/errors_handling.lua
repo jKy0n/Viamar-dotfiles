@@ -1,6 +1,22 @@
+--[[
+        jKyon (John Kennedy Loria Segundo)
+        errors_handling.lua – awesomeWM
+        2025-07-10
+
+        Purpose:
+            Handles errors during startup and runtime in the AwesomeWM configuration.
+            Provides notifications for critical errors to assist in debugging.
+
+            Gerencia erros durante a inicialização e em tempo de execução na configuração do AwesomeWM.
+            Fornece notificações para erros críticos para auxiliar na depuração.
+--]]
+
+---------------------------------------------------------------
+----------------------  Load Libraries  ----------------------
 local naughty = require("naughty")
 
-
+----------------------------------------------------------------
+----------------------  errors_handling module  ----------------
 local errors_handling = {}
 
 

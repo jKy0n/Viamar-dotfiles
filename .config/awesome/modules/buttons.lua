@@ -1,10 +1,25 @@
+--[[
+        jKyon (John Kennedy Loria Segundo)
+        buttons.lua – awesomeWM
+        2025-07-10
+    
+        Purpose:
+            Custom mouse button bindings for AwesomeWM.
+    
+            Bindings for mouse interactions with tags and tasks,
+            enhancing user experience and workflow efficiency.
+--]]
+
+--------------------------------------------------------------
+----------------------  Load Libraries  ----------------------
 local awful = require("awful")
 local gears = require("gears")
 
-
+--------------------------------------------------------------
+----------------------  buttons module  ----------------------
 local buttons = {}
 
-
+-- Define mouse button bindings for taglist
 function buttons.taglist_buttons(modkey)
     return gears.table.join(
         awful.button({ }, 1, function(t) t:view_only() end),
@@ -24,6 +39,7 @@ function buttons.taglist_buttons(modkey)
     )
 end
 
+-- Define mouse button bindings for tasklist
 function buttons.tasklist_buttons()
     return gears.table.join(
         awful.button({ }, 1, function (c)
@@ -45,12 +61,13 @@ function buttons.tasklist_buttons()
     )
 end
 
-
+    -- add mouse wheel to scroll tags
     root.buttons(gears.table.join(
     awful.button({ }, 4, awful.tag.viewnext),
     awful.button({ }, 5, awful.tag.viewprev)
 ))
 
+-- Define mouse button bindings for client interactions
 clientbuttons = gears.table.join(
     awful.button({ }, 1, function (c)
         c:emit_signal("request::activate", "mouse_click", {raise = true})
