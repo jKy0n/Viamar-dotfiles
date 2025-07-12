@@ -4,11 +4,11 @@
         2025-07-10
 
         Purpose:
-          Configuração personalizada e modularizada para o Viamar‑PC,
-          maximizando performance, aparência e aproveitamento de tela.
+            Configuração personalizada e modularizada para o Viamar‑PC,
+            maximizando performance, aparência e aproveitamento de tela.
 
-          Tailored and modular configuration for the Viamar‑PC,
-          maximizing performance, aesthetics, and efficient use of screen space.
+            Tailored and modular configuration for the Viamar‑PC,
+            maximizing performance, aesthetics, and efficient use of screen space.
 --]]
 
 --------------------------------------------------------------
