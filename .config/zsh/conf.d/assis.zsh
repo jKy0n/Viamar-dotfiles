@@ -60,5 +60,5 @@ function assis() {
 
     # Executa o modelo e mostra com glow
     local answer=$(ollama run mistral:7b-instruct-v0.3-q4_K_M "$prompt")
-    echo -e "$answer" | glow -s dark -p
+    echo -e "$answer" | glow -s dark
 }
