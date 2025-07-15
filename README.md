@@ -13,39 +13,41 @@
 
 ## 🧬 Operational System
 
-- **OS:** `Arch Linux` x86_64  
-- **Kernel:** `6.15.X` (arch bin standard)  
+- **OS:** `Arch Linux` x86_64
+- **Kernel:** `6.15.X` (arch bin standard)
 - **Shell:** `zsh` (`bash` for scripts) ([config files here](https://github.com/jKy0n/Viamar-dotfiles/tree/master/.config/zsh))
-- **GS:** `X.Org` (X11)  
-- **Login Manager:** `LightDM` + `light-locker`  
+- **GS:** `X.Org` (X11)
+- **Login Manager:** `LightDM` + `light-locker`
 - **Window Manager:** `awesome` ([config files here](https://github.com/jKy0n/Viamar-dotfiles/tree/master/.config/awesome))
-- **Audio:** `pipewire`  
+- **Window Compositor:** `picom` ([Config files here](https://github.com/jKy0n/Viamar-dotfiles/tree/master/.config/picom))
+- **Audio:** `pipewire`
 - **Terminal:** `Alacritty` + `tmux` (config: [alacritty](https://github.com/jKy0n/Viamar-dotfiles/tree/master/.config/alacritty) [tmux](https://github.com/jKy0n/Viamar-dotfiles/tree/master/.config/tmux))
 - **Editor:** `AstroNvim` (`Neovim`) ([config files here](https://github.com/jKy0n/AstroNvim.config))
-- **Filesystem:** `BtrFS` + `ext4` (for VMs)  
-- **Init:** `systemd`  
-- **Authentication:** `sudo` + `polkit-gnome`  
-- **Bootloader:** `GRUB` (UEFI)  
+- **Filesystem:** `BtrFS` (system) + `ext4` (VM) + `exfat` (Ventoy)
+- **Init/timers/services:** `systemd`
+- **Authentication:** `sudo` + `polkit-gnome`
+- **Bootloader:** `GRUB` (UEFI)
 
 ---
 
 ## 🎨 Theming
 
 - **Theme:** `Colloid-Dark-Compact-Catppuccin`
-- **Icons:** `ePapirus-Dark`  
-- **Font:** `MesloLGLS Nerd Font 10`  
+- **Icons:** `ePapirus-Dark`
+- **Font:** `MesloLGLS Nerd Font 10`
 - **Cursor:** `Future-black`
 
 ---
 
 ## 🧠 Core Software
 
-- **Launcher:** `Rofi`  
-- **Browser:** `Firefox`  
+- **Launcher:** `Rofi` ([config files here](https://github.com/jKy0n/Viamar-dotfiles/tree/master/.config/rofi))
+- **Browser:** `Firefox`
+- **Fetching System** `fastfetch` ([config files here](https://github.com/jKy0n/Viamar-dotfiles/tree/master/.config/fastfetch))
 - **File Explorer:** `Dolphin` + `Ark`
-- **Music Player:** `Spotify` + `Spicetify`  
-- **Audio Control:** `pavucontrol`  
-- **IDE:** `VSCode` (for complex coding)  
+- **Music Player:** `Spotify` + `Spicetify`
+- **Audio Control:** `pavucontrol`
+- **IDE:** `VSCode` (for complex coding)
 - **Notes:** `Obsidian`
 - **Chat / Messaging:** `Rambox`
 - **Password Manager:** `Bitwarden`
