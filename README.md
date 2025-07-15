@@ -15,13 +15,13 @@
 
 - **OS:** `Arch Linux` x86_64  
 - **Kernel:** `6.15.X` (arch bin standard)  
-- **Shell:** `zsh` (`bash` for scripts)  
+- **Shell:** `zsh` (`bash` for scripts) ([config files here](https://github.com/jKy0n/Viamar-dotfiles/tree/master/.config/zsh))
 - **GS:** `X.Org` (X11)  
 - **Login Manager:** `LightDM` + `light-locker`  
-- **Window Manager:** `awesome`  
+- **Window Manager:** `awesome` ([config files here](https://github.com/jKy0n/Viamar-dotfiles/tree/master/.config/awesome))
 - **Audio:** `pipewire`  
-- **Terminal:** `Alacritty` + `tmux`  
-- **Editor:** `AstroNvim` (`Neovim`)  
+- **Terminal:** `Alacritty` + `tmux` (config: [alacritty](https://github.com/jKy0n/Viamar-dotfiles/tree/master/.config/alacritty) [tmux](https://github.com/jKy0n/Viamar-dotfiles/tree/master/.config/tmux))
+- **Editor:** `AstroNvim` (`Neovim`) ([config files here](https://github.com/jKy0n/AstroNvim.config))
 - **Filesystem:** `BtrFS` + `ext4` (for VMs)  
 - **Init:** `systemd`  
 - **Authentication:** `sudo` + `polkit-gnome`  
