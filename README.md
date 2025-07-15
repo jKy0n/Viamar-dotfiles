@@ -19,7 +19,7 @@
 - **GS:** `X.Org` (X11)
 - **Login Manager:** `LightDM` + `light-locker`
 - **Window Manager:** `awesome` ([config files here](https://github.com/jKy0n/Viamar-dotfiles/tree/master/.config/awesome))
-- **Window Compositor:** `picom` ([Config files here](https://github.com/jKy0n/Viamar-dotfiles/tree/master/.config/picom))
+- **Window Compositor:** `picom` ([config files here](https://github.com/jKy0n/Viamar-dotfiles/tree/master/.config/picom))
 - **Audio:** `pipewire`
 - **Terminal:** `Alacritty` + `tmux` (config: [alacritty](https://github.com/jKy0n/Viamar-dotfiles/tree/master/.config/alacritty) [tmux](https://github.com/jKy0n/Viamar-dotfiles/tree/master/.config/tmux))
 - **Editor:** `AstroNvim` (`Neovim`) ([config files here](https://github.com/jKy0n/AstroNvim.config))
