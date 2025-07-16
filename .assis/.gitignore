@@ -1,0 +1,7 @@
+chroma/
+__pycache__/
+*.sqlite3
+*.bin
+meta.json
+data/
+

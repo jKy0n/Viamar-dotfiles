@@ -1,4 +1,4 @@
-# 🐚 ZSH config 🎛️
+# 🐚 zsh config 🎛️
 
 My modular config for zsh
 
