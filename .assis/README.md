@@ -37,7 +37,7 @@
    ```
 2. Start ChromaDB server:
    ```bash
-   chromadb run --host 127.0.0.1 --port 8000 --path ~/.assis/chroma &
+   chroma run --host 127.0.0.1 --port 8000 --path ~/.assis/chroma &
    ```
 3. Index system files:
    ```bash
@@ -59,4 +59,4 @@
 
 ---
 
-Made with 💻 by John K. Loria and ChatGPT
+Made with 💻 by jKyon (John K. L. Segundo) and ChatGPT
