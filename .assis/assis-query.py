@@ -6,12 +6,25 @@ import subprocess
 import threading
 import time
 import shutil
+import argparse
 
-# Carrega pergunta
-query = " ".join(sys.argv[1:])
+parser = argparse.ArgumentParser()
+parser.add_argument("query", nargs="*", help="Pergunta para o assistente")
+parser.add_argument("--file", help="Arquivo para incluir no contexto")
+args = parser.parse_args()
+
+query = " ".join(args.query)
 if not query:
     print("❌ Nenhuma pergunta fornecida.")
     sys.exit(1)
+
+extra_context = ""
+if args.file:
+    try:
+        with open(args.file, "r", errors="ignore") as f:
+            extra_context = f"\n### Conteúdo do arquivo {args.file}:\n{f.read()}\n"
+    except Exception as e:
+        print(f"⚠️ Não foi possível ler o arquivo: {e}")
 
 # Conecta ao servidor ChromaDB
 chroma_client = chromadb.HttpClient(host="localhost", port=8000)
@@ -33,11 +46,13 @@ results = collection.query(
 docs = results.get("documents", [[]])[0]
 sources = results.get("metadatas", [[]])[0]
 
-if docs:
+if docs or extra_context:
     context = ""
-    for i, doc in enumerate(docs):
-        origem = sources[i].get("source", "desconhecido")
-        context += f"### Origem: {origem}\n{doc}\n\n"
+    if docs:
+        for i, doc in enumerate(docs):
+            origem = sources[i].get("source", "desconhecido")
+            context += f"### Origem: {origem}\n{doc}\n\n"
+    context += extra_context
 
     prompt = f"""Você é o Assis, um assistente virtual especializado em Linux.
 Baseie sua resposta nas informações abaixo:

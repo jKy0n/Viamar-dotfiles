@@ -38,7 +38,12 @@ def index_manpage(path):
     except Exception as e:
         print(f"⚠️ Erro em manpage {path}: {e}")
 
-man_files = [p for section in man_root.glob('man[1-9]*') for p in section.glob('*.gz')]
+man_files = []
+for sec in ['man1', 'man5', 'man8']:
+    man_dir = man_root / sec
+    if man_dir.exists():
+        man_files += list(man_dir.glob('*.gz'))
+        
 with concurrent.futures.ThreadPoolExecutor(max_workers=MAX_THREADS) as executor:
     executor.map(index_manpage, man_files)
 print("✅ manpages concluído")

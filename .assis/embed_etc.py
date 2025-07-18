@@ -19,7 +19,7 @@ CONFIG_FILES = [
     '/etc/pacman.conf',
     '/etc/resolv.conf',
     # '/etc/sudoers',
-    '/etc/systemd/system.conf'
+    '/etc/systemd/system.conf',
 ]
 
 def is_valid_file(path):
