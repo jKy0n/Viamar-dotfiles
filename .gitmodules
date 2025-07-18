@@ -1,0 +1,3 @@
+[submodule ".assis"]
+	path = .assis
+	url = git@github.com:jKy0n/assis-terminal-assistant.git
