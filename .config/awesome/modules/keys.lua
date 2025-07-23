@@ -128,18 +128,27 @@ globalkeys = gears.table.join(
     -- Super + p = Rofi launcher
     awful.key({ modkey, }, "p",
         function () awful.util.spawn("rofi  -config /home/jkyon/.config/rofi/config.rasi \
-                                            -modes \"drun,run,filebrowser,window,emoji,calc\" -show drun \
+                                            -modes \"drun,run,recoll,filebrowser,window,emoji,calc\" -show drun \
                                             -icon-theme \"Papirus\" -show-icons \
-                                            -theme /home/jkyon/.config/rofi/theme.rasi") 
+                                            -theme /home/jkyon/.config/rofi/theme.rasi")
             end,
             {description = "show rofi launcher", group = "launcher"}),
+
+    -- Super + i = rofi recoll
+    awful.key({ modkey, }, "i",
+        function () awful.util.spawn("rofi  -config /home/jkyon/.config/rofi/config.rasi \
+                                            -modes \"recoll\" -show recoll \
+                                            -icon-theme \"Papirus\" -show-icons \
+                                            -theme /home/jkyon/.config/rofi/theme-recoll.rasi")
+            end,
+            {description = "show rofi recoll", group = "launcher"}),
 
     -- Super + o = Rofi emojis
     awful.key({ modkey, }, "o",
         function () awful.util.spawn("rofi  -config /home/jkyon/.config/rofi/config.rasi \
                                             -modes \"emoji\" -show emoji \
                                             -emoji-format \"<span font_family=\'NotoColorEmoji\' size=\'xx-large\'>{emoji}</span>  <span weight=\'bold\'>{name}</span>\" \
-                                            -theme /home/jkyon/.config/rofi/theme-emoji.rasi") 
+                                            -theme /home/jkyon/.config/rofi/theme-emoji.rasi")
             end,
             {description = "show rofi emojis", group = "launcher"}),
 

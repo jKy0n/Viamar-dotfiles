@@ -10,7 +10,7 @@
 
 configuration {
 	/*---------- General setting ----------*/
-	modi: "drun,run,filebrowser,window,emoji";
+	modi: "drun,run,recoll,filebrowser,window,emoji";
 	case-sensitive: false;
 	cycle: true;
 	filter: "";
