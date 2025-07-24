@@ -14,7 +14,7 @@ export CCACHE_MAXSIZE=10G
 
 export PATH="$HOME/.local/bin:$PATH"
 
-export PAY_RESPECTS_REQUIRE_CONFIRMATION='true'  # pay-respect: Pergunta antes de aplicar
+export PAY_RESPECTS_REQUIRE_CONFIRMATION="true"  # pay-respect: Pergunta antes de aplicar
 
 # Garante ZSH como shell padrão no TMUX
 [[ -z "$TMUX" ]] && export SHELL=$(which zsh)
