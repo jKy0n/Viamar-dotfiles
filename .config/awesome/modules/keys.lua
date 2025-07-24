@@ -18,6 +18,8 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 local gears = require("gears")
 local tags_utils = require("modules.tags_utils")
 
+local volume_widget = require("awesome-wm-widgets.wpctl-widget.volume")
+
 ----------------------------------------------------------------
 -------------------------  keys module  --------------------------
 local keys = {

@@ -21,7 +21,7 @@ local wibox = require("wibox")
 local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
 local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
 
-local volume_widget = require('awesome-wm-widgets.pactl-widget.volume')
+local volume_widget = require('awesome-wm-widgets.wpctl-widget.volume')
 local todo_widget = require("awesome-wm-widgets.todo-widget.todo")
 local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
 local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")

@@ -168,7 +168,7 @@
         {
             "type": "display",
             "key": "  󱄄",
-            "format": "{6} - {1}x{2} @ {3} ",
+            "format": "{6} - {1}x{2} @ {3} Hz ",
             "preciseRefreshRate": false
         },
         {
@@ -191,7 +191,7 @@
         {
             "type": "packages",
             "key": "  ",
-            "format": "{1} "
+            "format": "{1} packages"
         },
         {
             "type": "command",
@@ -201,8 +201,7 @@
         },
         {
             "type": "uptime",
-            "key": "  ",
-            "format": "{2} Hours "
+            "key": "  "
         },
         {
             "type": "localip",
