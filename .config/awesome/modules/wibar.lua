@@ -146,7 +146,7 @@ function wibar.setup(s)
             logout_menu_widget{     -- Logout menu widget
                 font = 'MesloLGS Nerd Font Bold 10',
                 onlogout   =  function() awful.spawn.with_shell("loginctl terminate-user $USER") end,
-                onlock     =  function() awful.spawn.with_shell('light-locker-command --lock') end,
+                onlock     =  function() awful.spawn.with_shell('dm-tool lock') end,
                 onsuspend  =  function() awful.spawn.with_shell("systemctl suspend") end,
                 onreboot   =  function() awful.spawn.with_shell("systemctl reboot") end,
                 onpoweroff =  function() awful.spawn.with_shell("systemctl poweroff") end,
@@ -197,7 +197,7 @@ function wibar.setup(s)
             logout_menu_widget{ -- Logout menu widget
                 font = 'MesloLGS Nerd Font Bold 10',
                 onlogout   =  function() awful.spawn.with_shell("loginctl terminate-user $USER") end,
-                onlock     =  function() awful.spawn.with_shell('light-locker-command --lock') end,
+                onlock     =  function() awful.spawn.with_shell('dm-tool lock') end,
                 onsuspend  =  function() awful.spawn.with_shell("systemctl suspend") end,
                 onreboot   =  function() awful.spawn.with_shell("systemctl reboot") end,
                 onpoweroff =  function() awful.spawn.with_shell("systemctl poweroff") end,

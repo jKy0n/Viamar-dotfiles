@@ -1,0 +1,4 @@
+# ~/.xsessionrc
+
+# Import sessiond ID to systemd
+systemctl --user import-environment XDG_SESSION_ID

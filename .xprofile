@@ -1,0 +1,19 @@
+# export GTK_THEME="Catppuccin-Dark"
+# export GTK_ICON_THEME="ePapirus-Dark"
+
+# export QT_QPA_PLATFORMTHEME="kvantum"
+# export QT_QPA_PLATFORMTHEME="qt6ct"
+# export QT_STYLE_OVERRIDE=kvantum
+
+export QT_QPA_PLATFORMTHEME=kde
+export QT_QUICK_CONTROLS_STYLE=org.kde.desktop
+export XDG_CURRENT_DESKTOP=KDE
+
+export MOZ_X11_EGL=1
+export LIBVA_DRIVER_NAME=radeonsi
+
+# Screensaver settings:
+# 9 min para apagar back-light
+xset dpms 0 0 540
+# 10 min para sinalizar “screensaver” (xss-lock dispara aqui)
+xset s 600 600
