@@ -1,4 +1,5 @@
 # ~/.xsessionrc
+#!/bin/sh
 
 # Import sessiond ID to systemd
-systemctl --user import-environment XDG_SESSION_ID
+# systemctl --user import-environment DISPLAY XAUTHORITY XDG_SESSION_ID
