@@ -32,10 +32,10 @@
 
 ## 🎨 Theming
 
-- **Theme:** `Colloid-Dark-Compact-Catppuccin`
-- **Icons:** `ePapirus-Dark`
-- **Font:** `MesloLGLS Nerd Font 10`
-- **Cursor:** `Future-black`
+- **Theme:** `Catppuccin-Dark-Macchiato`
+- **Icons:** `Papirus-Dark`
+- **Font:** `NotoSans Regular 10` + `MesloLGLS Nerd Font 10`
+- **Cursor:** `Future-black-cursors`
 
 ---
 
