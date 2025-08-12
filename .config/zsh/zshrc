@@ -1,14 +1,32 @@
-# Powerlevel10k Instant Prompt (mantenha no topo!)
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# # Powerlevel10k Instant Prompt (mantenha no topo!)
+# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# fi
+
+# Define o diretório onde os módulos estão localizados
+ZSHRC_D="$HOME/.config/zsh/zshrc.d"
+
+# Detecta a distribuição ou se está no TTY e carrega o arquivo correspondente
+if [[ "$(tty)" == "/dev/tty1" ]]; then
+    [ -r "$ZSHRC_D/zshrc.tty" ] && source "$ZSHRC_D/zshrc.tty"
+else
+# Detecta a distro de forma robusta (os-release)
+    if [[ -r /etc/os-release ]]; then
+      . /etc/os-release   # exporta ID, ID_LIKE, NAME, etc.
+      case "$ID" in
+          arch)   [ -r "$ZSHRC_D/zshrc-arch.zsh" ]  && source "$ZSHRC_D/zshrc-arch.zsh" ;;
+        gentoo)   [ -r "$ZSHRC_D/zshrc-gentoo.zsh" ]&& source "$ZSHRC_D/zshrc-gentoo.zsh" ;;
+        *)        print -P "%F{yellow}[zshrc]%f ID desconhecido: $ID" ;;
+      esac
+    fi
 fi
 
-# Carrega todas as configurações modulares
-if [ -d ~/.config/zsh/conf.d ]; then
-  for config_file in ~/.config/zsh/conf.d/*.zsh; do
-    source "$config_file"
-  done
+# Iniciar o Tmux automaticamente, se não estiver dentro de uma sessão
+if [[ -t 1 ]]; then
+    if command -v tmux >/dev/null 2>&1; then
+        if [[ -z "$TMUX" ]]; then
+            # Cria uma nova sessão numerada sempre
+            tmux new-session
+        fi
+    fi
 fi
-
-# Configuração do Powerlevel10k (gerada pelo p10k configure)
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
