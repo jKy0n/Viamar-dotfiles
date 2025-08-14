@@ -13,10 +13,6 @@ fi
 # Detecta a distribuição e carrega o módulo correspondente
 [ -r "$ZSHRC_D/plugins-arch.zsh" ] && source "$ZSHRC_D/plugins-arch.zsh"
 
-# print -P "%F{cyan}[zshrc-arch]%f prestes a carregar plugins-arch (ZSHRC_D=$ZSHRC_D)"
-# [[ -r "$ZSHRC_D/plugins-arch.zsh" ]] || print -P "%F{red}[ERRO]%f plugins-arch.zsh não legível!"
-# source "$ZSHRC_D/plugins-arch.zsh" || print -P "%F{red}[ERRO]%f falhou ao 'source' plugins-arch.zsh ($?)"
-
 # Adicione aqui qualquer configuração que você prefira manter no arquivo principal
 [ -r "$ZSHRC_D/environment.zsh" ] && source "$ZSHRC_D/environment.zsh"
 

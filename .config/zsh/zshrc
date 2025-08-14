@@ -8,16 +8,16 @@ ZSHRC_D="$HOME/.config/zsh/zshrc.d"
 
 # Detecta a distribuição ou se está no TTY e carrega o arquivo correspondente
 if [[ "$(tty)" == "/dev/tty1" ]]; then
-    [ -r "$ZSHRC_D/zshrc.tty" ] && source "$ZSHRC_D/zshrc.tty"
+    [ -r "$ZSHRC_D/zshrc-arch-tty.zsh" ] && source "$ZSHRC_D/zshrc-arch-tty.zsh"
 else
 # Detecta a distro de forma robusta (os-release)
     if [[ -r /etc/os-release ]]; then
-      . /etc/os-release   # exporta ID, ID_LIKE, NAME, etc.
-      case "$ID" in
-          arch)   [ -r "$ZSHRC_D/zshrc-arch.zsh" ]  && source "$ZSHRC_D/zshrc-arch.zsh" ;;
-        gentoo)   [ -r "$ZSHRC_D/zshrc-gentoo.zsh" ]&& source "$ZSHRC_D/zshrc-gentoo.zsh" ;;
-        *)        print -P "%F{yellow}[zshrc]%f ID desconhecido: $ID" ;;
-      esac
+        . /etc/os-release   # exporta ID, ID_LIKE, NAME, etc.
+        case "$ID" in
+            arch)   [ -r "$ZSHRC_D/zshrc-arch.zsh" ]   && source "$ZSHRC_D/zshrc-arch.zsh" ;;
+            gentoo) [ -r "$ZSHRC_D/zshrc-gentoo.zsh" ] && source "$ZSHRC_D/zshrc-gentoo.zsh" ;;
+            *)      print -P "%F{yellow}[zshrc]%f ID desconhecido: $ID" ;;
+        esac
     fi
 fi
 
