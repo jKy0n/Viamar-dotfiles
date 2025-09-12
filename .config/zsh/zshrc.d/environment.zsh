@@ -12,6 +12,9 @@ export CCACHE_DIR="$HOME/.build/ccache"
 export CCACHE_COMPRESS=1
 export CCACHE_MAXSIZE=10G
 
+# Configurações do man pages:
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
 export PATH="$HOME/.local/bin:$PATH"
 
 export PAY_RESPECTS_REQUIRE_CONFIRMATION="true"  # pay-respect: Pergunta antes de aplicar
