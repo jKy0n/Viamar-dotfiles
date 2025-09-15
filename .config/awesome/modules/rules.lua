@@ -236,6 +236,12 @@ awful.rules.rules = {
             create_volatile_tag(c, " Teams ", 2, awful.layout.suit.tile)
     end,},},
 
+    { rule_any = { class = {"Telegram", "TelegramDesktop"} },
+    properties = { floating = false,
+        callback = function(c)
+            create_volatile_tag(c, " Telegram ", 2, awful.layout.suit.tile)
+        end,},},
+
     { rule_any = { class = {"Mail", "thunderbird"} },
     properties = { floating = false,
         callback = function(c)
