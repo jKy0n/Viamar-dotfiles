@@ -48,10 +48,10 @@ local function styled_textbox(text, font_size, margins)
 end
 
 --- Icons for widgets ---
-local cpu_icon = styled_textbox('  ', 11, 2)
+-- local cpu_icon = styled_textbox('  ', 11, 2)
 local ram_icon = styled_textbox('   ', 11, 2)
 -- local gpu_icon = styled_textbox(' 󰢮 ', 16, 1)
-local temp_icon = styled_textbox(' ', 11, 1)
+-- local temp_icon = styled_textbox(' ', 11, 1)
 
 -- Fixing CPU width on wibox
 local cpu_usage = awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/Viamar-PC/StatusBar-Scripts/CPU-usage-monitor.sh"', 1)
@@ -73,9 +73,6 @@ mytextclock:connect_signal("button::press",
     function(_, _, _, button)
         if button == 1 then cw.toggle() end
     end)
-
--- cpu_widget1 = cpu_monitor({"usage", "freq", "temp"})
--- cpu_widget2 = cpu_monitor({"usage", "temp"}),
 
 --------------------------------------------------------------
 -------------------  wibar_manager module  -------------------
@@ -109,19 +106,9 @@ function wibar.setup(s)
             tbox_separator_space,
             pkg_widget, --  Paru update checker widget    <<<<<<
             tbox_separator_space,
+
             cpu_monitor({"usage", "freq", "temp"}),           --  Graphical CPU usage widget
-                -- awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/Viamar-PC/StatusBar-Scripts/CPU-monitor.sh"', 1),
-                    -- cpu_icon,   --  
-                    -- cpu_usage,  --  Shows CPU usage in %
-                    -- -- awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/Viamar-PC/StatusBar-Scripts/CPU-usage-monitor.sh"', 1),
-                    -- tbox_separator_space,
-                    -- tbox_separator_space,   --  Shows CPU frequency in GHz
-                    -- awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/Viamar-PC/StatusBar-Scripts/CPU-freq-monitor.sh"', 1),
-                    -- tbox_separator_space,
-                    -- temp_icon,  --  
-                    -- tbox_separator_space,   -- Shows CPU temperature in °C
-                    -- awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/Viamar-PC/StatusBar-Scripts/CPU-temp-monitor.sh"', 1),
-                    -- tbox_separator_space,
+
             tbox_separator_pipe,    --  |
             cpu_widget(),           -- Graphical CPU usage widget
             tbox_separator_pipe,    --  |
@@ -184,15 +171,9 @@ function wibar.setup(s)
 
             internet_widget,    -- Internet widget detect internet connection
             tbox_separator_space,
+            
             cpu_monitor({"usage", "temp"}),           --  Graphical CPU usage widget
-                -- awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/Viamar-PC/StatusBar-Scripts/CPU-usage+-monitor.sh"', 1),
-                    -- cpu_icon,   --   
-                    -- cpu_usage,  --  Shows CPU usage in %
-                    -- -- awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/Viamar-PC/StatusBar-Scripts/CPU-usage-monitor.sh"', 1),
-                    -- tbox_separator_space,
-                    -- temp_icon,  --  
-                    -- tbox_separator_space,   -- Shows CPU temperature in °C
-                    -- awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/Viamar-PC/StatusBar-Scripts/CPU-temp-monitor.sh"', 1),
+
             tbox_separator_space,
             ram_icon,   --     --  Shows RAM usage in %
             awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/Viamar-PC/StatusBar-Scripts/RAM-usage-monitor.sh"', 1),

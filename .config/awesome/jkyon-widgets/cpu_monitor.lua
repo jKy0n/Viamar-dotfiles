@@ -14,7 +14,7 @@ local function cpu_monitor(args)
         if v == "temp"  then show_temp  = true end
     end
 
-    local icon = '<span font="Font Awesome 11">  </span> '
+    local icon = '<span font="Font Awesome 11"> </span> '
     local widget = wibox.widget {
         markup = icon .. " Loading... ",
         widget = wibox.widget.textbox
@@ -23,7 +23,7 @@ local function cpu_monitor(args)
 
     -- Atualiza o widget periodicamente
     awful.widget.watch(
-        "sh /home/jkyon/ShellScript/Viamar-PC/StatusBar-Scripts/CPU-monitor.sh",
+        "nice --adjustment=10 sh /home/jkyon/ShellScript/Viamar-PC/StatusBar-Scripts/CPU-monitor.sh",
         1, -- intervalo em segundos
         function(w, stdout)
             -- Processa a saída formatada
@@ -33,10 +33,12 @@ local function cpu_monitor(args)
 
             local items = {}
             if show_usage and usage then table.insert(items, string.format("%3s%%", usage)) end
-            if show_freq  and freq  then table.insert(items, string.format("%4sGHz", freq)) end
+            if show_freq  and freq  then table.insert(items, string.format("%4s GHz", freq)) end
             if show_temp  and temp  then table.insert(items, string.format("%3s°C ", temp)) end
 
-            w.markup = icon .. "<span font='MesloLGS NF Mono,Bold 8.5'>" .. table.concat(items, sep) .. "</span>"
+            -- Adiciona espaço extra no início e fim para acabamento
+            local padding = "  "  -- 2 ou mais espaços, ajuste conforme desejar
+            w.markup = padding .. icon .. "<span font='MesloLGS NF Mono,Bold 8.5'>" .. table.concat(items, sep) .. "</span>" .. padding
         end,
         widget
     )
