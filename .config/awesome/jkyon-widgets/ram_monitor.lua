@@ -84,11 +84,11 @@ local function ram_monitor(args)
                     margins = 10,
                     widget = wibox.container.margin
                 },
-                bg = "#222233ee",
+                -- bg = "#222233ee",
                 shape = gears.shape.rounded_rect,
                 widget = wibox.container.background
             },
-            border_color = "#444466",
+            -- border_color = "#444466",
             border_width = 2,
             ontop = true,
             visible = true,
