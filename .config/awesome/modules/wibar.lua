@@ -31,6 +31,7 @@ local internet_widget = require("jkyon-widgets.internet_widget")
 local dnd_widget = require ("jkyon-widgets.DoNotDisturb_widget")
 local pkg_widget = require("jkyon-widgets.paru_update_checker")
 local cpu_monitor = require("jkyon-widgets.cpu_monitor")
+local ram_monitor = require("jkyon-widgets.ram_monitor")
 
 
 --- Separators ---
@@ -38,18 +39,18 @@ tbox_separator_space = wibox.widget.textbox (" ")
 tbox_separator_pipe = wibox.widget.textbox (" | ")
 tbox_separator_dash = wibox.widget.textbox (" - ")
 
-local function styled_textbox(text, font_size, margins)
-    return wibox.widget {
-        text = text,
-        font = 'MesloLGS Nerd Font ' .. font_size,
-        widget = wibox.widget.textbox,
-        margins = margins
-    }
-end
+-- local function styled_textbox(text, font_size, margins)
+--     return wibox.widget {
+--         text = text,
+--         font = 'MesloLGS Nerd Font ' .. font_size,
+--         widget = wibox.widget.textbox,
+--         margins = margins
+--     }
+-- end
 
 --- Icons for widgets ---
 -- local cpu_icon = styled_textbox('  ', 11, 2)
-local ram_icon = styled_textbox('   ', 11, 2)
+-- local ram_icon = styled_textbox('   ', 11, 2)
 -- local gpu_icon = styled_textbox(' 󰢮 ', 16, 1)
 -- local temp_icon = styled_textbox(' ', 11, 1)
 
@@ -106,15 +107,11 @@ function wibar.setup(s)
             tbox_separator_space,
             pkg_widget, --  Paru update checker widget    <<<<<<
             tbox_separator_space,
-
             cpu_monitor({"usage", "freq", "temp"}),           --  Graphical CPU usage widget
-
             tbox_separator_pipe,    --  |
             cpu_widget(),           -- Graphical CPU usage widget
             tbox_separator_pipe,    --  |
-            ram_icon,   --         --   Shows RAM usage in %
-            awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/Viamar-PC/StatusBar-Scripts/RAM-usage-monitor.sh"', 1),
-            -- tbox_separator_space,   --  Graphical RAM usage widgets
+            ram_monitor({"usage_available"}),  --  Shows RAM usage in % and Available RAM in GB
             ram_widget({ color_used = '#8aadf4', color_buf = '#24273a' }),
 ------------------------------------------------------------------------------------------------            
             tbox_separator_pipe,
@@ -171,12 +168,9 @@ function wibar.setup(s)
 
             internet_widget,    -- Internet widget detect internet connection
             tbox_separator_space,
-            
-            cpu_monitor({"usage", "temp"}),           --  Graphical CPU usage widget
-
+            cpu_monitor({"usage", "temp"}),     --  Graphical CPU usage widget
             tbox_separator_space,
-            ram_icon,   --     --  Shows RAM usage in %
-            awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/Viamar-PC/StatusBar-Scripts/RAM-usage-monitor.sh"', 1),
+            ram_monitor({"usage_available"}),   --  Shows RAM usage in % and Available RAM in GB
             tbox_separator_space,
 ------------------------------------------------------------------------------------------------            
 
