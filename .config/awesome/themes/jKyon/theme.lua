@@ -28,7 +28,7 @@ local gears = require("gears")
 ---------------------  Theme definition  -------------------
 local theme = {}
 
-theme.font               =  "MesloLGS NF Bold 8.5"
+theme.font               =  "MesloLGS NF Mono Bold 8.5"
 
 -- Colors reference: https://catppuccin.com/palette/ - Catppuccin Macchiato Blue color palette
 theme.fg_normal          =  "#cad3f5"
