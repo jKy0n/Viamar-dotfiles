@@ -14,7 +14,7 @@
 ## 🧬 Operational System
 
 - **OS:** `Arch Linux` x86_64
-- **Kernel:** `6.15.X` (arch bin standard)
+- **Kernel:** `6.16.X` (Custom kernel)
 - **Shell:** `zsh` (`bash` for scripts) ([config files here](https://github.com/jKy0n/Viamar-dotfiles/tree/master/.config/zsh))
 - **GS:** `X.Org` (X11)
 - **Login Manager:** `LightDM` + `light-locker`
@@ -102,16 +102,17 @@
 |--------|--------------|--------------------------|----------|
 |  NVMe  | /dev/nvme0n1 |       Husky Gaming       |  128 GB  |
 |  NVMe  | /dev/nvme1n1 |       Husky Gaming       |  256 GB  |
-|  HDD   |   /dev/sda   | Toshiba WDC WD10SPZX-75Z |   1 TB   |
-|  HDD   |   /dev/sdb   |   ATA WDC WD1600AAJS-7   |  160 GB  |
-| HDDext |   /dev/sdc   |     ADATA HD710 PRO      |   1 TB   |
+|  HDD   |   /dev/sda   | Toshiba WDC WD10EZEX-00B |   1 TB   |
+|  HDD   |   /dev/sdb   | Toshiba WDC WD10SPZX-75Z |   1 TB   |
+|  HDD   |   /dev/sdc   |   ATA WDC WD1600AAJS-7   |  160 GB  |
+| HDDext |   /dev/sdd   |     ADATA HD710 PRO      |   1 TB   |
 
-
-![Partition Scheme](https://github.com/jKy0n/Viamar-dotfiles/blob/master/Pictures/Viamar-PC-media/PartitionScheme-27-06-2025.png)
+<!-- update here -->
+<!-- ![Partition Scheme](https://github.com/jKy0n/Viamar-dotfiles/blob/master/Pictures/Viamar-PC-media/PartitionScheme-27-06-2025.png) -->
 
 ---
 
-![Peripherals](https://github.com/jKy0n/Viamar-dotfiles/blob/master/Pictures/Viamar-PC-media/peripherals-03-Apr-2025.jpg)
+![Peripherals](https://github.com/jKy0n/Viamar-dotfiles/blob/master/Pictures/Viamar-PC-media/peripherals-2025-09-20.jpg)
 
 ---
 
@@ -125,7 +126,7 @@
 ## ⌨️ Inputs
 
 - **Keyboard:** HyperX Alloy Origins Core (ABNT2, Red Switches)  
-  - **Keycaps:** Propitious Omen (Purple)  
+  - **Keycaps:** Gradient Blue one  
 - **Numpad:** Exbom BK-N30  
 - **Mouse:** Logitech G403  
 
