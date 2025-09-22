@@ -14,7 +14,7 @@
 ## 🧬 Operational System
 
 - **OS:** `Arch Linux` x86_64
-- **Kernel:** `6.16.X` (Custom kernel)
+- **Kernel:** `6.16.8` ([config files here](https://github.com/jKy0n/Viamar-dotfiles/blob/master/.config/kernel/Viamar-PC/linux-6.16.8/.config)
 - **Shell:** `zsh` (`bash` for scripts) ([config files here](https://github.com/jKy0n/Viamar-dotfiles/tree/master/.config/zsh))
 - **GS:** `X.Org` (X11)
 - **Login Manager:** `LightDM` + `light-locker`
