@@ -6,7 +6,7 @@ local function ram_monitor(args)
     args = args or {}
     local show_usage_available, show_usage, show_total, show_used, show_free, show_available = false, false, false, false, false, false
     local show_swap_usage, show_swap_total, show_swap_used, show_swap_free = false, false, false, false
-    local sep = "  "  -- Espaçamento entre itens
+    local sep = " "  -- Espaçamento entre itens
 
     -- Checa quais informações mostrar
     for _, v in ipairs(args) do
@@ -22,7 +22,7 @@ local function ram_monitor(args)
         if v == "swap_free"       then show_swap_free       = true end
     end
 
-    local icon = '<span font="MesloLGS Nerd Font 11"> </span> '
+    local icon = '<span font="MesloLGS Nerd Font 11">  </span> '
     local widget = wibox.widget {
         markup = icon .. " Loading... ",
         widget = wibox.widget.textbox
@@ -43,65 +43,53 @@ local function ram_monitor(args)
         swap_free = "--"
     }
 
-    -- Função para criar o popup
+    -- Função para criar o popup (cria só uma vez)
     local function show_popup()
-        if popup then popup.visible = false; popup = nil end
-
-        -- Pega a posição atual do mouse
-        local mouse_coords = mouse.coords()
-
-        popup = awful.popup {
-            widget = {
-                {
+        if not popup then
+            local mouse_coords = mouse.coords()
+            popup = awful.popup {
+                widget = {
                     {
                         {
-                            align = "right",
-                            valign = "center",
-                            widget = wibox.widget.textbox,
-                            markup = "<b>Usage Available:</b>\n<b>Usage:</b>\n<b>Available:</b>\n<b>Total:</b>\n<b>Used:</b>\n<b>Free:</b>\n\n<b>Swap Usage:</b>\n<b>Swap Total:</b>\n<b>Swap Used:</b>\n<b>Swap Free:</b>"
+                            {
+                                align = "right",
+                                valign = "center",
+                                widget = wibox.widget.textbox,
+                                markup = "<b>Usage Available:</b>\n<b>Usage:</b>\n<b>Available:</b>\n<b>Total:</b>\n<b>Used:</b>\n<b>Free:</b>\n\n<b>Swap Usage:</b>\n<b>Swap Total:</b>\n<b>Swap Used:</b>\n<b>Swap Free:</b>"
+                            },
+                            {
+                                align = "left",
+                                valign = "center",
+                                widget = wibox.widget.textbox,
+                                id = "valuebox",
+                                markup = "",
+                            },
+                            layout = wibox.layout.fixed.horizontal,
+                            spacing = 10
                         },
-                        {
-                            align = "left",
-                            valign = "center",
-                            widget = wibox.widget.textbox,
-                            markup = string.format(
-                                " %s%%\n %s%%\n %s GB\n %s GB\n %s GB\n %s GB\n\n %s%%\n %s GB\n %s GB\n %s GB",
-                                last_values.usage_available,
-                                last_values.usage,
-                                last_values.available,
-                                last_values.total,
-                                last_values.used,
-                                last_values.free,
-                                last_values.swap_usage,
-                                last_values.swap_total,
-                                last_values.swap_used,
-                                last_values.swap_free
-                            )
-                        },
-                        layout = wibox.layout.fixed.horizontal,
-                        spacing = 10
+                        margins = 10,
+                        widget = wibox.container.margin
                     },
-                    margins = 10,
-                    widget = wibox.container.margin
+                    shape = gears.shape.rounded_rect,
+                    widget = wibox.container.background
                 },
-                -- bg = "#222233ee",
-                shape = gears.shape.rounded_rect,
-                widget = wibox.container.background
-            },
-            -- border_color = "#444466",
-            border_width = 2,
-            ontop = true,
-            visible = true,
-        }
-
-        -- Ajusta a posição do popup para perto do clique
-        popup.x = mouse_coords.x + 10
-        popup.y = mouse_coords.y + 10
+                border_width = 2,
+                ontop = true,
+                visible = false,
+            }
+            popup.x = mouse_coords.x + 10
+            popup.y = mouse_coords.y + 10
+        else
+            local mouse_coords = mouse.coords()
+            popup.x = mouse_coords.x + 10
+            popup.y = mouse_coords.y + 10
+        end
+        popup.visible = true
     end
 
     -- Esconde o popup
     local function hide_popup()
-        if popup then popup.visible = false; popup = nil end
+        if popup then popup.visible = false end
     end
 
     -- Atualiza o widget periodicamente
@@ -144,8 +132,26 @@ local function ram_monitor(args)
             if show_swap_used       and swap_used       then table.insert(items, string.format("%5s GB", swap_used))      end
             if show_swap_free       and swap_free       then table.insert(items, string.format("%5s GB", swap_free))      end
 
-            local padding = "  "
-            w.markup = padding .. icon .. "<span font='MesloLGS NF Mono,Bold 8.5'>" .. table.concat(items, sep) .. "</span>" .. padding
+            local padding = " "
+            w.markup = padding .. icon .. "<span font='MesloLGS Nerd Font Bold 8'>" .. table.concat(items, sep) .. "</span>" .. padding
+
+            -- Atualiza o popup se estiver visível
+            if popup and popup.visible then
+                local valuebox = popup.widget:get_children_by_id("valuebox")[1]
+                valuebox.markup = string.format(
+                    " %s%%\n %s%%\n %s GB\n %s GB\n %s GB\n %s GB\n\n %s%%\n %s GB\n %s GB\n %s GB",
+                    last_values.usage_available,
+                    last_values.usage,
+                    last_values.available,
+                    last_values.total,
+                    last_values.used,
+                    last_values.free,
+                    last_values.swap_usage,
+                    last_values.swap_total,
+                    last_values.swap_used,
+                    last_values.swap_free
+                )
+            end
         end,
         widget
     )

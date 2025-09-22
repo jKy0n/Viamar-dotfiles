@@ -34,7 +34,7 @@ awful.layout.layouts = {
     awful.layout.suit.max,
 
     -- floating layout
-    awful.layout.suit.floating,
+    -- awful.layout.suit.floating,
 }
 
 return layouts
