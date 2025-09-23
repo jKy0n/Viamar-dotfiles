@@ -1,7 +1,4 @@
-# # Powerlevel10k Instant Prompt (mantenha no topo!)
-# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-# fi
+
 
 # Define o diretório onde os módulos estão localizados
 ZSHRC_D="$HOME/.config/zsh/zshrc.d"
