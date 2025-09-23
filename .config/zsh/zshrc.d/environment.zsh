@@ -19,5 +19,7 @@ export PATH="$HOME/.local/bin:$PATH"
 
 export PAY_RESPECTS_REQUIRE_CONFIRMATION="true"  # pay-respect: Pergunta antes de aplicar
 
+setopt EXTENDED_GLOBS  # Habilita padrões estendidos
+
 # Garante ZSH como shell padrão no TMUX
 [[ -z "$TMUX" ]] && export SHELL=$(which zsh)
