@@ -99,7 +99,7 @@
         {
             "type": "font",
             "key": "  ",
-            "format": "{2} "
+            "format": "{5}"
         },
         {
             "type": "cursor",
@@ -149,7 +149,7 @@
         {
             "type": "custom",
             "key": "  ",
-            "format": "HyperX Alloy Origins Core (tkl) - keycaps: Propitious Omen Purple "
+            "format": "HyperX Alloy Origins Core (tkl)\n                                                        keycaps: Propitious Omen Purple "
         },
         {
             "type": "custom",
