@@ -2,7 +2,7 @@
 
 *It's all about my little buddie*
 
-![Fastfetch](https://github.com/jKy0n/Viamar-dotfiles/blob/master/Pictures/Viamar-PC-media/fastfetch-2025-09-26.png)
+![Fastfetch](https://github.com/jKy0n/Viamar-dotfiles/blob/master/Pictures/Viamar-PC-media/fastfetch_-_2025-09-26.png)
 
 
 ## 🖥️ Desktop
