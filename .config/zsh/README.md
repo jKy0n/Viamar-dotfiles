@@ -15,7 +15,7 @@ My modular config for zsh
         </br>
 </details>
 
-![zsh dir](https://github.com/jKy0n/Viamar-dotfiles/blob/master/Pictures/Viamar-PC-media/zsh-2025-09-23.png)
+![zsh dir](https://github.com/jKy0n/Viamar-dotfiles/blob/master/Pictures/Viamar-PC-media/zsh_-_2025-09-23.png)
 
 ## Next Steps:
 - [ ] Create a config for tty (console) to use zsh in console with minimum Qol (quality of life)
