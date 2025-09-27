@@ -2,12 +2,12 @@
 
 *It's all about my little buddie*
 
-![Fastfetch](https://github.com/jKy0n/Viamar-dotfiles/blob/master/Pictures/Viamar-PC-media/fastfetch_-_2025-09-26.png)
+![Fastfetch](https://github.com/jKy0n/Viamar-dotfiles/blob/16a80ec59cb350b77a0fe6bb71f0a10b82cc385a/Pictures/Viamar-PC-media/fastfetch_-_2025-09-26.png)
 
 
 ## 🖥️ Desktop
 
-![Desktop](https://github.com/jKy0n/Viamar-dotfiles/blob/master/Pictures/Viamar-PC-media/desktop-03-Apr-2025.jpg)
+![Desktop](https://github.com/jKy0n/Viamar-dotfiles/blob/16a80ec59cb350b77a0fe6bb71f0a10b82cc385a/Pictures/Viamar-PC-media/desktop_-_2025-09-27.png)
 
 ---
 
@@ -83,7 +83,7 @@
 
 ---
 
-![Viamar](https://github.com/jKy0n/Viamar-dotfiles/blob/master/Pictures/Viamar-PC-media/viamar-25-06-2025.jpg)
+![Viamar](https://github.com/jKy0n/Viamar-dotfiles/blob/16a80ec59cb350b77a0fe6bb71f0a10b82cc385a/Pictures/Viamar-PC-media/viamar-PC_-_2025-06-25.jpg)
 
 ---
 
@@ -112,7 +112,7 @@
 
 ---
 
-![Peripherals](https://github.com/jKy0n/Viamar-dotfiles/blob/master/Pictures/Viamar-PC-media/peripherals-2025-09-20.jpg)
+![Peripherals](https://github.com/jKy0n/Viamar-dotfiles/blob/16a80ec59cb350b77a0fe6bb71f0a10b82cc385a/Pictures/Viamar-PC-media/peripherals_-_2025-09-20.jpg)
 
 ---
 
