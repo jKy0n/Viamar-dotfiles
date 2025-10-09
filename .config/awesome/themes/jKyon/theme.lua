@@ -104,7 +104,7 @@ theme.layout_tileleft     =   "/home/jkyon/.config/awesome/themes/jKyon/layouts/
 theme.layout_tilebottom   =   "/home/jkyon/.config/awesome/themes/jKyon/layouts/tilebottomw.png"
 theme.layout_tiletop      =   "/home/jkyon/.config/awesome/themes/jKyon/layouts/tiletopw.png"
 theme.layout_max          =   "/home/jkyon/.config/awesome/themes/jKyon/layouts/maxw.png"
--- theme.layout_floating     =   "/home/jkyon/.config/awesome/themes/jKyon/layouts/floatingw.png"
+theme.layout_floating     =   "/home/jkyon/.config/awesome/themes/jKyon/layouts/floatingw.png"
 theme.layout_fullscreen   =   "/home/jkyon/.config/awesome/themes/jKyon/layouts/fullscreenw.png"
 
 -- Generate Awesome icon:

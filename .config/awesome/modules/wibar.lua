@@ -47,7 +47,7 @@ tbox_separator_dash = wibox.widget.textbox (" - ")
 --         margins = margins
 --     }
 -- end
-
+--
 --- Icons for widgets ---
 -- local cpu_icon = styled_textbox('  ', 11, 2)
 -- local ram_icon = styled_textbox('   ', 11, 2)
