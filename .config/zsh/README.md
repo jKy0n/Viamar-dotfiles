@@ -5,9 +5,10 @@ My modular config for zsh
 <details>
     <summary>🇧🇷 Descrição em Português:</summary>
         <br>
-            O zsh foi modularizado para ter uma melhor granularização e organização do código.
+            O zsh foi modularizado para ser mais granular e ter melhor organização do código.
         </br>
 </details>
+
 <details>
     <summary>🇬🇧 English Description:</summary>
         <br>
