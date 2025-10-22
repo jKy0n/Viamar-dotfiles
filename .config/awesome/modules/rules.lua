@@ -258,13 +258,19 @@ awful.rules.rules = {
             create_volatile_tag(c, " VMs ", 2, awful.layout.suit.tile)
         end,},},
 
-        { rule_any = { class = {"code", "Code"} }, -- VSCode
+    { rule_any = { class = {"code", "Code"} }, -- VSCode
     properties = { floating = false,
     placement = awful.placement.left,
     tag = screen[1].tags[4],},},
 
 -- W
 -- 
+    { rule_any = { class = {"winboat", "winboat"} },
+    properties = { floating = false,
+        callback = function(c)
+            create_volatile_tag(c, " WinBoat ", 2, awful.layout.suit.max)
+        end,},},
+    
 -- X
 -- 
 -- Y
