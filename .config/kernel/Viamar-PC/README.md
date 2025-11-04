@@ -9,7 +9,7 @@ Its is all about my kernel config for Viamar-PC.
     <summary>linux-6.17.7-1</summary>
         <br>
             <br>
-                <br> Trying CachyOS Kernel, working as well by now.
+                Trying CachyOS Kernel, working as well by now.
                 <br> ModProbed-db trimmed
                 <br> Add:    Tun/Tap for VM (VirtManager/QEmu/KVM)
                         <br> IP_Tables for Docker/WinBoat
