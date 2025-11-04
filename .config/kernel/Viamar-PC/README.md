@@ -6,7 +6,7 @@ Its is all about my kernel config for Viamar-PC.
 ![kernel building](https://github.com/jKy0n/Viamar-dotfiles/blob/master/Pictures/Viamar-PC-media/kernel_-_2025-09-26.png)
 
 <details>
-    <summary>linux-6.17.7-1</summary>
+    <summary>linux-6.17.7-1-cachyos</summary>
         <br>
             <br>
                 Trying CachyOS Kernel, working as well by now.
