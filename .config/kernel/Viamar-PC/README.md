@@ -6,6 +6,21 @@ Its is all about my kernel config for Viamar-PC.
 ![kernel building](https://github.com/jKy0n/Viamar-dotfiles/blob/master/Pictures/Viamar-PC-media/kernel_-_2025-09-26.png)
 
 <details>
+    <summary>linux-6.17.7-1</summary>
+        <br>
+            <br>
+                Trying CachyOS Kernel, working as well by now.
+                ModProbed-db trimmed
+                Add:    Tun/Tap for VM (VirtManager/QEmu/KVM)
+                        IP_Tables for Docker/WinBoat
+                        BtrFS built-in
+                        AMDGPU module
+                        And other minors changes
+            </br>
+        </br>
+</details>
+
+<details>
     <summary>linux-6.17.2</summary>
         <br>
             <br>
