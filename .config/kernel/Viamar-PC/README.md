@@ -9,13 +9,13 @@ Its is all about my kernel config for Viamar-PC.
     <summary>linux-6.17.7-1</summary>
         <br>
             <br>
-                Trying CachyOS Kernel, working as well by now.
-                ModProbed-db trimmed
-                Add:    Tun/Tap for VM (VirtManager/QEmu/KVM)
-                        IP_Tables for Docker/WinBoat
-                        BtrFS built-in
-                        AMDGPU module
-                        And other minors changes
+                <br> Trying CachyOS Kernel, working as well by now.
+                <br> ModProbed-db trimmed
+                <br> Add:    Tun/Tap for VM (VirtManager/QEmu/KVM)
+                        <br> IP_Tables for Docker/WinBoat
+                        <br> BtrFS built-in
+                        <br> AMDGPU module
+                        <br> And other minors changes
             </br>
         </br>
 </details>
