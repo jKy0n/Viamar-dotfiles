@@ -2,7 +2,7 @@
         jKyon (John Kennedy Loria Segundo)
         wibar.lua – awesomeWM
         2025-07-10
-        
+
         Purpose:
             Defines the wibar (top bar) for AwesomeWM.
             Configures widgets, layouts, and appearance for the wibar, enhancing user interaction.
@@ -82,7 +82,7 @@ local wibar = {}
 function wibar.setup(s)
 
 
------------------------------------------------------------------    
+-----------------------------------------------------------------
 ---------------------  Fisrt monitor Wibar  ---------------------
 
     if s.index == 1 then
@@ -113,7 +113,7 @@ function wibar.setup(s)
             tbox_separator_pipe,    --  |
             ram_monitor({"usage_available"}),  --  Shows RAM usage in % and Available RAM in GB
             ram_widget({ color_used = '#8aadf4', color_buf = '#24273a' }),
-------------------------------------------------------------------------------------------------            
+------------------------------------------------------------------------------------------------
             tbox_separator_pipe,
             tbox_separator_space,
             tbox_separator_space,
@@ -144,7 +144,7 @@ function wibar.setup(s)
         },
     }
 
------------------------------------------------------------------    
+-----------------------------------------------------------------
 ---------------------  Second monitor Wibar  --------------------
 
     elseif s.index == 2 then
@@ -172,7 +172,7 @@ function wibar.setup(s)
             tbox_separator_space,
             ram_monitor({"usage_available"}),   --  Shows RAM usage in % and Available RAM in GB
             tbox_separator_space,
-------------------------------------------------------------------------------------------------            
+------------------------------------------------------------------------------------------------
 
             dnd_widget,     -- Do Not Disturb widget
             mytextclock,    -- Text clock widget

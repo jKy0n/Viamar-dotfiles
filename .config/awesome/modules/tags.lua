@@ -2,7 +2,7 @@
         jKyon (John Kennedy Loria Segundo)
         tags.lua – awesomeWM
         2025-07-10
-        
+
         Purpose:
             Defines the initial tags for the first and second monitors in AwesomeWM.
             Sets up a structured workspace with specific layouts and tag names.
@@ -32,7 +32,7 @@ local tags = {}
         selected = false,
         screen = 1
     })
-    
+
     awful.tag.add(" Notas (3) ", {
         layout = awful.layout.suit.max,
         selected = false,

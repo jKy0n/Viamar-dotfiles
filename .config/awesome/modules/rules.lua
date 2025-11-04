@@ -51,23 +51,23 @@ awful.rules.rules = {
     placement = awful.placement.centered },},
 
 -- B
--- 
+--
     { rule_any = { class = {"brasero", "Brasero"} },
     properties = { floating = true,
     placement = awful.placement.centered },},
 
 -- C
--- 
+--
 -- D
--- 
+--
     { rule_any = { class = {"dolphin", "dolphin"} },
     properties = { floating = true,
     placement = awful.placement.centered },},
 
 -- E
--- 
+--
 -- F
--- 
+--
     { rule = { class = "feh" },
     properties = { floating = true, name = "feh",
     width = 1536,     -- Defina o tamanho que deseja
@@ -77,7 +77,7 @@ awful.rules.rules = {
     screen = 1  }},
 
 -- G
--- 
+--
     { rule_any = { class = { "gedit", "Gedit" } },
     properties = { floating = true, name = "Okular",
                     width = 1536,     -- Defina o tamanho que deseja
@@ -112,22 +112,22 @@ awful.rules.rules = {
         end,},},
 
 -- H
--- 
+--
 -- I
--- 
+--
 -- J
--- 
+--
 -- K
--- 
+--
     { rule_any = { class = { "kclock", "kclock" } },
     properties = { floating = true,
     placement = awful.placement.centered,
-    tag = screen[2].tags[5], },},    
+    tag = screen[2].tags[5], },},
 
     { rule_any = { class = {"kdeconnect-app", "kdeconnect.app"} },
     properties = { floating = true,
                     tag = screen[2].tags[5],
-    placement = awful.placement.centered,},},    
+    placement = awful.placement.centered,},},
 
     { rule_any = { class = { "krita", "krita" } },
     properties = { floating = false,
@@ -136,7 +136,7 @@ awful.rules.rules = {
     end,},},
 
 -- L
--- 
+--
     { rule_any = { class = {"lm studio", "LM Studio" } },
     properties = { floating = false,
         callback = function(c)
@@ -168,9 +168,9 @@ awful.rules.rules = {
     end },
 
 -- N
--- 
+--
 -- O
--- 
+--
     { rule_any = {  class = { "obsidian", "obsidian" } },
     properties = {  floating = false,
                     tag = screen[1].tags[3],},},
@@ -189,13 +189,13 @@ awful.rules.rules = {
     placement = awful.placement.centered },},
 
 -- P
--- 
+--
     { rule_any = { class = {"pavucontrol", "Pavucontrol"} },
     properties = { floating = false,
                     tag = screen[2].tags[4],},},
 
 -- Q
--- 
+--
     { rule = { class = "qt5ct" },
     properties = { floating = true,
     placement = awful.placement.centered },},
@@ -205,7 +205,7 @@ awful.rules.rules = {
     placement = awful.placement.centered },},
 
 -- R
--- 
+--
     { rule = { class = "rambox" },
     properties = { floating = false,
     placement = awful.placement.centered,
@@ -229,7 +229,7 @@ awful.rules.rules = {
     placement = awful.placement.centered,},},
 
 -- T
--- 
+--
     { rule_any = { class = { "teams-for-linux", "teams-for-linux" } },
     properties = { floating = false,
         callback = function(c)
@@ -249,9 +249,9 @@ awful.rules.rules = {
         end,},},
 
 -- U
--- 
+--
 -- V
--- 
+--
     { rule_any = { class = {"virt-manager", "Virt-manager"} },
     properties = { floating = false,
         callback = function(c)
@@ -264,17 +264,17 @@ awful.rules.rules = {
     tag = screen[1].tags[4],},},
 
 -- W
--- 
+--
     { rule_any = { class = {"winboat", "winboat"} },
-    properties = { floating = false,
+    properties = { floating = true,
         callback = function(c)
             create_volatile_tag(c, " WinBoat ", 2, awful.layout.suit.max)
         end,},},
-    
+
 -- X
--- 
+--
 -- Y
--- 
+--
 -- Z
 
 
