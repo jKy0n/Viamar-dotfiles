@@ -19,8 +19,8 @@ export PATH="$HOME/.local/bin:$PATH"
 
 export PAY_RESPECTS_REQUIRE_CONFIRMATION="true"  # pay-respect: Pergunta antes de aplicar
 
-setopt EXTENDED_GLOB  # Habilita padrões estendidos
-setopt GLOB_DOTS  # Faz globs pegarem arquivos começados com .
+setopt EXTENDED_GLOB    # Habilita padrões estendidos
+setopt GLOB_DOTS        # Faz globs pegarem arquivos começados com .
 
 # Garante ZSH como shell padrão no TMUX
 [[ -z "$TMUX" ]] && export SHELL=$(which zsh)
