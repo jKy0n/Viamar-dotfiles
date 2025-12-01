@@ -10,6 +10,8 @@
 APPS=(
     # openRGB to manage RGB devices
     "openrgb --startminimized --profile Viamar-PC"
+    # Network Manager Applet for network management
+    "nm-applet"
     # Clipman to manage clipboard history
     "xfce4-clipman"
     # Light Locker to lockscreen after inactivity
@@ -25,7 +27,7 @@ start_app() {
     # Captura o nome do executável (primeiro token do comando)
     local proc_name
     proc_name=$(echo "$app_cmd" | awk '{print $1}')
-    
+
     if pgrep -x "$(basename "$proc_name")" > /dev/null; then
         echo "$proc_name já está em execução."
     else
