@@ -133,10 +133,13 @@ function wibar.setup(s)
             wibox.widget.systray(), -- System tray widget
             dnd_widget,             -- Do Not Disturb widget
             weather_api_widget({
-                api_key='b08df374f2a4412d887190759250711',
-                coordinates = {-24.0058, -46.4028},
+                api_key = 'b08df374f2a4412d887190759250711',
+                coordinates = {'-24.0058', '-46.4028'},
+                units = 'metric',
                 show_daily_forecast = true,
                 show_hourly_forecast = true,
+                timeout = 1800,
+                lang = 'en',
             }),
             tbox_separator_dash,
             mytextclock,            -- Text clock widget
