@@ -1,13 +1,17 @@
 program_options:
   tray: true
   notify: true
+  # automount: false
   # mount_prefix: /home/jkyon/Desktop/Pessoal/      # tudo será montado aqui
-  idle_timeout: 3600      # desmonta e fecha LUKS após 1 h
+  # idle_timeout: 3600      # desmonta e fecha LUKS após 1 h
 
-mount_options:
-  - id_type: btrfs                       # ← troque “fstype” por “id_type”
-    options: compress=zstd,noatime
+# mount_options:
+#   - id_type: btrfs                       # ← troque “fstype” por “id_type”
+#     options: compress=zstd,noatime
 
-# device_config:
-#   - id_uuid: "9ae25c76-2a6f-4279-8bb9-479debb482d5"  # partição LUKS
-#     options: ""                                      # mantenha lista ou string vazia
+device_config:
+- id_uuid: "fb7b24cb-ec98-49bf-88c2-5310d50744f0"
+- id_type: btrfs
+  options: compress=zstd,relatime
+  automount: false
+  mount_path: /home/jkyon/Amethyst/

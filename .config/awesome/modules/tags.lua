@@ -51,6 +51,12 @@ local tags = {}
         screen = 1
     })
 
+    awful.tag.add(" SSH (6) ", {
+        layout = awful.layout.suit.tile.left,
+        selected = false,
+        screen = 1
+    })
+
 ------------------------------------------------------------------
 ---------------------- Second Monitor Tags  ----------------------
     awful.tag.add(" Work (1) ", {
