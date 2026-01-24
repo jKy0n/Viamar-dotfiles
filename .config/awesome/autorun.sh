@@ -12,8 +12,6 @@ APPS=(
     "openrgb --startminimized --profile Viamar-PC"
     # Network Manager Applet for network management
     "nm-applet"
-    # Spotify Tray for Spotify control from system tray
-    # "spotify-tray --toggle"
     # Clipman to manage clipboard history
     "xfce4-clipman"
     # Light Locker to lockscreen after inactivity
