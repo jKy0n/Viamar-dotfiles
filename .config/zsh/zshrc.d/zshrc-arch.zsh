@@ -1,6 +1,9 @@
 # set -x  # Debugging tool
 # Define o diretório onde os módulos estão localizados
 ZSHRC_D="$HOME/.config/zsh/zshrc.d"
+# Define o caminho para o diretório de funções para manter o código limpo.
+ZSH_FUNCTIONS_D="$ZSHRC_D/functions"
+
 
 # Carrega chaves API (mantido seguro e criptografado)
 if    [ -r "$ZSHRC_D/zsh-secrets/api_keys" ]; then
@@ -33,3 +36,13 @@ fi
 
 # Carrega a lista de aliases
 [ -r "$ZSHRC_D/aliases.zsh" ] && source "$ZSHRC_D/aliases.zsh"
+
+
+# Verifica se o diretório de funções realmente existe.
+if [ -d "$ZSH_FUNCTIONS_D" ]; then
+    # Se existir, faz um loop por cada arquivo .zsh dentro dele.
+    for module in "$ZSH_FUNCTIONS_D"/*.zsh; do
+        # Carrega (source) cada módulo encontrado.
+        [ -r "$module" ] && source "$module"
+    done
+fi
