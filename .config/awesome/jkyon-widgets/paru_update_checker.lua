@@ -16,8 +16,9 @@
 -------------------------------------------------------------
 ---------------------  Load Libraries  ----------------------
 local awful = require("awful")
-local wibox = require("wibox")
 local beautiful = require("beautiful")
+local gears = require("gears")
+local wibox = require("wibox")
 
 -------------------------------------------------------------
 -------------------  Update Checker Widget  -----------------
@@ -31,6 +32,9 @@ local pkg_tooltip = awful.tooltip({
     objects = {},
     text = "Nenhuma atualização disponível",
     visible = false,
+    shape = gears.shape.rounded_rect,
+    border_width = 2,
+    border_color = beautiful.border_focus,
     bg = beautiful.bg_normal,
     fg = beautiful.fg_normal,
     font = beautiful.font,
