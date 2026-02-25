@@ -10,8 +10,10 @@
 APPS=(
     # openRGB to manage RGB devices
     "openrgb --startminimized --profile Viamar-PC"
-    # KDE Connect daemon for device integration
+    # kdeconnectd and kdeconnect-indicator for mobile device integration and snixembed for system tray support
+    "snixembed --fork"
     "kdeconnectd"
+    "kdeconnect-indicator"
     # Network Manager Applet for network management
     "nm-applet"
     # Clipman to manage clipboard history
