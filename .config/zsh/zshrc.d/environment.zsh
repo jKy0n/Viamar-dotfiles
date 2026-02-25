@@ -32,5 +32,7 @@ export PAY_RESPECTS_REQUIRE_CONFIRMATION="true"  # pay-respect: Pergunta antes d
 setopt EXTENDED_GLOB    # Habilita padrões estendidos
 setopt GLOB_DOTS        # Faz globs pegarem arquivos começados com .
 
+setopt INTERACTIVE_COMMENTS  # Permite comentários em comandos interativos
+
 # Garante ZSH como shell padrão no TMUX
 [[ -z "$TMUX" ]] && export SHELL=$(which zsh)
