@@ -9,7 +9,7 @@ export GTK_ICON_THEME="Papirus-Dark"
 
 export QT_QPA_PLATFORMTHEME=kde
 export QT_QUICK_CONTROLS_STYLE=org.kde.desktop
-export XDG_CURRENT_DESKTOP=KDE
+export XDG_CURRENT_DESKTOP=kde
 
 export MOZ_X11_EGL=1
 export LIBVA_DRIVER_NAME=radeonsi
