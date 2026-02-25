@@ -12,19 +12,6 @@
 --]]
 
 --------------------------------------------------------------
----------------  Temporary workaround for lgi  ---------------
-
--- local lgi = require("lgi")
--- local Gio = lgi.Gio
--- local GioUnix = lgi.GioUnix
-
--- -- compatibilidade: se Gio.UnixInputStream não existir, aponta para GioUnix.InputStream
--- if not Gio.UnixInputStream and GioUnix then
---     Gio.UnixInputStream = GioUnix.InputStream
---     Gio.UnixOutputStream = GioUnix.OutputStream
--- end
-
---------------------------------------------------------------
 -----------------------  First steps  ------------------------
 -- Load luarocks
 pcall(require, "luarocks.loader")
