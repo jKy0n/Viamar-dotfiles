@@ -8,7 +8,14 @@ export CARGO_TARGET_DIR="/home/jkyon/.build/cargo-target"
 export PIP_CACHE_DIR="/home/jkyon/.build/pip-cache"
 
 # Configurações distcc
-# export DISTCC_HOSTS="100.91.173.111/12,lzo 100.71.253.28/12,lzo localhost/4"
+export DISTCC_HOSTS=" 192.168.5.20/10,lzo
+                      192.168.15.10/28,lzo
+                      192.168.15.30/8,lzo
+                      100.100.10.20/10,lzo
+                      100.100.10.10/28,lzo
+                      100.100.10.30/8,lzo
+                      localhost/5
+                    "
 
 # Configurações do ccache
 export CCACHE_DIR="$HOME/.build/ccache"
