@@ -14,6 +14,7 @@
 --------------------------------------------------------------
 ----------------------  Load Libraries  ----------------------
 local naughty = require("naughty")
+local beautiful = require("beautiful")
 
 --------------------------------------------------------------
 ---------------------  notify_manager module  ----------------
@@ -30,6 +31,7 @@ naughty.config.defaults = {
     font = "MesloLGS Nerd Font Bold 10", -- Fonte
     icon_size = 300,
     border_width = 2,
+    border_color = beautiful.border_focus
 }
 
 return notify_manager

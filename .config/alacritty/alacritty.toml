@@ -1,67 +1,83 @@
-# Arquivos de configuração do Alacritty em formato TOML
+# Alacritty Configuration File
+# ~/.config/alacritty/alacritty.toml
 
 [general]
-    import = [
     # Importa o tema Catppuccin Macchiato para o Alacritty
-        "~/.config/alacritty/catppuccin-macchiato.toml"
-]
+    import = [ "~/.config/alacritty/catppuccin-macchiato.toml" ]
 
 [terminal]
-# Configuração do Shell
-shell = { program = "/bin/zsh", args = ["-l"] }
+    # Configuração do zsh como shell padrão
+    shell = { program = "/bin/zsh", args = ["-l"] }
 
 [env]
+    # Define a variável de ambiente TERM para garantir compatibilidade com aplicativos que dependem dela
     TERM = "xterm-256color"
 
 # Configurações gerais
 [font]
+    # Configurações de fonte
     normal = { family = "MesloLGS Nerd Font" }
     size = 9.0
 
 [window]
+    # Configurações de janela
     opacity = 0.8
     dynamic_title = true
+    decorations = "none"
+    startup_mode = "Windowed"       # Explícito: awesome controla tiling/floating
+    padding = { x = 0, y = 1 }      # Pequeno respiro visual nas bordas internas
+    dynamic_padding = true          # Centraliza o conteúdo quando sobra espaço
 
 [cursor]
+    # Configurações do cursor
     style = { shape = "Beam", blinking = "On" }
     vi_mode_style  = { shape = "Block", blinking = "On" }
 
 [mouse]
+    # Configurações do mouse
     hide_when_typing = true
 
-# Seção de mapeamento de teclas
-[keyboard]
+[scrolling]
+    history = 10000       # Buffer de 10k linhas (padrão, mas explícito)
+    multiplier = 3        # Linhas por evento de scroll (padrão: 3, suave)
 
-bindings = [
-    # Enter vi mode with Ctrl+Space
-    { key = "Space", mods = "Shift|Control",  mode = "~Search", action = "ToggleViMode" },
-    # Vi mode bindings
-    { key = "h", mode = "Vi", action = "Left" },
-    { key = "j", mode = "Vi", action = "Down" },
-    { key = "k", mode = "Vi", action = "Up" },
-    { key = "l", mode = "Vi", action = "Right" },
-    # Exit vi mode with Escape
-    { key = "Escape", mode = "Vi", action = "ToggleViMode" },
-    # Move to the start of the line
-    { key = "0", mode = "Vi", action = "First" },
-    # Move to the end of the line
-    { key = "$", mode = "Vi", action = "Last" },
-    # Delete a character
-    #{ key = "x", mode = "Vi", action = "ViMotionDeleteChar" },
-    # Enter insert mode with 'i'
-    #{ key = "i", mode = "Vi", action = "ViMotionInsert" } ]
-    # Mapeamento de teclas para Control+Setas
-    # { key = "Left",  mods = "Control", chars = "\u001b[1;5D" },
-    # { key = "Right", mods = "Control", chars = "\u001b[1;5C" },
-    { key = "Home",  chars = "\u001b[H" },
-    { key = "End",   chars = "\u001b[F" },
-    # Mapeamento de pageUp e pageDown:
-    # { key = "PageUp",   chars = "\\x1b[5~" },  # PgUp
-    # { key = "PageDown", chars = "\\x1b[6~" },  # PgDown
+[keyboard]
+    # Configurações de teclado e mapeamento de teclas
+    bindings = [
+        # Enter vi mode with Ctrl+Space
+        { key = "Space", mods = "Shift|Control",  mode = "~Search", action = "ToggleViMode" },
+        # Vi mode bindings
+        { key = "h", mode = "Vi", action = "Left" },
+        { key = "j", mode = "Vi", action = "Down" },
+        { key = "k", mode = "Vi", action = "Up" },
+        { key = "l", mode = "Vi", action = "Right" },
+        # Exit vi mode with Escape
+        { key = "Escape", mode = "Vi", action = "ToggleViMode" },
+        # Move to the start of the line
+        { key = "0", mode = "Vi", action = "First" },
+        # Move to the end of the line
+        { key = "$", mode = "Vi", action = "Last" },
+        # Delete a character
+        #{ key = "x", mode = "Vi", action = "ViMotionDeleteChar" },
+        # Enter insert mode with 'i'
+        #{ key = "i", mode = "Vi", action = "ViMotionInsert" } ]
+        # Mapeamento de teclas para Control+Setas
+        # { key = "Left",  mods = "Control", chars = "\u001b[1;5D" },
+        # { key = "Right", mods = "Control", chars = "\u001b[1;5C" },
+        { key = "Home",  chars = "\u001b[H" },
+        { key = "End",   chars = "\u001b[F" },
+        # Mapeamento de pageUp e pageDown:
+        # { key = "PageUp",   chars = "\\x1b[5~" },  # PgUp
+        # { key = "PageDown", chars = "\\x1b[6~" },  # PgDown
+        # Scroll rápido com Shift
+        { key = "PageUp",   mods = "Shift", action = "ScrollHalfPageUp" },
+        { key = "PageDown", mods = "Shift", action = "ScrollHalfPageDown" },
+        { key = "Home",     mods = "Shift", action = "ScrollToTop" },
+        { key = "End",      mods = "Shift", action = "ScrollToBottom" },
 ]
 
-# ✨ NOVO: Configuração de Hints para abrir URLs com Firefox
 [[hints.enabled]]
+    # Configuração de Hints para abrir URLs com Firefox
     hyperlinks = true
     persist = true
     post_processing = true
