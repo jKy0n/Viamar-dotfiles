@@ -31,9 +31,14 @@ local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout
 local internet_widget = require("jkyon-widgets.internet_widget")
 local dnd_widget = require ("jkyon-widgets.DoNotDisturb_widget")
 local pkg_widget = require("jkyon-widgets.paru_update_checker")
-local cpu_monitor = require("jkyon-widgets.cpu_monitor")
-local ram_monitor = require("jkyon-widgets.ram_monitor")
 
+-- Carrega os NOVOS monitores baseados em Lua
+local jkyon_cpu_monitor = require("jkyon-widgets.cpu_monitor")
+local jkyon_ram_monitor = require("jkyon-widgets.ram_monitor")
+
+-- Cria as instâncias dos widgets com nomes únicos
+local jkyon_cpu_monitor_widget = jkyon_cpu_monitor({"usage", "freq", "temp"})
+local jkyon_ram_monitor_widget = jkyon_ram_monitor({"usage"})
 
 --- Separators ---
 tbox_separator_space = wibox.widget.textbox (" ")
@@ -42,8 +47,8 @@ tbox_separator_dash = wibox.widget.textbox (" - ")
 
 
 -- Fixing CPU width on wibox
-local cpu_usage = awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/Viamar-PC/StatusBar-Scripts/CPU-usage-monitor.sh"', 1)
-cpu_usage.forced_width = 30
+-- local cpu_usage = awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/Viamar-PC/StatusBar-Scripts/CPU-usage-monitor.sh"', 1)
+-- cpu_usage.forced_width = 30
 
 --- textclock and calendar widget ---
 mytextclock = wibox.widget.textclock(' %a, %d %b - %H:%M ', 60)
@@ -94,11 +99,13 @@ function wibar.setup(s)
             tbox_separator_space,
             pkg_widget,             --  Paru update checker widget
             tbox_separator_space,
-            cpu_monitor({"usage", "freq", "temp"}),     --  Graphical CPU usage widget
+            -- cpu_monitor({"usage", "freq", "temp"}),     --  Graphical CPU usage widget
+            jkyon_cpu_monitor_widget,      --  Graphical CPU frequency widget
             tbox_separator_pipe,    --  |
             cpu_widget(),           -- Graphical CPU usage widget
             tbox_separator_pipe,    --  |
-            ram_monitor({"usage_available"}),  --  Shows RAM usage in % and Available RAM in GB
+            -- ram_monitor({"usage_available"}),  --  Shows RAM usage in % and Available RAM in GB
+            jkyon_ram_monitor_widget,      --  Shows RAM usage in %
             ram_widget({ color_used = '#8aadf4', color_buf = '#24273a' }),
 ------------------------------------------------------------------------------------------------
             tbox_separator_pipe,
@@ -166,9 +173,11 @@ function wibar.setup(s)
 
             internet_widget,    -- Internet widget detect internet connection
             tbox_separator_space,
-            cpu_monitor({"usage", "temp"}),     --  Graphical CPU usage widget
+            -- cpu_monitor({"usage", "temp"}),     --  Graphical CPU usage widget
+            jkyon_cpu_monitor_widget,      --  Graphical CPU frequency widget
             tbox_separator_space,
-            ram_monitor({"usage_available"}),   --  Shows RAM usage in % and Available RAM in GB
+            -- ram_monitor({"usage_available"}),   --  Shows RAM usage in % and Available RAM in GB
+            jkyon_ram_monitor_widget,     --  Shows RAM usage in %
             tbox_separator_space,
 ------------------------------------------------------------------------------------------------
 

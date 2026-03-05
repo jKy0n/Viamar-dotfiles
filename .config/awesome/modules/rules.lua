@@ -213,7 +213,13 @@ awful.rules.rules = {
 
 -- S
 --
-    { rule_any = { class = {"simple-scan", "simple-scan"} },
+    { rule_any = { class = {"simple-scan" , "simple-scan"} },
+    properties = { floating = false,
+        callback = function(c)
+            create_volatile_tag(c, " Scan ", 1, awful.layout.suit.tile)
+        end,},},
+
+    { rule_any = { class = {"skanpage" , "skanpage"} },
     properties = { floating = false,
         callback = function(c)
             create_volatile_tag(c, " Scan ", 1, awful.layout.suit.tile)
