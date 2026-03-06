@@ -46,10 +46,6 @@ tbox_separator_pipe = wibox.widget.textbox (" | ")
 tbox_separator_dash = wibox.widget.textbox (" - ")
 
 
--- Fixing CPU width on wibox
--- local cpu_usage = awful.widget.watch('bash -c "sh /home/jkyon/ShellScript/Viamar-PC/StatusBar-Scripts/CPU-usage-monitor.sh"', 1)
--- cpu_usage.forced_width = 30
-
 --- textclock and calendar widget ---
 mytextclock = wibox.widget.textclock(' %a, %d %b - %H:%M ', 60)
 
@@ -123,8 +119,9 @@ function wibar.setup(s)
             tbox_separator_space,
             todo_widget(),          -- To-do list widget
             tbox_separator_space,
+
             wibox.widget.systray(), -- System tray widget
-            dnd_widget,             -- Do Not Disturb widget
+
             weather_api_widget({
                 api_key = 'b08df374f2a4412d887190759250711',
                 coordinates = {'-24.0058', '-46.4028'}, -- Praia Grande, SP, Brazil
@@ -137,14 +134,16 @@ function wibar.setup(s)
             tbox_separator_dash,
             mytextclock,            -- Text clock widget
 
+            dnd_widget,             -- Do Not Disturb widget
+
             logout_menu_widget{     -- Logout menu widget
                 font = 'MesloLGS Nerd Font Bold 10',
-                onlogout   =  function() awful.spawn.with_shell("loginctl terminate-user $USER") end,
+                -- onlogout   =  function() awful.spawn.with_shell("loginctl terminate-user $USER") end,
                 onlock     =  function() awful.spawn.with_shell('dm-tool lock') end,
                 onsuspend  =  function() awful.spawn.with_shell("systemctl suspend") end,
                 onreboot   =  function() awful.spawn.with_shell("systemctl reboot") end,
                 onpoweroff =  function() awful.spawn.with_shell("systemctl poweroff") end,
-
+                -- onreload   =  function() awesome.restart() end
             },
         },
     }
@@ -172,17 +171,15 @@ function wibar.setup(s)
             layout = wibox.layout.fixed.horizontal,
 
             internet_widget,    -- Internet widget detect internet connection
-            tbox_separator_space,
-            -- cpu_monitor({"usage", "temp"}),     --  Graphical CPU usage widget
-            jkyon_cpu_monitor_widget,      --  Graphical CPU frequency widget
-            tbox_separator_space,
-            -- ram_monitor({"usage_available"}),   --  Shows RAM usage in % and Available RAM in GB
+            jkyon_cpu_monitor_widget,     --  Graphical CPU frequency widget
+            tbox_separator_pipe ,         --    |   (separator)
             jkyon_ram_monitor_widget,     --  Shows RAM usage in %
-            tbox_separator_space,
+            tbox_separator_pipe ,         --    |   (separator)
+
 ------------------------------------------------------------------------------------------------
 
-            dnd_widget,     -- Do Not Disturb widget
             mytextclock,    -- Text clock widget
+            dnd_widget,     -- Do Not Disturb widget
 
             logout_menu_widget{ -- Logout menu widget
                 font = 'MesloLGS Nerd Font Bold 10',

@@ -21,6 +21,7 @@ local tags = {}
 
 ------------------------------------------------------------------
 ---------------------- Fisrt Monitor Tags  ----------------------
+
     awful.tag.add(" Work (1) ", {
         layout = awful.layout.suit.tile,
         selected = true,
@@ -59,6 +60,7 @@ local tags = {}
 
 ------------------------------------------------------------------
 ---------------------- Second Monitor Tags  ----------------------
+
     awful.tag.add(" Work (1) ", {
         layout = awful.layout.suit.tile,
         selected = false,
