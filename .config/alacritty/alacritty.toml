@@ -1,5 +1,13 @@
-# Alacritty Configuration File
-# ~/.config/alacritty/alacritty.toml
+#
+#    Title:   alacritty.toml
+#    Brief:   Configuração do terminal Alacritty
+#    Path:    /home/jkyon/.config/alacritty/alacritty.toml
+#    Author:  John Kennedy a.k.a. jKyon
+#    Created: 2025-04-15
+#    Updated: 2026-03-13
+#    Notes:   Configuração personalizada do Alacritty, incluindo tema Catppuccin Macchiato, shell zsh, e mapeamento de teclas para modo Vi. O arquivo é organizado em seções claras para facilitar a manutenção e personalização futura.
+#
+
 
 [general]
     # Importa o tema Catppuccin Macchiato para o Alacritty
