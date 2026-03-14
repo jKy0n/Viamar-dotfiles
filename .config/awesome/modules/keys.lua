@@ -1,15 +1,18 @@
 --[[
-        jKyon (John Kennedy Loria Segundo)
-        keys.lua – awesomeWM
-        2025-07-10
-
-        Purpose:
-            Custom keybindings for AwesomeWM.
-            Provides a set of global and client-specific keybindings to enhance user interaction and workflow.
-
-            Atalhos personalizados para o AwesomeWM.
-            Fornece um conjunto de atalhos globais e específicos do cliente para melhorar a interação do usuário e o fluxo de trabalho.
+--   Title:   keys.lua
+--   Brief:   Configuração de atalhos personalizados para o AwesomeWM.
+--   Path:    /home/jkyon/.config/awesome/modules/keys.lua
+--   Author:  John Kennedy a.k.a. jKyon
+--   Created: 2025-07-10
+--   Updated: 2026-03-14
+--   Notes:
+--          Custom keybindings for AwesomeWM.
+--          Provides a set of global and client-specific keybindings to enhance user interaction and workflow.
+--
+--          Atalhos personalizados para o AwesomeWM.
+--          Fornece um conjunto de atalhos globais e específicos do cliente para melhorar a interação do usuário e o fluxo de trabalho.
 --]]
+
 
 ---------------------------------------------------------------
 ----------------------  Load Libraries  ----------------------
@@ -165,10 +168,19 @@ globalkeys = gears.table.join(
                                             -me-select-entry 'MouseSecondary' \
                                             -me-accept-entry 'MousePrimary' \
                                             -modi combi -icon-theme \"Papirus\" \
-                                            -show-icons -theme /home/jkyon/.config/rofi/theme-tab.rasi") 
+                                            -show-icons -theme /home/jkyon/.config/rofi/theme-tab.rasi")
             end,
             {description = "show rofi task windows", group = "launcher"}),
 
+
+    awful.key({ modkey, }, "e", function () awful.util.spawn("dolphin") end,
+        {description = "open file manager", group = "launcher"}),
+
+    awful.key({ modkey, }, "w", function () awful.util.spawn("firefox") end,
+        {description = "open web browser", group = "launcher"}),
+
+    awful.key({ modkey, }, "v", function () awful.util.spawn("code")    end,
+        {description = "open code editor", group = "launcher"}),
 
 ------------------------------------------------------------------------
 ------------------  tags_utils Manipulation keybinds  ------------------
@@ -182,7 +194,7 @@ awful.key({ modkey, "Shift"   }, "r", tags_utils.rename_tag,
 awful.key({ modkey, "Control"   }, "a", tags_utils.move_to_new_tag,
 {description = "add a tag with the focused client", group = "tag"})
 
------------------------------------------------------------------------- 
+------------------------------------------------------------------------
 )
 
 clientkeys = gears.table.join(

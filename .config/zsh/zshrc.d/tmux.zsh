@@ -10,14 +10,14 @@ if [[ -t 0 ]] && \
    [[ -z "$TMUX" ]] && \
    [[ $- == *i* ]] && \
    [[ "$TERM_PROGRAM" != "vscode" ]]; then
-   
+
   # Gera nome da sessão numérico sequencial
-  session_number=$(tmux list-sessions -F '#{session_name}' 2>/dev/null | 
-                  grep '^[0-9]\+$' | 
-                  sort -n | 
-                  tail -n 1 | 
+  session_number=$(tmux list-sessions -F '#{session_name}' 2>/dev/null |
+                  grep '^[0-9]\+$' |
+                  sort -n |
+                  tail -n 1 |
                   awk '{print $1 + 1}')
-  
+
   # Se não houver sessões numéricas, começa em 1
   [[ -z "$session_number" ]] && session_number=1
 
