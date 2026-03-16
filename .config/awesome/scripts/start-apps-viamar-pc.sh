@@ -6,7 +6,8 @@
 #       Author:     John Kennedy a.k.a. jKyon
 #       Created:    2026-03-16
 #       Updated:    2026-03-16
-#       Notes:
+#       Notes:      pt-BR: Organiza o ambiente desktop para o uso diário
+#                   eng:   Organize desktop environment for daily use
 #
 #
 
