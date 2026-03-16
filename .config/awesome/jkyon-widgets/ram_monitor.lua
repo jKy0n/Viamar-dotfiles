@@ -1,1 +1,0 @@
-/home/jkyon/ShellScript/Viamar-PC/StatusBar-Scripts/ram_monitor.lua

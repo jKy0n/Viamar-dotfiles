@@ -22,7 +22,7 @@ local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
 local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
 
 local volume_widget = require('awesome-wm-widgets.wpctl-widget.volume')
-local todo_widget = require("awesome-wm-widgets.todo-widget.todo")
+-- local todo_widget = require("awesome-wm-widgets.todo-widget.todo")
 local weather_api_widget = require("awesome-wm-widgets.weather-api-widget.weather")
 local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
 local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
@@ -33,8 +33,8 @@ local dnd_widget = require ("jkyon-widgets.DoNotDisturb_widget")
 local pkg_widget = require("jkyon-widgets.paru_update_checker")
 
 -- Carrega os NOVOS monitores baseados em Lua
-local jkyon_cpu_monitor = require("jkyon-widgets.cpu_monitor")
-local jkyon_ram_monitor = require("jkyon-widgets.ram_monitor")
+local jkyon_cpu_monitor = require("jkyon-widgets.status-bar-widgets.cpu_monitor")
+local jkyon_ram_monitor = require("jkyon-widgets.status-bar-widgets.ram_monitor")
 
 -- Cria as instâncias dos widgets com nomes únicos
 local jkyon_cpu_monitor_widget = jkyon_cpu_monitor({"usage", "freq", "temp"})
@@ -117,7 +117,7 @@ function wibar.setup(s)
                 tooltip     = false
             }),
             tbox_separator_space,
-            todo_widget(),          -- To-do list widget
+            -- todo_widget(),          -- To-do list widget
             tbox_separator_space,
 
             wibox.widget.systray(), -- System tray widget

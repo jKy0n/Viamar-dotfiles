@@ -41,7 +41,7 @@ local tags = {}
     })
 
     awful.tag.add(" Code (4) ", {
-        layout = awful.layout.suit.tile.left,
+        layout = awful.layout.suit.max,
         selected = false,
         screen = 1
     })

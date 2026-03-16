@@ -44,7 +44,7 @@ end
 -- Criando o widget
 internet_widget = wibox.widget.textbox()
 
--- Verificar a conexão com a internet a cada 10 segundos
-awful.widget.watch("bash -c 'sleep 10'", 0, check_internet)
+-- Verificar a conexão com a internet a cada 30 segundos
+awful.widget.watch("echo", 30, check_internet)
 
 return internet_widget
