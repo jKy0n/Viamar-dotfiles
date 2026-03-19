@@ -79,8 +79,14 @@ globalkeys = gears.table.join(
         {description = "go back", group = "client"}),
 
     -- Standard program
+    -- Terminal without tmux
+    awful.key({ modkey, "Shift"   }, "Return", function () awful.spawn.with_shell("NO_TMUX=1 alacritty") end,
+              {description = "open a terminal without tmux", group = "launcher"}),
+    -- Terminal with tmux
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
-              {description = "open a terminal", group = "launcher"}),
+              {description = "open a terminal with tmux", group = "launcher"}),
+
+
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
     -- awful.key({ modkey, "Shift"   }, "q", awesome.quit,

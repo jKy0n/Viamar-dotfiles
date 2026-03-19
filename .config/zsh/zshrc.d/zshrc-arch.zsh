@@ -1,3 +1,14 @@
+#
+#        Title:      zshrc-arch.zsh
+#        Brief:      Configuração específica para Arch Linux
+#        Path:       /home/jkyon/.config/zsh/zshrc.d/zshrc-arch.zsh
+#        Author:     John Kennedy a.k.a. jKyon
+#        Created:    2025-08-11
+#        Updated:    2026-03-17
+#        Notes:
+#
+
+
 # set -x  # Debugging tool
 # Define o diretório onde os módulos estão localizados
 ZSHRC_D="$HOME/.config/zsh/zshrc.d"

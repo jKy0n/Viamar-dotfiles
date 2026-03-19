@@ -1,3 +1,14 @@
+#
+#        Title:      environment.zsh
+#        Brief:      Configurações de ambiente para o Zsh, incluindo variáveis de ambiente e opções do shell.
+#        Path:       /home/jkyon/.config/zsh/zshrc.d/environment.zsh
+#        Author:     John Kennedy a.k.a. jKyon
+#        Created:    2025-08-11
+#        Updated:    2026-03-17
+#        Notes:      
+#
+
+
 # Editor padrão
 export EDITOR=nvim
 export SUDO_EDITOR=nvim

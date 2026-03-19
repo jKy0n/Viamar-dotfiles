@@ -1,4 +1,5 @@
 --[[
+
         Title:   rc.lua
         Brief:   main configuration file for awesomeWM
         Path:    /home/jkyon/.config/awesome/rc.lua
@@ -11,6 +12,7 @@
 
                 Tailored and modular configuration for the Viamar‑PC,
                 maximizing performance, aesthetics, and efficient use of screen space.
+
 --]]
 
 

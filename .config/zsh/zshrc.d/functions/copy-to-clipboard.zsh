@@ -4,6 +4,14 @@
 # Dual-output: Terminal (humanized) + Clipboard (IA-optimized)
 # Logic: 0=IA, 1=Humanized
 
+# ========== PREEXEC HOOK ==========
+# Captures the full command line BEFORE execution (so fc isn't needed)
+if ! (( ${+functions[__ctc_preexec]} )); then
+    __ctc_preexec() { __CTC_LAST_CMD="$1"; }
+    autoload -Uz add-zsh-hook
+    add-zsh-hook preexec __ctc_preexec
+fi
+
 function copy-to-clipboard() {
     # ========== VERSION & HELP ==========
 
@@ -68,7 +76,7 @@ CLIPBOARD BACKENDS:
     2. OSC 52 (SSH-friendly)
     3. File export (fallback)
 
-For more info: https://github.com/yourusername/dotfiles
+For more info: https://github.com/jKy0n/TheseusMachine-dotfiles/tree/main/.config/zsh
 EOF
                 return 0
                 ;;
@@ -120,6 +128,20 @@ EOF
         esac
     done
 
+    # ========== SAVE COMMAND STRING ==========
+
+    # Use the preexec-captured command line, strip copy-to-clipboard from it
+    local command_str=""
+
+    if [[ -n "$__CTC_LAST_CMD" ]]; then
+        # Remove "| copy-to-clipboard..." (pipe usage)
+        # Remove "copy-to-clipboard " at the start (direct usage)
+        # Remove flags like --silent, --human, --export
+        command_str="$(echo "$__CTC_LAST_CMD" | sed 's/|[[:space:]]*copy-to-clipboard.*//' | sed 's/^[[:space:]]*copy-to-clipboard[[:space:]]*//' | sed 's/--\(silent\|human\|export\|help\|version\)[[:space:]]*//g' | sed 's/-[sHedhv][[:space:]]*//g' | sed 's/^[[:space:]]*//' | sed 's/[[:space:]]*$//')"
+    fi
+
+    [[ -z "$command_str" ]] && command_str="(unknown)"
+
     # ========== DERIVE FORMATS ==========
 
     local terminal_format=$human
@@ -160,6 +182,7 @@ EOF
 [COPY_METHOD] xclip
 [CONTENT_SIZE] $content_size bytes
 [TIMESTAMP] $timestamp
+[COMMAND] $command_str
 ---
 $input
 ---"
@@ -199,6 +222,7 @@ $input
                 echo "[COPY_METHOD] file"
                 echo "[CONTENT_SIZE] $content_size bytes"
                 echo "[TIMESTAMP] $timestamp"
+                echo "[COMMAND] $command_str"
                 echo "---"
                 echo "$input"
                 echo "---"
@@ -213,6 +237,7 @@ $input
             fi
 
             echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+            echo "📋 Comando: $command_str"
             echo "📋 Conteúdo ($content_size bytes):"
             echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
             echo "$input"
