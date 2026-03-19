@@ -2,19 +2,13 @@
 
 Minha configuração modular para Zsh, projetada para ser granular, organizada e fácil de manter.
 
-<details>
-    <summary>🇧🇷 Descrição em Português:</summary>
-        <br>
-            O zsh foi modularizado para ser mais granular e ter melhor organização do código.
-        </br>
-</details>
+🇧🇷 Descrição em Português:
+    O zsh foi modularizado para ser mais granular e ter melhor organização do código.
 
-<details>
-    <summary>🇬🇧 English Description:</summary>
-        <br>
-            The zsh was modularized for better granularity and organization of code.
-        </br>
-</details>
+
+🇬🇧 English Description:
+    The zsh was modularized for better granularity and organization of code.
+
 
 ![zsh dir](https://github.com/jKy0n/Viamar-dotfiles/blob/master/Pictures/Viamar-PC-media/zsh_-_2025-09-23.png)
 
@@ -44,10 +38,15 @@ A configuração é dividida nos seguintes módulos:
 
 ## 🛠️ Instalação
 
+Este zsh ainda é específico para o Viamar-PC, meu PC do escritório.
+Estou considerando criar um repositório separado para uma configuração de zsh mais genérica, que possa ser usada por qualquer pessoa.
+
+copie, use, modifique, mas saiba que esta configuração é feita para o meu ambiente específico e pode não funcionar corretamente em outros sistemas sem os devidos ajustes.
+
 1.  **Clone o repositório:**
 
     ```bash
-    git clone https://github.com/seu-usuario/seu-repositorio.git ~/.config/zsh
+    git clone https://github.com/jKy0n... ~/.config/zsh
     ```
 
 2.  **Defina o Zsh como seu shell padrão:**
@@ -62,10 +61,6 @@ A configuração é dividida nos seguintes módulos:
 
 Para personalizar a configuração, você pode editar os arquivos de módulo individuais. Por exemplo, para adicionar um novo alias, edite o arquivo `aliases.zsh`. Para alterar as variáveis de ambiente, edite o arquivo `environment.zsh`.
 
-## 🤝 Contribuição
-
-Contribuições são bem-vindas! Sinta-se à vontade para abrir uma *issue* ou enviar um *pull request*.
-
 ## 📄 Licença
 
-Este projeto está licenciado sob a licença MIT. Consulte o arquivo `LICENSE` para obter mais detalhes.
+???

@@ -52,7 +52,7 @@ fi
 # Verifica se o diretório de funções realmente existe.
 if [ -d "$ZSH_FUNCTIONS_D" ]; then
     # Se existir, faz um loop por cada arquivo .zsh dentro dele.
-    for module in "$ZSH_FUNCTIONS_D"/*/*.zsh; do
+    for module in "$ZSH_FUNCTIONS_D"/*/*.zsh(N); do
         # Carrega (source) cada módulo encontrado.
         [ -r "$module" ] && source "$module"
     done
