@@ -78,14 +78,26 @@ globalkeys = gears.table.join(
         end,
         {description = "go back", group = "client"}),
 
-    -- Standard program
+------------------------------------------------------------------------------------
+--------------------------------- TERMINAL OPTIONS ---------------------------------
+
+    -- Terminal quick floating
+    awful.key({ modkey, "Control" }, "Return", function ()
+                awful.spawn.with_shell( "NO_TMUX=1 alacritty --class floating-terminal" ) end,
+              {description = "open a quick floating terminal", group = "launcher"}),
+
     -- Terminal without tmux
-    awful.key({ modkey, "Shift"   }, "Return", function () awful.spawn.with_shell("NO_TMUX=1 alacritty") end,
+    awful.key({ modkey, "Shift" }, "Return", function ()
+                awful.spawn.with_shell("NO_TMUX=1 alacritty") end,
               {description = "open a terminal without tmux", group = "launcher"}),
-    -- Terminal with tmux
-    awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
+
+    -- Terminal (with tmux)
+    awful.key({ modkey, }, "Return", function ()
+                awful.spawn(terminal) end,
               {description = "open a terminal with tmux", group = "launcher"}),
 
+------------------------------------------------------------------------------------
+--------------------------------- STANDARD PROGRAM ---------------------------------
 
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
@@ -251,7 +263,7 @@ clientkeys = gears.table.join(
               {description = "close", group = "client"}),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
               {description = "toggle floating", group = "client"}),
-    awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
+    awful.key({ modkey, "Control", "Shift" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
               {description = "move to master", group = "client"}),
     -- awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
     --           {description = "move to screen", group = "client"}),

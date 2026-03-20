@@ -68,6 +68,14 @@ awful.rules.rules = {
 --
 -- F
 --
+    { rule_any = { instance = { "floating-terminal" }, class = { "FloatingTerminal" } },
+    properties = { floating = true,
+    width = 1536,
+    height = 864,
+    x = 192,
+    y = 108,
+    placement = awful.placement.centered },},
+
     { rule = { class = "feh" },
     properties = { floating = true, name = "feh",
     width = 1536,     -- Defina o tamanho que deseja

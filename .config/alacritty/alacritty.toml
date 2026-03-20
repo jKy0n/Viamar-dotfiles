@@ -13,8 +13,8 @@
 
 
 [general]
-    # Importa o tema Catppuccin Macchiato para o Alacritty
-    import = [ "~/.config/alacritty/catppuccin-macchiato.toml" ]
+    # Importa o tema Catppuccin Frappe para o Alacritty
+    import = [ "~/.config/alacritty/catppuccin-frappe.toml" ]
 
 [terminal]
     # Configuração do zsh como shell padrão
@@ -32,7 +32,7 @@
 
 [window]
     # Configurações de janela
-    opacity = 0.8
+    opacity = 0.7
     dynamic_title = true
     decorations = "none"
     startup_mode = "Windowed"       # Explícito: awesome controla tiling/floating
