@@ -63,6 +63,25 @@ mytextclock:connect_signal("button::press",
         if button == 1 then cw.toggle() end
     end)
 
+
+    --------------------------------------------------------------
+    -------------------  wibar_manager module  -------------------
+
+local color_palette = {
+
+    background  = "#303446",
+    foreground  = "#c6d0f5", -- White - Text color
+    blue        = "#8caaee",
+    red         = "#e78284",
+    pink        = "#f4b8e4",
+    yellow      = "#e5c890",
+    green       = "#a6d189",
+    lavender    = "#babbf1",
+    teal        = "#81c8be",
+    gray        = "#a5adce",
+    Crust       = "#232634",
+}
+
 --------------------------------------------------------------
 -------------------  wibar_manager module  -------------------
 local wibar = {}
@@ -102,7 +121,7 @@ function wibar.setup(s)
             tbox_separator_pipe,    --  |
             -- ram_monitor({"usage_available"}),  --  Shows RAM usage in % and Available RAM in GB
             jkyon_ram_monitor_widget,      --  Shows RAM usage in %
-            ram_widget({ color_used = '#8aadf4', color_buf = '#24273a' }),
+            ram_widget({ color_used = color_palette.blue, color_buf = color_palette.Crust }),
 ------------------------------------------------------------------------------------------------
             tbox_separator_pipe,
             tbox_separator_space,

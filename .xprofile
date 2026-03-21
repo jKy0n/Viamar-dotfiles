@@ -1,7 +1,7 @@
 # ~/.xprofile
 
-export GTK_THEME="Catppuccin-Dark-Macchiato"
-export GTK_ICON_THEME="Papirus-Dark"
+# export GTK_THEME="Catppuccin-Dark-Macchiato"
+# export GTK_ICON_THEME="Papirus-Dark"
 
 export QT_QPA_PLATFORMTHEME=kde
 export QT_QUICK_CONTROLS_STYLE=org.kde.desktop
@@ -11,4 +11,4 @@ export MOZ_X11_EGL=1
 export LIBVA_DRIVER_NAME=radeonsi
 
 # Screensaver settings:
-~/.config/X11/power.conf &
+# ~/.config/X11/power.conf &
