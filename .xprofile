@@ -1,14 +1,24 @@
-# ~/.xprofile
+#!/bin/sh
 
-# export GTK_THEME="Catppuccin-Dark-Macchiato"
-# export GTK_ICON_THEME="Papirus-Dark"
+LOGDIR="$HOME/.logs/awesome/xprofile"
+mkdir -p "$LOGDIR"
 
-export QT_QPA_PLATFORMTHEME=kde
-export QT_QUICK_CONTROLS_STYLE=org.kde.desktop
-export XDG_CURRENT_DESKTOP=kde
+{
+  echo
+  echo "=============================="
+  echo "~/.xprofile"
+  date
+  echo "=============================="
+  echo "USER=$USER"
+  echo "HOME=$HOME"
+  echo "DISPLAY=$DISPLAY"
+  echo "XAUTHORITY=$XAUTHORITY"
+  echo "DBUS_SESSION_BUS_ADDRESS=$DBUS_SESSION_BUS_ADDRESS"
+  echo "XDG_CURRENT_DESKTOP=$XDG_CURRENT_DESKTOP"
+  echo "XDG_SESSION_DESKTOP=$XDG_SESSION_DESKTOP"
+  echo "DESKTOP_SESSION=$DESKTOP_SESSION"
+  echo "XDG_SESSION_TYPE=$XDG_SESSION_TYPE"
+} >> "$LOGDIR/xprofile.log" 2>&1
 
 export MOZ_X11_EGL=1
 export LIBVA_DRIVER_NAME=radeonsi
-
-# Screensaver settings:
-# ~/.config/X11/power.conf &

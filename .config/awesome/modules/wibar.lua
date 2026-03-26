@@ -17,6 +17,8 @@ local awful = require("awful")
 local wibox = require("wibox")
 
 
+local screen_utils = require("modules.screen_utils")
+
 --- awesome-wm-widgets widgets ---
 local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
 local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
@@ -64,23 +66,10 @@ mytextclock:connect_signal("button::press",
     end)
 
 
-    --------------------------------------------------------------
-    -------------------  wibar_manager module  -------------------
+--------------------------------------------------------------
+-------------------  my libs  -------------------
 
-local color_palette = {
-
-    background  = "#303446",
-    foreground  = "#c6d0f5", -- White - Text color
-    blue        = "#8caaee",
-    red         = "#e78284",
-    pink        = "#f4b8e4",
-    yellow      = "#e5c890",
-    green       = "#a6d189",
-    lavender    = "#babbf1",
-    teal        = "#81c8be",
-    gray        = "#a5adce",
-    Crust       = "#232634",
-}
+local color_palette = require("themes.jKyon.color_palette")
 
 --------------------------------------------------------------
 -------------------  wibar_manager module  -------------------
@@ -90,9 +79,9 @@ function wibar.setup(s)
 
 
 -----------------------------------------------------------------
----------------------  Fisrt monitor Wibar  ---------------------
+---------------------  First monitor Wibar  ---------------------
 
-    if s.index == 1 then
+    if s == screen_utils.left() then
         -- Primeiro monitor
     -- Add widgets to the wibox
     s.mywibox:setup {
@@ -121,7 +110,7 @@ function wibar.setup(s)
             tbox_separator_pipe,    --  |
             -- ram_monitor({"usage_available"}),  --  Shows RAM usage in % and Available RAM in GB
             jkyon_ram_monitor_widget,      --  Shows RAM usage in %
-            ram_widget({ color_used = color_palette.blue, color_buf = color_palette.Crust }),
+            ram_widget({ color_used = color_palette.blue, color_buf = color_palette.crust }),
 ------------------------------------------------------------------------------------------------
             tbox_separator_pipe,
             tbox_separator_space,
@@ -148,7 +137,7 @@ function wibar.setup(s)
                 show_daily_forecast = true,
                 show_hourly_forecast = true,
                 timeout = 1800,     -- 30 minutes
-                lang = 'en',
+                lang = 'pt',
             }),
             tbox_separator_dash,
             mytextclock,            -- Text clock widget
@@ -157,11 +146,11 @@ function wibar.setup(s)
 
             logout_menu_widget{     -- Logout menu widget
                 font = 'MesloLGS Nerd Font Bold 10',
-                -- onlogout   =  function() awful.spawn.with_shell("loginctl terminate-user $USER") end,
-                onlock     =  function() awful.spawn.with_shell('dm-tool lock') end,
-                onsuspend  =  function() awful.spawn.with_shell("systemctl suspend") end,
-                onreboot   =  function() awful.spawn.with_shell("systemctl reboot") end,
-                onpoweroff =  function() awful.spawn.with_shell("systemctl poweroff") end,
+                onlogout   =  function() awesome.quit() end,
+                onlock = function() awful.spawn({ os.getenv("HOME") .. "/.local/bin/lock-screen.sh" }) end,
+                -- onsuspend  =  function() awful.spawn({"systemctl", "suspend"}) end,
+                onreboot   =  function() awful.spawn({"systemctl", "reboot"}) end,
+                onpoweroff =  function() awful.spawn({"systemctl", "poweroff"}) end,
                 -- onreload   =  function() awesome.restart() end
             },
         },
@@ -170,8 +159,8 @@ function wibar.setup(s)
 -----------------------------------------------------------------
 ---------------------  Second monitor Wibar  --------------------
 
-    elseif s.index == 2 then
-        -- Primeiro monitor
+    elseif s == screen_utils.right() then
+        -- Segundo monitor
             -- Add widgets to the wibox
     -- Add widgets to the wibox
     s.mywibox:setup {
@@ -202,11 +191,11 @@ function wibar.setup(s)
 
             logout_menu_widget{ -- Logout menu widget
                 font = 'MesloLGS Nerd Font Bold 10',
-                onlogout   =  function() awful.spawn.with_shell("loginctl terminate-user $USER") end,
-                onlock     =  function() awful.spawn.with_shell('dm-tool lock') end,
-                onsuspend  =  function() awful.spawn.with_shell("systemctl suspend") end,
-                onreboot   =  function() awful.spawn.with_shell("systemctl reboot") end,
-                onpoweroff =  function() awful.spawn.with_shell("systemctl poweroff") end,
+                onlogout   =  function() awesome.quit() end,
+                onlock = function() awful.spawn({ os.getenv("HOME") .. "/.local/bin/lock-screen.sh" }) end,
+                -- onsuspend  =  function() awful.spawn({"systemctl", "suspend"}) end,
+                onreboot   =  function() awful.spawn({"systemctl", "reboot"}) end,
+                onpoweroff =  function() awful.spawn({"systemctl", "poweroff"}) end,
             },
         },
     }

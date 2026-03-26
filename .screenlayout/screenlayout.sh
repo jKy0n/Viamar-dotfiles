@@ -1,2 +1,6 @@
 #!/bin/sh
-xrandr --output HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1 --mode 1366x768 --pos 1920x156 --rotate normal
+export DISPLAY="${DISPLAY:-:0}"
+export XAUTHORITY="${XAUTHORITY:-$(find /tmp -maxdepth 1 -name 'xauth_*' | head -n1)}"
+
+xrandr --output DisplayPort-0 --mode 1280x720 --pos 1920x96 --rotate normal \
+       --output HDMI-A-0 --primary --mode 1920x1080 --pos 0x0 --rotate normal

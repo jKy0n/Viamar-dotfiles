@@ -25,29 +25,57 @@ pcall(require, "luarocks.loader")
 local awful = require("awful")
 require("awful.autofocus")
 
--- Theme handling library
-local beautiful = require("beautiful")
-beautiful.init("/home/jkyon/.config/awesome/themes/jKyon/theme.lua")
-
 -- gears timer for garbage collector
 local gears = require("gears")
 
 --------------------------------------------------------------
+-----------------------  Log Generator  ----------------------
+
+local function rc_log(msg)
+    local log_path = os.getenv("HOME") .. "/.logs/awesome/rc/rc.log"
+    local f = io.open(log_path, "a")
+    if f then
+        f:write(os.date("[%Y-%m-%d %H:%M:%S] ") .. tostring(msg) .. "\n")
+        f:close()
+    end
+end
+
+rc_log("rc.lua: --- inicio da configuração ---")
+
+--------------------------------------------------------------
 -----------------  Load variable definitions  ----------------
+
+rc_log("rc.lua: Carregando Tema")
+
+-- Theme handling library
+local beautiful = require("beautiful")
+beautiful.init("/home/jkyon/.config/awesome/themes/jKyon/theme.lua")
+
+rc_log("rc.lua: Tema carregado")
+
+--------------------------------------------------------------
+-----------------  Load variable definitions  ----------------
+
+rc_log("rc.lua: Carregando variáveis de ambiente")
 
 terminal = "alacritty"
 editor = os.getenv("EDITOR") or "nvim"
 editor_cmd = terminal .. " -e " .. editor
 modkey = "Mod4"
 
+rc_log("rc.lua: Variáveis de ambiente carregadas")
+
 --------------------------------------------------------------
 -----------------------  Load Modules  -----------------------
+
+rc_log("rc.lua: Carregando módulos")
 
 local notify_manager = require("modules.notify_manager")
 local errors_handling = require("modules.errors_handling")
 local layouts = require("modules.layouts")
-local tags_utils = require("modules.tags_utils")
+local tag_utils = require("modules.tag_utils")
 local tags = require("modules.tags")
+    tags.setup()
 local buttons = require("modules.buttons")
 local taglist_buttons = buttons.taglist_buttons(modkey)
 local tasklist_buttons = buttons.tasklist_buttons()
@@ -59,8 +87,12 @@ local rules = require("modules.rules")
 local signal = require("modules.signals")
 local wallpaper = require("modules.wallpaper")
 
+rc_log("rc.lua: Módulos carregados")
+
 --------------------------------------------------------------
 ---------------------  Garbage Collector  --------------------
+
+rc_log("rc.lua: Configurando Garbage Collector")
 
 -- Tune incremental GC: collect more aggressively in the background
 -- to avoid large heap buildup during 24/7 uptime
@@ -75,3 +107,19 @@ gears.timer {
         collectgarbage("collect")   -- perform a full garbage collection cycle
     end,
 }
+
+rc_log("rc.lua: Garbage Collector configurado")
+
+awful.spawn.easy_async_with_shell(
+    "systemctl --user is-active --quiet awesome-session.target || systemctl --user start awesome-session.target",
+    function() end
+)
+
+awesome.connect_signal("exit", function(restarting)
+    if not restarting then
+        awful.spawn.with_shell("systemctl --user stop awesome-session.target")
+    end
+end)
+
+
+rc_log("rc.lua: --- fim da inicialização ---")

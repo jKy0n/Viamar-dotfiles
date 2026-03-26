@@ -13,82 +13,89 @@
 
 --------------------------------------------------------------
 ----------------------  Load Libraries  ----------------------
-local awful = require("awful")
 
---------------------------------------------------------------
--------------------------  tags module  ----------------------
+local awful = require("awful")
+local screen_utils = require("modules.screen_utils")
+
 local tags = {}
 
-------------------------------------------------------------------
----------------------- Fisrt Monitor Tags  ----------------------
+function tags.setup()
+    local left = screen_utils.left()
+    local right = screen_utils.right()
+
+    if not left then
+        return
+    end
+
+    if not right then
+        right = left
+    end
 
     awful.tag.add(" Work (1) ", {
         layout = awful.layout.suit.tile,
         selected = true,
-        screen = 1
+        screen = left
     })
 
     awful.tag.add(" Work (2) ", {
         layout = awful.layout.suit.tile,
         selected = false,
-        screen = 1
+        screen = left
     })
 
     awful.tag.add(" Notas (3) ", {
         layout = awful.layout.suit.max,
         selected = false,
-        screen = 1
+        screen = left
     })
 
     awful.tag.add(" Code (4) ", {
         layout = awful.layout.suit.max,
         selected = false,
-        screen = 1
+        screen = left
     })
 
     awful.tag.add(" Term (5) ", {
         layout = awful.layout.suit.tile.left,
         selected = false,
-        screen = 1
+        screen = left
     })
 
     awful.tag.add(" SSH (6) ", {
         layout = awful.layout.suit.tile.left,
         selected = false,
-        screen = 1
+        screen = left
     })
-
-------------------------------------------------------------------
----------------------- Second Monitor Tags  ----------------------
 
     awful.tag.add(" Work (1) ", {
         layout = awful.layout.suit.tile,
         selected = false,
-        screen = 2
+        screen = right
     })
 
     awful.tag.add(" Work (2) ", {
         layout = awful.layout.suit.tile,
         selected = false,
-        screen = 2
+        screen = right
     })
 
     awful.tag.add(" Chat (3) ", {
         layout = awful.layout.suit.tile,
         selected = false,
-        screen = 2
+        screen = right
     })
 
     awful.tag.add(" Music (4) ", {
         layout = awful.layout.suit.tile,
         selected = false,
-        screen = 2
+        screen = right
     })
 
     awful.tag.add(" Monitor (5) ", {
         layout = awful.layout.suit.max,
         selected = true,
-        screen = 2
+        screen = right
     })
+end
 
 return tags

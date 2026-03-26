@@ -20,7 +20,7 @@
 local awful = require("awful")
 local hotkeys_popup = require("awful.hotkeys_popup")
 local gears = require("gears")
-local tags_utils = require("modules.tags_utils")
+local tag_utils = require("modules.tag_utils")
 
 local volume_widget = require("awesome-wm-widgets.wpctl-widget.volume")
 
@@ -211,16 +211,22 @@ globalkeys = gears.table.join(
         {description = "open viamar pc startup apps", group = "launcher"}),
 
 ------------------------------------------------------------------------
-------------------  tags_utils Manipulation keybinds  ------------------
+------------------  tag_utils Manipulation keybinds  ------------------
 
-awful.key({ modkey,           }, "a", tags_utils.add_tag,
+awful.key({ modkey,           }, "a", tag_utils.add_tag,
 {description = "add a tag", group = "tag"}),
-awful.key({ modkey, "Shift"   }, "a", tags_utils.delete_tag,
+
+awful.key({ modkey, "Shift"   }, "a", tag_utils.delete_tag,
 {description = "delete the current tag", group = "tag"}),
-awful.key({ modkey, "Shift"   }, "r", tags_utils.rename_tag,
+
+awful.key({ modkey, "Shift"   }, "r", tag_utils.rename_tag,
 {description = "rename the current tag", group = "tag"}),
-awful.key({ modkey, "Control"   }, "a", tags_utils.move_to_new_tag,
+
+awful.key({ modkey, "Control"   }, "a", tag_utils.move_to_new_tag,
 {description = "add a tag with the focused client", group = "tag"})
+
+-- awful.key({ modkey, "Mod1" }, "r", function() tag_utils.find_tag_by_base_name(awful.screen.focused(), "NewTag") end,
+-- {description = "find a tag by its base name", group = "tag"})
 
 ------------------------------------------------------------------------
 )

@@ -23,24 +23,11 @@ local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 
 
+local color_palette = require("themes.jKyon.color_palette")
+
+
 ------------------------------------------------------------
 --------------------  Define Variables  --------------------
-
---- define a color palette based on Catppuccin Frappé Blue ---
-local color_palette = {
-
-    background  = "#303446",
-    foreground  = "#c6d0f5", -- White - Text color
-    blue        = "#8caaee",
-    red         = "#e78284",
-    pink        = "#f4b8e4",
-    yellow      = "#e5c890",
-    green       = "#a6d189",
-    lavender    = "#babbf1",
-    teal        = "#81c8be",
-    gray        = "#a5adce",
-    Crust       = "#232634",
-}
 
 --- define the font to be used in the theme ---
 local font = "MesloLGS NF Mono Bold 8.5"
@@ -58,13 +45,13 @@ theme.font               =  font
 
 -- Colors reference: https://catppuccin.com/palette/ - Catppuccin Frappé Blue color palette
 --- Foreground colors ---
-theme.fg_normal          =  color_palette.foreground
+theme.fg_normal          =  color_palette.text
 theme.fg_focus           =  color_palette.blue
 theme.fg_urgent          =  theme.fg_normal
-theme.fg_minimize        =  color_palette.gray
+theme.fg_minimize        =  color_palette.overlay0
 
 --- Background colors ---
-theme.bg_normal          =  color_palette.background
+theme.bg_normal          =  color_palette.base
 theme.bg_focus           =  theme.bg_normal
 theme.bg_urgent          =  color_palette.red
 theme.bg_minimize        =  color_palette.Crust

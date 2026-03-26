@@ -54,10 +54,12 @@ intel_rapl_common
 intel_rapl_msr
 ip6_tables
 ip6table_filter
+ip6table_mangle
 ip6table_nat
 ip_set
 ip_tables
 iptable_filter
+iptable_mangle
 iptable_nat
 iptable_raw
 irqbypass
@@ -163,6 +165,7 @@ xor
 xt_LOG
 xt_MASQUERADE
 xt_addrtype
+xt_connmark
 xt_conntrack
 xt_limit
 xt_mark

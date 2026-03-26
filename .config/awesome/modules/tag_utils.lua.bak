@@ -15,6 +15,7 @@
 ----------------------  Load Libraries  ----------------------
 local awful = require("awful")
 
+local screen_utils = require("screen_utils")
 --------------------------------------------------------------
 --------------------  tags_utils module  ---------------------
 local tags_utils = {}
@@ -71,7 +72,7 @@ end
 
 -- Cria tags com nomeação dinâmica "nome (índice)"
 local function create_volatile_tag(c, base_name, screen_index, layout)
-    local screen = screen[screen_index]
+    local target_screen = screen[screen_index]
     if not screen then return end
 
     -- Tenta encontrar uma tag existente com o nome base

@@ -15,8 +15,8 @@
 ----------------------  Load Libraries  ----------------------
 local awful = require("awful")
 local beautiful = require("beautiful")
-local create_volatile_tag = require("modules.tags_utils").create_volatile_tag
-
+local create_volatile_tag = require("modules.tag_utils").create_volatile_tag
+local screen_utils = require("modules.screen_utils")
 ------------------------------------------------------------
 ----------------------  rules module  ----------------------
 local rules = {}
@@ -69,37 +69,55 @@ awful.rules.rules = {
 -- F
 --
     { rule_any = { instance = { "floating-terminal" }, class = { "FloatingTerminal" } },
-    properties = { floating = true,
-    width = 1536,
-    height = 864,
-    x = 192,
-    y = 108,
-    placement = awful.placement.centered },},
+        properties = { floating = true,
+        width = 1536,
+        height = 864,
+        x = 192,
+        y = 108,
+        placement = awful.placement.centered
+        },
+    },
 
     { rule = { class = "feh" },
-    properties = { floating = true, name = "feh",
-    width = 1536,     -- Defina o tamanho que deseja
-    height = 864,     -- Defina o tamanho que deseja
-    x = 192,          -- Posição x
-    y = 108,          -- Posição y
-    screen = 1  }},
+    properties = {
+        floating = true,
+        name = "feh",
+        width = 1536,     -- Defina o tamanho que deseja
+        height = 864,     -- Defina o tamanho que deseja
+        x = 192,          -- Posição x
+        y = 108, },         -- Posição y
+        callback = function(c)
+            local s = screen_utils.left()
+            if s then
+                c.screen = s
+            end
+            awful.placement.centered(c, { honor_workarea = true })
+        end
+    },
 
 -- G
 --
     { rule_any = { class = { "gedit", "Gedit" } },
-    properties = { floating = true, name = "Okular",
-                    width = 1536,     -- Defina o tamanho que deseja
-                    height = 864,     -- Defina o tamanho que deseja
-                    screen = 1 },
+    properties = {
+        floating = true,
+        name = "Okular",
+        width = 1536,
+        height = 864,
+    },
     callback = function(c)
+        local s = screen_utils.left()
+        if s then
+            c.screen = s
+        end
         awful.placement.centered(c, { honor_workarea = true })
-    end },
+    end,
+    },
 
     { rule_any = { class = {"gimp", "Gimp"} },
-    properties = { floating = false,
+    properties = { floating = false, },
         callback = function(c)
-            create_volatile_tag(c, " GIMP ", 1, awful.layout.suit.tile.left)
-        end,},},
+            create_volatile_tag(c, " GIMP ", "left", awful.layout.suit.tile.left)
+        end},
 
     { rule = { class = "Google-chrome" },
     properties = { floating = false,
@@ -114,10 +132,10 @@ awful.rules.rules = {
     placement = awful.placement.centered },},
 
     { rule_any = { class = {"gpt4all-chat", "GPT4All"} },
-    properties = { floating = false,
+    properties = { floating = false },
         callback = function(c)
-            create_volatile_tag(c, " LLMs ", 1, awful.layout.suit.tile.left)
-        end,},},
+            create_volatile_tag(c, " LLMs ", "left", awful.layout.suit.tile.left)
+        end },
 
 -- H
 --
@@ -128,28 +146,44 @@ awful.rules.rules = {
 -- K
 --
     { rule_any = { class = { "kclock", "kclock" } },
-    properties = { floating = true,
-    placement = awful.placement.centered,
-    tag = screen[2].tags[5], },},
+    properties = {
+        floating = true,
+        placement = awful.placement.centered,
+    },
+    callback = function(c)
+        local s = screen_utils.right()
+        if s and s.tags and s.tags[5] then
+            c:move_to_tag(s.tags[5])
+            s.tags[5]:view_only()
+        end
+    end,
+    },
 
     { rule_any = { class = {"kdeconnect-app", "kdeconnect.app"} },
     properties = { floating = true,
-                    tag = screen[2].tags[5],
-    placement = awful.placement.centered,},},
+    placement = awful.placement.centered,},
+    callback = function(c)
+        local s = screen_utils.right()
+        if s and s.tags and s.tags[5] then
+            c:move_to_tag(s.tags[5])
+            s.tags[5]:view_only()
+        end
+    end,
+    },
 
     { rule_any = { class = { "krita", "krita" } },
-    properties = { floating = false,
+    properties = { floating = false, },
         callback = function(c)
-            create_volatile_tag(c, " Krita ", 1, awful.layout.suit.tile)
-    end,},},
+            create_volatile_tag(c, " Krita ", "left", awful.layout.suit.tile)
+    end },
 
 -- L
 --
     { rule_any = { class = {"lm studio", "LM Studio" } },
-    properties = { floating = false,
+    properties = { floating = false },
         callback = function(c)
-            create_volatile_tag(c, " LLMs ", 1, awful.layout.suit.tile)
-    end,},},
+            create_volatile_tag(c, " LLMs ", "left", awful.layout.suit.tile)
+    end },
 
     { rule = { class = "Lxappearance" },
     properties = { floating = true,
@@ -158,39 +192,64 @@ awful.rules.rules = {
 -- M
 --
     { rule = { class = "mpv" },
-    properties = { floating = true, name = "mpv",
-                    width = 1536,     -- Defina o tamanho que deseja
-                    height = 864,     -- Defina o tamanho que deseja
-                    screen = 1 },
+    properties = {
+        name = "mpv",
+        floating = true,
+        width = 1536,
+        height = 864,
+    },
     callback = function(c)
+        local s = screen_utils.left()
+        if s then
+            c.screen = s
+        end
         awful.placement.centered(c, { honor_workarea = true })
-    end },
+    end,
+    },
 
     { rule_any = { class = {"mupdf", "MuPDF"} },
-    properties = { floating = true, name = "muPDF",
-                    width = 1536,     -- Defina o tamanho que deseja
-                    height = 864,     -- Defina o tamanho que deseja
-                    screen = 1 },
+    properties = {
+        floating = true,
+        name = "muPDF",
+        width = 1536,
+        height = 864,
+    },
     callback = function(c)
+        local s = screen_utils.left()
+        if s then
+            c.screen = s
+        end
         awful.placement.centered(c, { honor_workarea = true })
-    end },
+    end,
+    },
 
 -- N
 --
 -- O
 --
     { rule_any = {  class = { "obsidian", "obsidian" } },
-    properties = {  floating = false,
-                    tag = screen[1].tags[3],},},
+    properties = {  floating = false },
+    callback = function(c)
+      local s = screen_utils.left() -- ou right()
+      if s and s.tags and s.tags[3] then
+          c:move_to_tag(s.tags[3])
+          s.tags[3]:view_only()
+      end
+    end },
 
     { rule_any = { class = { "okular", "okular" } },
-    properties = { floating = true, name = "Okular",
-                    width = 1536,     -- Defina o tamanho que deseja
-                    height = 864,     -- Defina o tamanho que deseja
-                    screen = 1 },
-    callback = function(c)
-        awful.placement.centered(c, { honor_workarea = true })
-    end },
+    properties = {
+        floating = true, name = "Okular",
+        width = 1536,     -- Defina o tamanho que deseja
+        height = 864 },     -- Defina o tamanho que deseja
+        callback = function(c)
+                local s = screen_utils.left()
+                if s then
+                    c.screen = s
+                end
+                awful.placement.centered(c, { honor_workarea = true })
+        end
+    },
 
     { rule = { class = "openrgb" },
     properties = { floating = true,
@@ -199,8 +258,14 @@ awful.rules.rules = {
 -- P
 --
     { rule_any = { class = {"pavucontrol", "Pavucontrol"} },
-    properties = { floating = false,
-                    tag = screen[2].tags[4],},},
+    properties = { floating = false,},
+      callback = function(c)
+      local s = screen_utils.right() -- ou left()
+      if s and s.tags and s.tags[4] then
+          c:move_to_tag(s.tags[4])
+          s.tags[4]:view_only()
+      end
+    end},
 
 -- Q
 --
@@ -216,74 +281,94 @@ awful.rules.rules = {
 --
     { rule = { class = "rambox" },
     properties = { floating = false,
-    placement = awful.placement.centered,
-    tag = screen[2].tags[3],},},
+    placement = awful.placement.centered },
+        callback = function(c)
+            local s = screen_utils.right()
+            if s and s.tags and s.tags[3] then
+                c:move_to_tag(s.tags[3])
+                s.tags[3]:view_only()
+            end
+        end
+    },
 
 -- S
 --
     { rule_any = { class = {"simple-scan" , "simple-scan"} },
-    properties = { floating = false,
+    properties = { floating = false },
         callback = function(c)
-            create_volatile_tag(c, " Scan ", 1, awful.layout.suit.tile)
-        end,},},
+            create_volatile_tag(c, " Scan ", "left", awful.layout.suit.tile)
+        end,},
 
     { rule_any = { class = {"skanpage" , "skanpage"} },
-    properties = { floating = false,
+    properties = { floating = false },
         callback = function(c)
-            create_volatile_tag(c, " Scan ", 1, awful.layout.suit.tile)
-        end,},},
+            create_volatile_tag(c, " Scan ", "left", awful.layout.suit.tile)
+        end,},
 
     { rule = { class = "Spotify" },
     properties = { floating = false,
-    placement = awful.placement.centered,
-    tag = screen[2].tags[4],},},
+    placement = awful.placement.centered},
+      callback = function(c)
+      local s = screen_utils.right() -- ou right()
+      if s and s.tags and s.tags[4] then
+          c:move_to_tag(s.tags[4])
+          s.tags[4]:view_only()
+      end
+    end },
 
     { rule_any = { class = {"snappergui", "Snapper-gui"} },
-    properties = { floating = true,
-    placement = awful.placement.centered,},},
+    properties = { floating = true ,
+    placement = awful.placement.centered },},
 
 -- T
 --
     { rule_any = { class = { "teams-for-linux", "teams-for-linux" } },
-    properties = { floating = false,
+    properties = { floating = false },
         callback = function(c)
-            create_volatile_tag(c, " Teams ", 2, awful.layout.suit.tile)
-    end,},},
+            create_volatile_tag(c, " Teams ", "right", awful.layout.suit.tile)
+    end },
 
     { rule_any = { class = {"Telegram", "TelegramDesktop"} },
-    properties = { floating = false,
+    properties = { floating = false },
         callback = function(c)
-            create_volatile_tag(c, " Telegram ", 2, awful.layout.suit.tile)
-        end,},},
+            create_volatile_tag(c, " Telegram ", "right", awful.layout.suit.max)
+        end },
 
     { rule_any = { class = {"Mail", "thunderbird"} },
-    properties = { floating = false,
+    properties = { floating = false },
         callback = function(c)
-            create_volatile_tag(c, " Mail ", 1, awful.layout.suit.tile)
-        end,},},
+            create_volatile_tag(c, " Mail ", "left", awful.layout.suit.tile)
+        end },
 
 -- U
 --
 -- V
 --
     { rule_any = { class = {"virt-manager", "Virt-manager"} },
-    properties = { floating = false,
+    properties = { floating = false },
         callback = function(c)
-            create_volatile_tag(c, " VMs ", 2, awful.layout.suit.tile)
-        end,},},
+            create_volatile_tag(c, " VMs ", "right", awful.layout.suit.tile)
+        end },
 
     { rule_any = { class = {"code", "Code"} }, -- VSCode
     properties = { floating = false,
-    placement = awful.placement.left,
-    tag = screen[1].tags[4],},},
+    placement = awful.placement.left},
+        callback = function(c)
+            local s = screen_utils.left()
+            if s and s.tags and s.tags[4] then
+                c:move_to_tag(s.tags[4])
+                s.tags[4]:view_only()
+            end
+        end
+    },
 
 -- W
 --
     { rule_any = { class = {"winboat", "winboat"} },
-    properties = { floating = true,
+    properties = { floating = true },
         callback = function(c)
-            create_volatile_tag(c, " WinBoat ", 2, awful.layout.suit.max)
-        end,},},
+            create_volatile_tag(c, " WinBoat ", "right", awful.layout.suit.max)
+        end },
 
 -- X
 --

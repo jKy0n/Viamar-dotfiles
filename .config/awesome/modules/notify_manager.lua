@@ -13,8 +13,10 @@
 
 --------------------------------------------------------------
 ----------------------  Load Libraries  ----------------------
-local naughty = require("naughty")
 local beautiful = require("beautiful")
+local naughty = require("naughty")
+
+local screen_utils = require("modules.screen_utils")
 
 --------------------------------------------------------------
 ---------------------  notify_manager module  ----------------
@@ -23,8 +25,7 @@ local notify_manager = {}
 -- notifications default configuration
 naughty.config.defaults = {
     timeout = 10, -- Tempo de exibição em segundos
-    -- screen = awful.screen.focused(), -- Qual tela exibir as notificações
-    screen = 2, -- Qual tela exibir as notificações
+    screen = screen_utils.right(), -- Qual tela exibir as notificações
     position = "top_left", -- Posição: 'top_right', 'top_left', 'bottom_right', 'bottom_left'
     margin = 10,
     ontop = true,
