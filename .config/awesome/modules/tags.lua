@@ -11,6 +11,7 @@
             Configura um espaço de trabalho estruturado com layouts e nomes de tags específicos.
 --]]
 
+
 --------------------------------------------------------------
 ----------------------  Load Libraries  ----------------------
 
@@ -31,9 +32,13 @@ function tags.setup()
         right = left
     end
 
+
+---------------------------------------------------------
+----------------------  Monitor 1  ----------------------
+
     awful.tag.add(" Work (1) ", {
         layout = awful.layout.suit.tile,
-        selected = true,
+        selected = false,
         screen = left
     })
 
@@ -57,7 +62,7 @@ function tags.setup()
 
     awful.tag.add(" Term (5) ", {
         layout = awful.layout.suit.tile.left,
-        selected = false,
+        selected = true,
         screen = left
     })
 
@@ -66,6 +71,10 @@ function tags.setup()
         selected = false,
         screen = left
     })
+
+
+---------------------------------------------------------
+----------------------  Monitor 2  ----------------------
 
     awful.tag.add(" Work (1) ", {
         layout = awful.layout.suit.tile,

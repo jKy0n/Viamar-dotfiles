@@ -192,8 +192,8 @@ globalkeys = gears.table.join(
             {description = "show rofi task windows", group = "launcher"}),
 
     -- shortcuts for specific applications --
-    -- Super + e = Dolphin file manager
-    awful.key({ modkey }, "e", function () awful.util.spawn("dolphin") end,
+    -- Super + e = Nemo file manager
+    awful.key({ modkey }, "e", function () awful.util.spawn("nemo") end,
         {description = "open file manager", group = "launcher"}),
     -- Super + w = Firefox web browser
     awful.key({ modkey }, "w", function () awful.util.spawn("firefox") end,
@@ -255,7 +255,7 @@ clientkeys = gears.table.join(
     awful.key({ "Control" }, "Print", function () awful.util.spawn("flameshot full") end),
 
         -- Lock screen --
-    awful.key({ modkey, "Control" }, "Escape", function () awful.util.spawn("light-locker-command -l") end),
+    -- awful.key({ modkey, "Control" }, "Escape", function () awful.util.spawn("light-locker-command -l") end),
 
         -- Centralize window --
     awful.key({ modkey, "Shift" }, "o", function()

@@ -146,29 +146,29 @@ awful.rules.rules = {
 -- K
 --
     { rule_any = { class = { "kclock", "kclock" } },
-    properties = {
-        floating = true,
-        placement = awful.placement.centered,
-    },
-    callback = function(c)
-        local s = screen_utils.right()
-        if s and s.tags and s.tags[5] then
-            c:move_to_tag(s.tags[5])
-            s.tags[5]:view_only()
-        end
+        properties = {
+            floating = true,
+            placement = awful.placement.centered,
+        },
+        callback = function(c)
+            local s = screen_utils.right()
+            if s and s.tags and s.tags[5] then
+                c:move_to_tag(s.tags[5])
+                s.tags[5]:view_only()
+            end
     end,
     },
 
     { rule_any = { class = {"kdeconnect-app", "kdeconnect.app"} },
-    properties = { floating = true,
-    placement = awful.placement.centered,},
-    callback = function(c)
-        local s = screen_utils.right()
-        if s and s.tags and s.tags[5] then
-            c:move_to_tag(s.tags[5])
-            s.tags[5]:view_only()
-        end
-    end,
+        properties = { floating = true,
+        placement = awful.placement.centered,},
+        callback = function(c)
+            local s = screen_utils.right()
+            if s and s.tags and s.tags[5] then
+                c:move_to_tag(s.tags[5])
+                s.tags[5]:view_only()
+            end
+        end,
     },
 
     { rule_any = { class = { "krita", "krita" } },
@@ -225,16 +225,20 @@ awful.rules.rules = {
 
 -- N
 --
+    { rule_any = { class = { "nemo" , "Nemo" } },
+    properties = { floating = true,
+    placement = awful.placement.centered },},
+
 -- O
 --
     { rule_any = {  class = { "obsidian", "obsidian" } },
     properties = {  floating = false },
     callback = function(c)
-      local s = screen_utils.left() -- ou right()
-      if s and s.tags and s.tags[3] then
-          c:move_to_tag(s.tags[3])
-          s.tags[3]:view_only()
-      end
+        local s = screen_utils.left() -- ou right()
+        if s and s.tags and s.tags[3] then
+            c:move_to_tag(s.tags[3])
+            s.tags[3]:view_only()
+        end
     end },
 
     { rule_any = { class = { "okular", "okular" } },
@@ -257,15 +261,35 @@ awful.rules.rules = {
 
 -- P
 --
+    { rule_any = { class = { "papers" , "papers" } },
+    properties = {
+        floating = true, name = "Papers",
+        width = 1536,     -- Defina o tamanho que deseja
+        height = 864 },     -- Defina o tamanho que deseja
+        callback = function(c)
+                local s = screen_utils.left()
+                if s then
+                    c.screen = s
+                end
+                awful.placement.centered(c, { honor_workarea = true })
+        end
+    },
+
     { rule_any = { class = {"pavucontrol", "Pavucontrol"} },
     properties = { floating = false,},
-      callback = function(c)
-      local s = screen_utils.right() -- ou left()
-      if s and s.tags and s.tags[4] then
-          c:move_to_tag(s.tags[4])
-          s.tags[4]:view_only()
-      end
+        callback = function(c)
+        local s = screen_utils.right() -- ou left()
+        if s and s.tags and s.tags[4] then
+            c:move_to_tag(s.tags[4])
+            s.tags[4]:view_only()
+        end
     end},
+
+    { rule_any = { class = { "dotnet" , "dotnet" } },
+    properties = { floating = false, },
+        callback = function(c)
+            create_volatile_tag(c, " GIMP ", "left", awful.layout.suit.tile.left)
+        end},
 
 -- Q
 --
@@ -308,12 +332,12 @@ awful.rules.rules = {
     { rule = { class = "Spotify" },
     properties = { floating = false,
     placement = awful.placement.centered},
-      callback = function(c)
-      local s = screen_utils.right() -- ou right()
-      if s and s.tags and s.tags[4] then
-          c:move_to_tag(s.tags[4])
-          s.tags[4]:view_only()
-      end
+        callback = function(c)
+        local s = screen_utils.right() -- ou right()
+        if s and s.tags and s.tags[4] then
+            c:move_to_tag(s.tags[4])
+            s.tags[4]:view_only()
+        end
     end },
 
     { rule_any = { class = {"snappergui", "Snapper-gui"} },
