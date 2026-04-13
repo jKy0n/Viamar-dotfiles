@@ -137,6 +137,12 @@ awful.rules.rules = {
             create_volatile_tag(c, " LLMs ", "left", awful.layout.suit.tile.left)
         end },
 
+    { rule_any = { class = { "net.sourceforge.gscan2pdf", "Gscan2pdf" } },
+    properties = { floating = false },
+        callback = function(c)
+            create_volatile_tag(c, " Scan ", "left", awful.layout.suit.tile)
+        end,},
+
 -- H
 --
 -- I
