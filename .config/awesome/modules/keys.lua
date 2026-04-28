@@ -192,8 +192,8 @@ globalkeys = gears.table.join(
             {description = "show rofi task windows", group = "launcher"}),
 
     -- shortcuts for specific applications --
-    -- Super + e = Nemo file manager
-    awful.key({ modkey }, "e", function () awful.util.spawn("nemo") end,
+    -- Super + e = Dolphin file manager
+    awful.key({ modkey }, "e", function () awful.util.spawn("dolphin") end,
         {description = "open file manager", group = "launcher"}),
     -- Super + w = Firefox web browser
     awful.key({ modkey }, "w", function () awful.util.spawn("firefox") end,
