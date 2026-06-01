@@ -13,7 +13,7 @@ O rc.lua (arquivo de configuração) foi modularizado, ou seja, quebrado em vár
 Uso apenas um repositório de widgets, o [streetturtle/awesome-wm-widgets](https://github.com/streetturtle/awesome-wm-widgets) para widgets mais complexos.
 widgets simples foram feitos por mim mesmo para usar o mínimo de recursos da máquina e formar uma boa e leve StatusBar.
 
-E quanto ao tema, foi baseado nas cores do [Catppuccin Macchiato Blue](https://github.com/catppuccin/catppuccin)
+E quanto ao tema, foi baseado nas cores do [Catppuccin frappe Blue](https://github.com/catppuccin/catppuccin)
         </br>
 </details>
 
@@ -27,6 +27,6 @@ The rc.lua (configuration file) has been modularized—split into several smalle
 I use only one widget repository: [streetturtle/awesome-wm-widgets](https://github.com/streetturtle/awesome-wm-widgets), for more complex widgets.
 Simple widgets were custom-made by me to use minimal system resources while building a clean and lightweight StatusBar.
 
-As for the theme, it’s based on the colors of [Catppuccin Macchiato Blue](https://github.com/catppuccin/catppuccin).
+As for the theme, it’s based on the colors of [Catppuccin frappe Blue](https://github.com/catppuccin/catppuccin).
         </br>
 </details>
