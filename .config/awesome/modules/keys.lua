@@ -193,7 +193,7 @@ globalkeys = gears.table.join(
 
     -- shortcuts for specific applications --
     -- Super + e = Dolphin file manager
-    awful.key({ modkey }, "e", function () awful.util.spawn("dolphin") end,
+    awful.key({ modkey }, "e", function () awful.spawn("dolphin") end,
         {description = "open file manager", group = "launcher"}),
     -- Super + w = Firefox web browser
     awful.key({ modkey }, "w", function () awful.util.spawn("firefox") end,

@@ -30,7 +30,13 @@ i2c_piix4
 i2c_smbus
 intel_rapl_common
 intel_rapl_msr
+ip6table_filter
+ip6table_mangle
+ip6_tables
 ip_set
+iptable_filter
+iptable_mangle
+ip_tables
 irqbypass
 joydev
 k10temp
@@ -106,10 +112,12 @@ xfrm_user
 x_tables
 xt_addrtype
 xt_connmark
+xt_CONNMARK
 xt_conntrack
 xt_limit
 xt_LOG
 xt_mark
+xt_MARK
 xt_MASQUERADE
 xt_nat
 xt_set
