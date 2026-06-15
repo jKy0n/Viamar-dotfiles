@@ -323,6 +323,25 @@ awful.rules.rules = {
 
 -- S
 --
+    { rule = { class = "satty" },
+        properties = {
+        floating = true,
+        name = "satty",
+        width = 1840,     -- Defina o tamanho que deseja
+        height = 1000,     -- Defina o tamanho que deseja
+        placement = awful.placement.centered,},
+        -- x = 192,          -- Posição x
+        -- y = 108, },         -- Posição y
+        callback = function(c)
+            local s = screen_utils.left()
+            if s then
+                c.screen = s
+            end
+            awful.placement.centered(c, { honor_workarea = true })
+        end
+    },
+
+
     { rule_any = { class = {"simple-scan" , "simple-scan"} },
     properties = { floating = false },
         callback = function(c)

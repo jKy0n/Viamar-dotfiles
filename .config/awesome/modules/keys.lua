@@ -250,9 +250,12 @@ clientkeys = gears.table.join(
     awful.key({}, "XF86AudioStop", function() awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Pause") end),
 
         -- Screenshot / Printscreen --
-    awful.key({}, "Print", function () awful.util.spawn("flameshot gui") end),
-    awful.key({ "Shift" }, "Print", function () awful.util.spawn("flameshot screen") end),
-    awful.key({ "Control" }, "Print", function () awful.util.spawn("flameshot full") end),
+    -- awful.key({}, "Print", function () awful.util.spawn("flameshot gui") end),
+    -- awful.key({ "Shift" }, "Print", function () awful.util.spawn("flameshot screen") end),
+    -- awful.key({ "Control" }, "Print", function () awful.util.spawn("flameshot full") end),
+    awful.key({}, "Print", function()
+        awful.spawn.with_shell("maim | satty --filename -")
+    end),
 
         -- Lock screen --
     -- awful.key({ modkey, "Control" }, "Escape", function () awful.util.spawn("light-locker-command -l") end),
