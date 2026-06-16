@@ -213,16 +213,16 @@ globalkeys = gears.table.join(
 ------------------------------------------------------------------------
 ------------------  tag_utils Manipulation keybinds  ------------------
 
-awful.key({ modkey,           }, "a", tag_utils.add_tag,
+awful.key({ modkey }, "a", tag_utils.add_tag,
 {description = "add a tag", group = "tag"}),
 
-awful.key({ modkey, "Shift"   }, "a", tag_utils.delete_tag,
+awful.key({ modkey, "Shift" }, "a", tag_utils.delete_tag,
 {description = "delete the current tag", group = "tag"}),
 
-awful.key({ modkey, "Shift"   }, "r", tag_utils.rename_tag,
+awful.key({ modkey, "Shift" }, "r", tag_utils.rename_tag,
 {description = "rename the current tag", group = "tag"}),
 
-awful.key({ modkey, "Control"   }, "a", tag_utils.move_to_new_tag,
+awful.key({ modkey, "Control" }, "a", tag_utils.move_to_new_tag,
 {description = "add a tag with the focused client", group = "tag"})
 
 -- awful.key({ modkey, "Mod1" }, "r", function() tag_utils.find_tag_by_base_name(awful.screen.focused(), "NewTag") end,
@@ -232,7 +232,7 @@ awful.key({ modkey, "Control"   }, "a", tag_utils.move_to_new_tag,
 )
 
 clientkeys = gears.table.join(
-    awful.key({ modkey,           }, "f",
+    awful.key({ modkey }, "f",
         function (c)
             c.fullscreen = not c.fullscreen
             c:raise()
@@ -249,12 +249,14 @@ clientkeys = gears.table.join(
     awful.key({}, "XF86AudioPlay", function() awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause") end),
     awful.key({}, "XF86AudioStop", function() awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Pause") end),
 
-        -- Screenshot / Printscreen --
-    -- awful.key({}, "Print", function () awful.util.spawn("flameshot gui") end),
-    -- awful.key({ "Shift" }, "Print", function () awful.util.spawn("flameshot screen") end),
-    -- awful.key({ "Control" }, "Print", function () awful.util.spawn("flameshot full") end),
+        -- Screenshot / Printscreen seccion --
+    -- Screenshot selected region
     awful.key({}, "Print", function()
-        awful.spawn.with_shell("maim | satty --filename -")
+        awful.spawn.with_shell("maim -s | satty --filename - --copy-command 'xclip -selection clipboard -t image/png'")
+    end),
+    -- Open satty GUI (all screen)
+    awful.key({ modkey }, "Print", function()
+        awful.spawn.with_shell("maim | satty --filename - --copy-command 'xclip -selection clipboard -t image/png'")
     end),
 
         -- Lock screen --
