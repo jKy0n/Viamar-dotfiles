@@ -249,12 +249,12 @@ clientkeys = gears.table.join(
     awful.key({}, "XF86AudioPlay", function() awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause") end),
     awful.key({}, "XF86AudioStop", function() awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Pause") end),
 
-        -- Screenshot / Printscreen seccion --
-    -- Screenshot selected region
+    -- Screenshot Seccion --
+    -- Screenshot selected region --
     awful.key({}, "Print", function()
         awful.spawn.with_shell("maim -s | satty --filename - --copy-command 'xclip -selection clipboard -t image/png'")
     end),
-    -- Open satty GUI (all screen)
+    -- Open satty GUI (all screen) --
     awful.key({ modkey }, "Print", function()
         awful.spawn.with_shell("maim | satty --filename - --copy-command 'xclip -selection clipboard -t image/png'")
     end),
@@ -267,7 +267,7 @@ clientkeys = gears.table.join(
         if client.focus then
             awful.placement.centered(client.focus, { honor_workarea = true })
         end
-    end, {description = "centralize window", group = "client"}),
+    end, { description = "centralize window", group = "client" }),
 
 
     awful.key({ modkey, "Mod1"   }, "q",      function (c) c:kill()                         end,
