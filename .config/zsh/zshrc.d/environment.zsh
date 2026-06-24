@@ -12,6 +12,7 @@
 # Editor padrão
 export EDITOR=nvim
 export SUDO_EDITOR=nvim
+export SYSTEMD_EDITOR=nvim
 
 # Define compilações em ~/.build
 export CARGO_HOME="$HOME/.build/cargo"

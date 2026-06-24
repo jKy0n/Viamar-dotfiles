@@ -161,6 +161,7 @@ awful.rules.rules = {
         rule = { class = "gnome-calculator" },
         properties = {
             floating = true,
+            ontop = true,
             placement = awful.placement.centered
         },
     },
