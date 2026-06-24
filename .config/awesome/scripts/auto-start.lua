@@ -24,9 +24,9 @@ function auto_start.run()
                 return
         end
 
-        local monitor_tag = secondary_screen and secondary_screen.tags[5] or nil
-        local term_tag = primary_screen.tags[5]
-        local ssh_tag = primary_screen.tags[6]
+        local monitor_tag = secondary_screen and secondary_screen.tags[4] or nil
+        local term_tag = primary_screen.tags[4]
+        local ssh_tag = primary_screen.tags[5]
 
         if term_tag then
                 term_tag.master_width_factor = 0.55

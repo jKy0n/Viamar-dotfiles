@@ -205,13 +205,6 @@ awful.rules.rules = {
             floating = true,
             placement = awful.placement.centered,
         },
-        callback = function(c)
-            local s = screen_utils.right()
-            if s and s.tags and s.tags[5] then
-                c:move_to_tag(s.tags[5])
-                s.tags[5]:view_only()
-            end
-        end,
     },
 
     {
@@ -220,13 +213,6 @@ awful.rules.rules = {
             floating = true,
             placement = awful.placement.centered,
         },
-        callback = function(c)
-            local s = screen_utils.right()
-            if s and s.tags and s.tags[5] then
-                c:move_to_tag(s.tags[5])
-                s.tags[5]:view_only()
-            end
-        end,
     },
 
     {
@@ -313,9 +299,9 @@ awful.rules.rules = {
         properties = { floating = false },
         callback = function(c)
             local s = screen_utils.left() -- ou right()
-            if s and s.tags and s.tags[3] then
-                c:move_to_tag(s.tags[3])
-                s.tags[3]:view_only()
+            if s and s.tags and s.tags[2] then
+                c:move_to_tag(s.tags[2])
+                s.tags[2]:view_only()
             end
         end
     },
@@ -370,9 +356,9 @@ awful.rules.rules = {
         properties = { floating = false, },
         callback = function(c)
             local s = screen_utils.right() -- ou left()
-            if s and s.tags and s.tags[4] then
-                c:move_to_tag(s.tags[4])
-                s.tags[4]:view_only()
+            if s and s.tags and s.tags[3] then
+                c:move_to_tag(s.tags[3])
+                s.tags[3]:view_only()
             end
         end
     },
@@ -415,9 +401,9 @@ awful.rules.rules = {
         },
         callback = function(c)
             local s = screen_utils.right()
-            if s and s.tags and s.tags[3] then
-                c:move_to_tag(s.tags[3])
-                s.tags[3]:view_only()
+            if s and s.tags and s.tags[2] then
+                c:move_to_tag(s.tags[2])
+                s.tags[2]:view_only()
             end
         end
     },
@@ -468,9 +454,9 @@ awful.rules.rules = {
         },
         callback = function(c)
             local s = screen_utils.right() -- ou right()
-            if s and s.tags and s.tags[4] then
-                c:move_to_tag(s.tags[4])
-                s.tags[4]:view_only()
+            if s and s.tags and s.tags[3] then
+                c:move_to_tag(s.tags[3])
+                s.tags[3]:view_only()
             end
         end
     },
@@ -531,9 +517,9 @@ awful.rules.rules = {
         },
         callback = function(c)
             local s = screen_utils.left()
-            if s and s.tags and s.tags[4] then
-                c:move_to_tag(s.tags[4])
-                s.tags[4]:view_only()
+            if s and s.tags and s.tags[3] then
+                c:move_to_tag(s.tags[3])
+                s.tags[3]:view_only()
             end
         end
     },

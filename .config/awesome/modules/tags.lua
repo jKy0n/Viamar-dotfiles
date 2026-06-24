@@ -36,37 +36,37 @@ function tags.setup()
 ---------------------------------------------------------
 ----------------------  Monitor 1  ----------------------
 
+    -- awful.tag.add(" Work (1) ", {
+    --     layout = awful.layout.suit.tile,
+    --     selected = false,
+    --     screen = left
+    -- })
+
     awful.tag.add(" Work (1) ", {
         layout = awful.layout.suit.tile,
         selected = false,
         screen = left
     })
 
-    awful.tag.add(" Work (2) ", {
-        layout = awful.layout.suit.tile,
+    awful.tag.add(" Notas (2) ", {
+        layout = awful.layout.suit.tile.left,
         selected = false,
         screen = left
     })
 
-    awful.tag.add(" Notas (3) ", {
+    awful.tag.add(" Code (3) ", {
         layout = awful.layout.suit.max,
         selected = false,
         screen = left
     })
 
-    awful.tag.add(" Code (4) ", {
-        layout = awful.layout.suit.max,
-        selected = false,
-        screen = left
-    })
-
-    awful.tag.add(" Term (5) ", {
+    awful.tag.add(" Term (4) ", {
         layout = awful.layout.suit.tile.left,
         selected = true,
         screen = left
     })
 
-    awful.tag.add(" SSH (6) ", {
+    awful.tag.add(" SSH (5) ", {
         layout = awful.layout.suit.tile.left,
         selected = false,
         screen = left
@@ -76,31 +76,31 @@ function tags.setup()
 ---------------------------------------------------------
 ----------------------  Monitor 2  ----------------------
 
+    -- awful.tag.add(" Work (1) ", {
+    --     layout = awful.layout.suit.tile,
+    --     selected = false,
+    --     screen = right
+    -- })
+
     awful.tag.add(" Work (1) ", {
         layout = awful.layout.suit.tile,
         selected = false,
         screen = right
     })
 
-    awful.tag.add(" Work (2) ", {
+    awful.tag.add(" Chat (2) ", {
         layout = awful.layout.suit.tile,
         selected = false,
         screen = right
     })
 
-    awful.tag.add(" Chat (3) ", {
+    awful.tag.add(" Music (3) ", {
         layout = awful.layout.suit.tile,
         selected = false,
         screen = right
     })
 
-    awful.tag.add(" Music (4) ", {
-        layout = awful.layout.suit.tile,
-        selected = false,
-        screen = right
-    })
-
-    awful.tag.add(" Monitor (5) ", {
+    awful.tag.add(" Monitor (4) ", {
         layout = awful.layout.suit.max,
         selected = true,
         screen = right
