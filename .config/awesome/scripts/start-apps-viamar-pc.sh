@@ -45,7 +45,7 @@ start_app() {
     run_with_user_shell "$command"
 }
 
-start_app "pavucontrol" "pavucontrol"
+start_app "pwvucontrol" "pwvucontrol"
 start_app "code" "code"
 start_app "obsidian" "obsidian"
 start_app "rambox" "rambox"
