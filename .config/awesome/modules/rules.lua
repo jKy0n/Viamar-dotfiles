@@ -106,7 +106,7 @@ awful.rules.rules = {
         rule = { class = "feh" },
         properties = {
             floating = true,
-            name = "feh",
+            -- name = "feh",
             width = 1536, -- Defina o tamanho que deseja
             height = 864, -- Defina o tamanho que deseja
             x = 192,  -- Posição x
@@ -128,7 +128,7 @@ awful.rules.rules = {
         rule_any = { class = { "gedit", "Gedit" } },
         properties = {
             floating = true,
-            name = "Okular",
+            -- name = "Okular",
             width = 1536,
             height = 864,
         },
@@ -248,7 +248,7 @@ awful.rules.rules = {
     {
         rule = { class = "mpv" },
         properties = {
-            name = "mpv",
+            -- name = "mpv",
             floating = true,
             width = 1536,
             height = 864,
@@ -266,7 +266,7 @@ awful.rules.rules = {
         rule_any = { class = { "mupdf", "MuPDF" } },
         properties = {
             floating = true,
-            name = "muPDF",
+            -- name = "muPDF",
             width = 1536,
             height = 864,
         },
@@ -310,7 +310,7 @@ awful.rules.rules = {
         rule_any = { class = { "okular", "okular" } },
         properties = {
             floating = true,
-            name = "Okular",
+            -- name = "Okular",
             width = 1536, -- Defina o tamanho que deseja
             height = 864
         },              -- Defina o tamanho que deseja
@@ -338,7 +338,7 @@ awful.rules.rules = {
         rule_any = { class = { "papers", "papers" } },
         properties = {
             floating = true,
-            name = "Papers",
+            -- name = "Papers",
             width = 1536, -- Defina o tamanho que deseja
             height = 864
         },              -- Defina o tamanho que deseja
@@ -353,6 +353,18 @@ awful.rules.rules = {
 
     {
         rule_any = { class = { "pavucontrol", "Pavucontrol" } },
+        properties = { floating = false, },
+        callback = function(c)
+            local s = screen_utils.right() -- ou left()
+            if s and s.tags and s.tags[3] then
+                c:move_to_tag(s.tags[3])
+                s.tags[3]:view_only()
+            end
+        end
+    },
+
+    {
+        rule_any = { class = { "pwvucontrol", "Pwvucontrol" } },
         properties = { floating = false, },
         callback = function(c)
             local s = screen_utils.right() -- ou left()
@@ -415,7 +427,7 @@ awful.rules.rules = {
         rule = { class = "satty" },
         properties = {
             floating = true,
-            name = "satty",
+            -- name = "satty",
             width = 1840, -- Defina o tamanho que deseja
             height = 1000, -- Defina o tamanho que deseja
             placement = awful.placement.centered,
