@@ -1,20 +1,13 @@
-/* Fundo da janela */
-.outer_box {
-    background-color: #000000FF;
-}
+.outer_box,
 
 /* Toolbar de cima */
 .toolbar-top {
     background-color: #303446ee;
-    /* color: #8caaee; */
     border-radius: 0px 0px 10px 10px;
-    /* margin: 0px 8px; */
 }
 
 /* Toolbar de baixo */
 .toolbar-bottom {
     background-color: #303446ee;
-    /* color: #8caaee; */
     border-radius: 10px 10px 0px 0px;
-    /* margin: 0px 8px; */
 }
