@@ -49,7 +49,7 @@ start_app "pwvucontrol" "pwvucontrol"
 start_app "code" "code"
 start_app "obsidian" "obsidian"
 start_app "rambox" "rambox"
-start_app "spotify" "spotify"
+start_app "spotify-launcher" "spotify-launcher"
 start_app "firefox" "firefox"
 
 exit 0

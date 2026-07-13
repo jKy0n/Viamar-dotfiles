@@ -31,14 +31,15 @@ local pkg_widget = wibox.widget.textbox()
 local pkg_tooltip = awful.tooltip({
     objects = {},
     text = "Nenhuma atualização disponível",
-    visible = false,
-    shape = gears.shape.rounded_rect,
-    border_width = 2,
-    border_color = beautiful.border_focus,
     bg = beautiful.bg_normal,
+    border_color = beautiful.border_focus,
+    border_width = 2,
     fg = beautiful.fg_normal,
     font = beautiful.font,
+    margins = 10,
     opacity = 1,
+    shape = gears.shape.rounded_rect,
+    visible = false,
 })
 
 local function update_widget(widget)

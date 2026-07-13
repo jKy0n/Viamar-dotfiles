@@ -5,7 +5,7 @@
 #        Author:     John Kennedy a.k.a. jKyon
 #        Created:    2025-08-11
 #        Updated:    2026-03-17
-#        Notes:      
+#        Notes:
 #
 
 
@@ -41,6 +41,9 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export PATH="$HOME/.local/bin:$PATH"
 
 export PAY_RESPECTS_REQUIRE_CONFIRMATION="true"  # pay-respect: Pergunta antes de aplicar
+
+# Spicetify path
+export PATH=$PATH:~/.spicetify
 
 setopt EXTENDED_GLOB    # Habilita padrões estendidos
 setopt GLOB_DOTS        # Faz globs pegarem arquivos começados com .
