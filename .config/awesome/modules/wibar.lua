@@ -192,7 +192,7 @@ function wibar.setup(s)
             logout_menu_widget{ -- Logout menu widget
                 font = 'MesloLGS Nerd Font Bold 10',
                 onlogout   =  function() awesome.quit() end,
-                onlock = function() awful.spawn({ os.getenv("HOME") .. "/.local/bin/lock-screen.sh" }) end,
+                onlock     =  function() awful.spawn.with_shell('dm-tool lock') end,
                 -- onsuspend  =  function() awful.spawn({"systemctl", "suspend"}) end,
                 onreboot   =  function() awful.spawn({"systemctl", "reboot"}) end,
                 onpoweroff =  function() awful.spawn({"systemctl", "poweroff"}) end,
