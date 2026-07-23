@@ -81,10 +81,10 @@ theme.useless_gap        =  dpi(2)
 
 
 -- Wallpaper --
-theme.wallpaper = wallpaper
+theme.wallpaper          =  wallpaper
 
 -- Font --
-theme.font      =  font
+theme.font               =  font
 
 ------------------------------------------------------------
 ----------------------  Layout Icons  ----------------------
