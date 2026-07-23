@@ -1,12 +1,12 @@
---[[
+--
 --       Title:      color_palette.lua
---       Brief:      
+--       Brief:
 --       Path:       /home/jkyon/.config/awesome/themes/jkyon/color_palette.lua
 --       Author:     John Kennedy a.k.a. jKyon
 --       Created:    2026-03-21
 --       Updated:    2026-03-21
---       Notes:      
---]]
+--       Notes:
+--
 
 -- https://catppuccin.com/palette/  - Catppuccin Frappé Blue color palette
 

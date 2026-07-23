@@ -1,18 +1,17 @@
---[[
-        jKyon (John Kennedy Loria Segundo)
-        theme.lua – awesomeWM
-        2025-07-11
-
-        Purpose:
-          Custom theme for the jKyon configuration,
-          enhancing aesthetics and usability.
-          Colors based on Catppuccin Frappé Blue.
-
-          Customização de tema para a configuração jKyon,
-          melhorando estética e usabilidade.
-          Cores baseado em Catppuccin Frappé Blue.
---]]
-
+--
+--        jKyon (John Kennedy Loria Segundo)
+--        theme.lua – awesomeWM
+--        2025-07-11
+--
+--        Purpose:
+--          Custom theme for the jKyon configuration,
+--          enhancing aesthetics and usability.
+--          Colors based on Catppuccin Frappé Blue.
+--
+--          Customização de tema para a configuração jKyon,
+--          melhorando estética e usabilidade.
+--          Cores baseado em Catppuccin Frappé Blue.
+--
 
 ------------------------------------------------------------
 ---------------------  Load libraries  ---------------------
@@ -25,7 +24,6 @@ local dpi = xresources.apply_dpi
 
 local color_palette = require("themes.jKyon.color_palette")
 
-
 ------------------------------------------------------------
 --------------------  Define Variables  --------------------
 
@@ -33,17 +31,13 @@ local color_palette = require("themes.jKyon.color_palette")
 local font = "MesloLGS NF Mono Bold 8.5"
 
 --- Define the wallpaper path ---
-local wallpaper = "/home/jkyon/Pictures/Wallpapers/blueNebula.png"
-
+local wallpaper = "/home/jkyon/Pictures/Wallpapers/aishot.jpg"
 
 ------------------------------------------------------------
 ---------------------  Theme definition  -------------------
 
 local theme = {}
 
-theme.font               =  font
-
--- Colors reference: https://catppuccin.com/palette/ - Catppuccin Frappé Blue color palette
 --- Foreground colors ---
 theme.fg_normal          =  color_palette.text
 theme.fg_focus           =  color_palette.blue
@@ -65,6 +59,7 @@ theme.border_normal      =  theme.bg_normal
 theme.border_focus       =  theme.fg_focus
 theme.border_active      =  theme.fg_focus
 theme.border_marked      =  theme.bg_urgent
+
 
 -- Taglist colors ---
 theme.taglist_fg_empty   =  theme.fg_minimize
@@ -88,12 +83,19 @@ theme.useless_gap        =  dpi(2)
 -- Wallpaper --
 theme.wallpaper = wallpaper
 
+-- Font --
+theme.font      =  font
 
---- Layout icons ---
+------------------------------------------------------------
+----------------------  Layout Icons  ----------------------
+
 theme.layout_tile         =   "/home/jkyon/.config/awesome/themes/jKyon/layouts/tilew.png"
 theme.layout_tileleft     =   "/home/jkyon/.config/awesome/themes/jKyon/layouts/tileleftw.png"
 theme.layout_tilebottom   =   "/home/jkyon/.config/awesome/themes/jKyon/layouts/tilebottomw.png"
 theme.layout_tiletop      =   "/home/jkyon/.config/awesome/themes/jKyon/layouts/tiletopw.png"
+
+theme.layout_floating     =   "/home/jkyon/.config/awesome/themes/jKyon/layouts/floatingw.png"
+
 theme.layout_max          =   "/home/jkyon/.config/awesome/themes/jKyon/layouts/maxw.png"
 theme.layout_fullscreen   =   "/home/jkyon/.config/awesome/themes/jKyon/layouts/fullscreenw.png"
 
